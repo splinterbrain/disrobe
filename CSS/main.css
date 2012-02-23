@@ -28,14 +28,36 @@ body:after {
 
 }
 
-/* HEADINGS */
+
+
+/* GLOBAL FONT FORMATTING */
 
 h1{
     margin-top: 20px;
     margin-bottom:20px;
     text-transform:uppercase;
     font-size: 1.1em; 
-}
+}   
+
+a:link {
+    color:#FFFFFF;
+    text-decoration:none;
+}     
+
+a:visited {
+    color:#FFFFFF;
+    text-decoration:none;
+} 
+
+a:hover {
+    color:#000000;
+    text-decoration:none;
+} 
+
+a:active {
+    color:#FFFFFF;
+    text-decoration:none;
+}    
 
 
 /* CONTAINERS */
@@ -46,33 +68,48 @@ h1{
 	z-index: 1;
 }
 
-.headerelements {
+#headerelements {
     z-index: 2;
     width:980px;
+    height:57px;
     margin-right:auto;
     margin-left:auto;
+    color: #FFFFFF;
+    /*border:1px solid #ffffff;*/
+}
+
+#navbarelements {
+    z-index:2;
+    width:980px;
+    height:28px;
+    margin-right:auto;
+    margin-left:auto;
+    color: #FFFFFF;
+    /*border:1px solid #FFFFFF;*/
 }
 
 #panelelements {
     z-index: 1;
-    height:525px; 
+    height:555px; 
     width:980px;
-    margin-top:100px;
     margin-right:auto;
     margin-left:auto;
+    /*border:1px solid #ffffff;*/
 }
 
 #footerelements {
     z-index: 1;
-    height:25px;
+    height:30px;
     width:980px;
-    margin-top:25px;
+    margin-top:10px;
     margin-right:auto;
     margin-left:auto;
     text-align:center;
     color: #FFFFFF;
+    /*border:1px solid #ffffff;*/
     
 }
+
 
 
 /*STATIC ELEMENTS*/
@@ -81,16 +118,16 @@ h1{
     width: 100%;
     background-color: #373534;
     /*Parameters for drop shadow are: h offset, v offset, blur, spread, color.*/
-    -moz-box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.2);
-    -webkit-box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.2);
-    box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.3);
+    -webkit-box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.3);
+    box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.3);
 }
 
 #topstripe {
 	height: 10px;
 }
 #navstripe {
-	height: 30px;
+	height: 28px;
 }
 
 #bottomstripe {
@@ -110,8 +147,38 @@ h1{
 }
 #logo > span {
 	display: inline-block;
-	width: 0.2em;
+	width: 0.25em;
 }
+
+
+
+/* HEADER AND FOOTER ELEMENTS */
+
+#hello {
+    position:absolute;
+    right:0;
+    bottom:3px;
+}
+
+#navbartext {
+    text-align:center;
+    top:8px;
+}
+
+#navbartext > span {
+    display: inline-block;
+    width:5em;
+}
+
+a.navlink:hover{
+   color: #DAD6D1;
+}
+
+/*a.navlink:active{
+    color: #c821ac;
+}*/
+
+
 
 /*SPLASH PAGE ELEMENTS*/
 
@@ -131,15 +198,15 @@ h1{
     position:absolute;
     bottom: 4px;
     text-align:center;
-    color: #FFFFFF;
 }
 
 .splashcolumn{
-    width:215px;
+    width:205px;
     height:525px;
     float:left;
-    margin-top:20px;
-    margin-right:40px;
+    margin-top:30px;
+    margin-left:20px;
+    margin-right:20px;
     /*border:1px solid #ffffff;*/
 }
 
@@ -149,6 +216,7 @@ h1{
 
 .splashad {
     border:1px solid #ffffff;
+    width:205px;
 }
 
 
