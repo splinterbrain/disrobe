@@ -70,7 +70,7 @@ a:active {
 
 #headerelements {
     z-index: 2;
-    width:980px;
+    width:960px;
     height:57px;
     margin-right:auto;
     margin-left:auto;
@@ -178,7 +178,7 @@ a.navlink:active{
     color: #b5c000;
 }
 
-/*PANEL AREA ELEMENTS*/
+/*GENERIC PANEL AREA ELEMENTS*/
 
 .panel {
     top:15px;
@@ -202,41 +202,6 @@ a.navlink:active{
     margin-top:8px;
     margin-left:8px;
     border: 1px solid #FFFFFF;
-}
-
-
-#addbutton {
-    font-size:20px;
-    padding-top:5px;
-    
-    background: #d6d6d4;
-    border: 1px solid #FFFFFF;
-    height: 156px;
-    width: 100px;
-    margin-top: 8px;
-    margin-left: 8px;
-    display:block;
-    text-align: center;
-    /*line-height:156px;*/
-    
-    -webkit-box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.3);
-    -moz-box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.3);
-    box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.3);
- 
-    -webkit-transition: All 0.5s ease;
-    -moz-transition: All 0.5s ease;
-    -o-transition: All 0.5s ease;
-    -ms-transition: All 0.5s ease;
-    transition: All 0.5s ease;    
-}
-
-#addbutton > span{
-    font-size:80px;
-}
-
-#addbutton:hover{
-    background-color: #e1e1e1;
-    color: #FFFFFF;
 }
 
 
@@ -279,4 +244,71 @@ a.navlink:active{
     width:205px;
 }
 
+/* VIEW INSPIRATION ELEMENTS*/
 
+#addbutton {
+    font-size:20px;
+    padding-top:5px;
+    
+    background: #d6d6d4;
+    border: 1px solid #FFFFFF;
+    height: 156px;
+    width: 100px;
+    margin-top: 8px;
+    margin-left: 8px;
+    display:block;
+    text-align: center;
+    /*line-height:156px;*/
+    
+    -webkit-box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.3);
+    box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.3);
+ 
+    -webkit-transition: All 0.5s ease;
+    -moz-transition: All 0.5s ease;
+    -o-transition: All 0.5s ease;
+    -ms-transition: All 0.5s ease;
+    transition: All 0.5s ease;    
+}
+
+#addbutton > span{
+    font-size:80px;
+}
+
+#addbutton:hover{
+    background-color: #e1e1e1;
+    color: #FFFFFF;
+}
+
+
+/*ADD INSPIRATION ELEMENTS*/
+
+#outfitupload {
+    width:320px;
+    height: 300px;
+    background-color: #e3e2de;
+    margin-top: 20px;
+    margin-bottom:18px;
+    margin-left: 100px;
+    border: 1px solid #FFFFFF;
+    
+    -webkit-box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.2);
+}
+#bottomthird{
+    height:160px;
+    width:960px;
+}
+
+.buttonspacer{
+    height: 160px;
+    width: 50px;
+    border: 1px solid #FFFFFF;
+}
+
+.articledef{
+    height: 160px;
+    width: 310px;
+    border: 1px solid #FFFFFF;
+}
