@@ -37,12 +37,7 @@
 	</div>
 	
 	<div id="panelelements">
-		<div id="narrow" class="panel">
-			<!--<a class="panellink" href="addinspiration"><img class="picinpanel" src="images/addbuttonlg.jpg" alt="Add Button" /></a> -->
-			<a id="addbutton" href="addinspiration"> <span>+</span> <br /> add <br /> more <br /> </a>
-			
-		</div>
-		
+		<div id="narrow" class="panel"></div>
 	</div>
 
 	<div id="footerelements">

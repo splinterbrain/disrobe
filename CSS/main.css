@@ -181,11 +181,10 @@ a.navlink:active{
 /*PANEL AREA ELEMENTS*/
 
 .panel {
-    position:absolute;
     top:15px;
     height:500px;
     border: 1px solid #FFFFFF;
-    background-color: rgba(255,255,255,0.3);
+    background-color: rgba(255,255,255,0.4);
 }
 
 #narrow {
@@ -196,6 +195,48 @@ a.navlink:active{
 #wide {
     width:960px;
     left:10px;
+}
+
+.picinpanel {
+    top:0px;
+    margin-top:8px;
+    margin-left:8px;
+    border: 1px solid #FFFFFF;
+}
+
+
+#addbutton {
+    font-size:20px;
+    padding-top:5px;
+    
+    background: #d6d6d4;
+    border: 1px solid #FFFFFF;
+    height: 156px;
+    width: 100px;
+    margin-top: 8px;
+    margin-left: 8px;
+    display:block;
+    text-align: center;
+    /*line-height:156px;*/
+    
+    -webkit-box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.3);
+    box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.3);
+ 
+    -webkit-transition: All 0.5s ease;
+    -moz-transition: All 0.5s ease;
+    -o-transition: All 0.5s ease;
+    -ms-transition: All 0.5s ease;
+    transition: All 0.5s ease;    
+}
+
+#addbutton > span{
+    font-size:80px;
+}
+
+#addbutton:hover{
+    background-color: #e1e1e1;
+    color: #FFFFFF;
 }
 
 
