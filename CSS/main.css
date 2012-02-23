@@ -1,0 +1,73 @@
+html
+{
+position:absolute;
+width:100%;
+height:100%;
+}
+
+
+body
+{
+width:100%;
+height:100%;
+position:absolute;
+
+background-image:url(../images/stripe.png);
+
+}
+
+body:after
+{
+content:'';
+position:absolute;
+width:100%;
+height:100%;
+top:0;
+left:0;
+
+background: -moz-linear-gradient(top, rgba(170,164,156,0.9) 0%, rgba(204,199,192,0.9) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(170,164,156,0.9)), color-stop(100%,rgba(204,199,192,0.9))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, rgba(170,164,156,0.9) 0%,rgba(204,199,192,0.9) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, rgba(170,164,156,0.9) 0%,rgba(204,199,192,0.9) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, rgba(170,164,156,0.9) 0%,rgba(204,199,192,0.9) 100%); /* IE10+ */
+background: linear-gradient(top, rgba(170,164,156,0.9) 0%,rgba(204,199,192,0.9) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e6aaa49c', endColorstr='#e6ccc7c0',GradientType=0 ); /* IE6-9 */
+
+}
+
+#container 
+{
+z-index:1;
+}
+
+#upperstripe
+{
+width:100%;
+height:10px;
+background-color:#373534;
+}
+
+#navstripe
+{
+width:100%;
+height:30px;
+background-color:#373534;
+}
+
+
+
+.logo 
+{
+text-align:center;
+font-family:"Tenor Sans";
+font-size:2.8em;
+color:#FFFFFF;
+top:.2em;
+margin-bottom:.3em;
+}
+
+.logo>span
+{
+display:inline-block;
+width:0.2em;
+}
