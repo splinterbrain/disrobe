@@ -109,9 +109,14 @@ body:after {
     float:left;
     margin-top:125px;
     margin-right:40px;
-    border:1px solid #ffffff;
+    /*border:1px solid #ffffff;*/
 }
 
 .splashcolumn:last-child {
     margin-right:0px;
 }
+
+.splashad {
+    border:1px solid #ffffff;
+}
+
