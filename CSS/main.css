@@ -28,15 +28,25 @@ body:after {
 
 }
 
+/* HEADINGS */
+
+h1{
+    margin-top: 20px;
+    margin-bottom:20px;
+    text-transform:uppercase;
+    font-size: 1.1em; 
+}
+
+
 /* CONTAINERS */
-#container {
+#staticelements {
     position:absolute;
     width:100%;
     height:100%;
 	z-index: 1;
 }
 
-#container2 {
+#splashelements {
     z-index: 2;
     width:980px;
     margin-right:auto;
@@ -99,7 +109,6 @@ body:after {
     position:absolute;
     bottom: 4px;
     text-align:center;
-    font-size: 1em;
     color: #FFFFFF;
 }
 
@@ -119,4 +128,5 @@ body:after {
 .splashad {
     border:1px solid #ffffff;
 }
+
 
