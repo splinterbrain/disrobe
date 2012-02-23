@@ -55,7 +55,7 @@ a:hover {
 } 
 
 a:active {
-    color:#FFFFFF;
+    color:#000000;
     text-decoration:none;
 }    
 
@@ -174,10 +174,29 @@ a.navlink:hover{
    color: #DAD6D1;
 }
 
-/*a.navlink:active{
-    color: #c821ac;
-}*/
+a.navlink:active{
+    color: #b5c000;
+}
 
+/*PANEL AREA ELEMENTS*/
+
+.panel {
+    position:absolute;
+    top:15px;
+    height:500px;
+    border: 1px solid #FFFFFF;
+    background-color: rgba(255,255,255,0.3);
+}
+
+#narrow {
+    width:860px;
+    left:60px;
+}
+
+#wide {
+    width:960px;
+    left:10px;
+}
 
 
 /*SPLASH PAGE ELEMENTS*/
