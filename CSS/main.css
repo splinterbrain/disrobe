@@ -46,12 +46,34 @@ h1{
 	z-index: 1;
 }
 
-#splashelements {
+.headerelements {
     z-index: 2;
     width:980px;
     margin-right:auto;
     margin-left:auto;
 }
+
+#panelelements {
+    z-index: 1;
+    height:525px; 
+    width:980px;
+    margin-top:100px;
+    margin-right:auto;
+    margin-left:auto;
+}
+
+#footerelements {
+    z-index: 1;
+    height:25px;
+    width:980px;
+    margin-top:25px;
+    margin-right:auto;
+    margin-left:auto;
+    text-align:center;
+    color: #FFFFFF;
+    
+}
+
 
 /*STATIC ELEMENTS*/
 
@@ -74,11 +96,11 @@ h1{
 #bottomstripe {
     position: absolute;
     height: 3px;
-    top:650px;
+    top:640px;
     box-shadow:none;
 }
 
-.logo {
+#logo {
 	text-align: center;
 	font-family: "Tenor Sans";
 	font-size: 2.8em;
@@ -86,7 +108,7 @@ h1{
 	top: .3em;
 	margin-bottom: .4em;
 }
-.logo > span {
+#logo > span {
 	display: inline-block;
 	width: 0.2em;
 }
@@ -114,9 +136,9 @@ h1{
 
 .splashcolumn{
     width:215px;
-    height:500px;
+    height:525px;
     float:left;
-    margin-top:125px;
+    margin-top:20px;
     margin-right:40px;
     /*border:1px solid #ffffff;*/
 }
