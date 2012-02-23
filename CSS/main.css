@@ -8,6 +8,8 @@ body {
 	height: 100%;
 	position: absolute;
 	background-image: url(../images/stripe.png);
+	font-family: "Questrial";
+	font-size: 0.75em;
 }
 body:after {
 	content: '';
@@ -25,28 +27,91 @@ body:after {
 	filter: progid :DXImageTransform.Microsoft.gradient( startColorstr='#e6aaa49c', endColorstr='#e6ccc7c0',GradientType=0 ); /* IE6-9 */
 
 }
+
+/* CONTAINERS */
 #container {
+    position:absolute;
+    width:100%;
+    height:100%;
 	z-index: 1;
 }
-#upperstripe {
-	width: 100%;
+
+#container2 {
+    z-index: 2;
+    width:980px;
+    margin-right:auto;
+    margin-left:auto;
+}
+
+/*STATIC ELEMENTS*/
+
+.ribbon {
+    width: 100%;
+    background-color: #373534;
+    /*Parameters for drop shadow are: h offset, v offset, blur, spread, color.*/
+    -moz-box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.2);
+    -webkit-box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.2);
+}
+
+#topstripe {
 	height: 10px;
-	background-color: #373534;
 }
 #navstripe {
-	width: 100%;
 	height: 30px;
-	background-color: #373534;
 }
+
+#bottomstripe {
+    position: absolute;
+    height: 3px;
+    top:650px;
+    box-shadow:none;
+}
+
 .logo {
 	text-align: center;
 	font-family: "Tenor Sans";
 	font-size: 2.8em;
 	color: #FFFFFF;
-	top: .2em;
-	margin-bottom: .3em;
+	top: .3em;
+	margin-bottom: .4em;
 }
 .logo > span {
 	display: inline-block;
 	width: 0.2em;
+}
+
+/*SPLASH PAGE ELEMENTS*/
+
+#signup{
+    position:absolute;
+    width: 60px;
+    height: 50px;
+    right: 0px;
+    top: 0px;
+    background-color: #b5c000;
+    -moz-box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.2);
+    -webkit-box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.2);
+    box-shadow: 2px 5px 5px 0px rgba(0,0,0,0.2);
+}
+
+#signuptext{
+    position:absolute;
+    bottom: 4px;
+    text-align:center;
+    font-size: 1em;
+    color: #FFFFFF;
+}
+
+.splashcolumn{
+    width:215px;
+    height:500px;
+    float:left;
+    margin-top:125px;
+    margin-right:40px;
+    border:1px solid #ffffff;
+}
+
+.splashcolumn:last-child {
+    margin-right:0px;
 }
