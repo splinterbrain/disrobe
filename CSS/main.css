@@ -204,9 +204,31 @@ a.navlink:active{
     border: 1px solid #FFFFFF;
 }
 
+.arrowright {
+    width: 0;
+    height: 0;
+    border-top: 30px solid transparent;
+    border-bottom: 30px solid transparent; 
+    border-left:30px solid #FFFFFF;
+}
 
-/*SPLASH PAGE ELEMENTS*/
+.arrowright:hover {
+    border-left:30px solid #e4e3e0;
+}
 
+.arrowleft {
+    width: 0;
+    height: 0;
+    border-top: 30px solid transparent;
+    border-bottom: 30px solid transparent; 
+    border-right:30px solid #FFFFFF;
+}
+
+.arrowleft:hover {
+    border-right:30px solid #e4e3e0;
+}
+
+/*SPLASH PAGE ELEMENTS*/ 
 #signup{
     position:absolute;
     width: 60px;
@@ -285,30 +307,50 @@ a.navlink:active{
 
 #outfitupload {
     width:320px;
-    height: 300px;
+    height: 280px;
     background-color: #e3e2de;
     margin-top: 20px;
-    margin-bottom:18px;
+    margin-bottom:20px;
     margin-left: 100px;
     border: 1px solid #FFFFFF;
+    
+    padding-top: 50px;
+    padding-left: 50px;
     
     -webkit-box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.2);
     -moz-box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.2);
     box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.2);
 }
+
+#outfituploadtext {
+    font-size:3em;
+    color: #FFFFFF;
+}
+
 #bottomthird{
-    height:160px;
-    width:960px;
+    height:170px;
+    width:960px;   
 }
 
 .buttonspacer{
-    height: 160px;
-    width: 50px;
-    border: 1px solid #FFFFFF;
+    float:left;
+    height: 150px;
+    width: 60px;
+    margin-top:10px;
+    padding-top:50px;
+    padding-left:15px;
+    padding-right:15px;
+    color: #FFFFFF;
+    line-height:160px;
+    text-align:center;
 }
 
 .articledef{
-    height: 160px;
-    width: 310px;
+    float:left;
+    height: 150px;
+    width: 256px;
+    margin-top:10px;
+    margin-left:12px;
+    margin-right:12px;
     border: 1px solid #FFFFFF;
 }
