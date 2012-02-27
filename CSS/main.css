@@ -266,6 +266,7 @@ a.navlink:active{
 #purelyspacingpanel{
     top:10px;
     height:510px;
+    margin-bottom:40px;
     width:846px;
     display:inline-block;
     margin-left:auto;
@@ -278,7 +279,12 @@ a.navlink:active{
     width:281px;
     height:50px;
     border:1px solid #FFFFFF;
-    text-transform:uppercase;   
+    
+    text-transform:uppercase;
+    color: #FFFFFF;
+    line-height:60px;
+    text-align:left;
+    padding-left:30px;   
 }
 
 .trifoldbottom{
@@ -290,35 +296,36 @@ a.navlink:active{
     border-top:none;
 }
 
-/*Top-page formatting*/
-
-#firstthirdheader{
-    background-color: #b5c000;
-}
-
-#secondthirdheader{
-    background-color: #99980b;
+.norlborders{
     border-left:none;
     border-right:none;
 }
 
-#thirdthirdheader{
+/*Top-page formatting*/
+
+#lightestheader{
+    background-color: #b5c000;
+}
+
+#midtoneheader{
+    background-color: #99980b;
+}
+
+#darkestheader{
     background-color: #847e1f;   
 }
 
 /*Bottom-page formatting*/
 
-#firstthirdbottom{
+#lightestbottom{
     background-color: rgba(250,250,250,0.4);
 }
 
-#secondthirdbottom{
+#midtonebottom{
     background-color: rgba(200,200,200,0.4);
-    border-left:none;
-    border-right:none;
 }
 
-#thirdthirdbottom{
+#darkestbottom{
     background-color: rgba(150,150,150,0.4);
 }
 
