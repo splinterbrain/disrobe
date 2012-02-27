@@ -191,10 +191,10 @@ a.navlink:active{
     top:15px;
     height:500px;
     border: 1px solid #FFFFFF;
-    padding-bottom:6px;
-    padding-right:6px;
+    padding:3px;
     background-color: rgba(255,255,255,0.4);
     text-align:center;
+    overflow:hidden;
 }
 
 #narrow {
@@ -208,12 +208,10 @@ a.navlink:active{
 }
 
 .picinpanel {
-    margin-top:6px;
-    margin-left:6px;
+    margin:1px;
     border: 1px solid #FFFFFF;
-    height:156px;
+    height:160px;
     display:inline-block;
-    float:left;
 }
 
 .arrow {
@@ -293,12 +291,18 @@ a.navlink:active{
     background-color: #d6d6d4;
     color: white;
     border: 1px solid #FFFFFF;
-    height: 156px;
+    height: 160px;
     width: 100px;
-    margin-top: 4px;
-    margin-left: 4px;
-    display:block;
+    
+    top:0;
+    margin-top:1px;
+    margin-bottom:1px;
+    margin-left:1px;
+    margin-right:2px;
+    
+    display: inline-block;
     text-align: center;
+    float:left;
     /*line-height:156px;*/
     
     -webkit-box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.3);
