@@ -10,6 +10,7 @@ body {
 	background-image: url(../images/stripe.png);
 	font-family: "Questrial";
 	font-size: 0.75em;
+	line-height:1.2em;
 }
 body:after {
 	content: '';
@@ -42,6 +43,12 @@ h1{
 a:link {
     color:#FFFFFF;
     text-decoration:none;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    
 }     
 
 a:visited {
@@ -70,7 +77,7 @@ a:active {
 
 #headerelements {
     z-index: 2;
-    width:960px;
+    width:860px;
     height:57px;
     margin-right:auto;
     margin-left:auto;
@@ -127,7 +134,7 @@ a:active {
 	height: 10px;
 }
 #navstripe {
-	height: 28px;
+	height: 28px;   
 }
 
 #bottomstripe {
@@ -142,8 +149,8 @@ a:active {
 	font-family: "Tenor Sans";
 	font-size: 2.8em;
 	color: #FFFFFF;
-	top: .3em;
-	margin-bottom: .4em;
+	margin-top: .6em;
+	margin-bottom: .3em;
 }
 #logo > span {
 	display: inline-block;
@@ -162,7 +169,7 @@ a:active {
 
 #navbartext {
     text-align:center;
-    top:8px;
+    top:9px;
 }
 
 #navbartext > span {
@@ -171,7 +178,7 @@ a:active {
 }
 
 a.navlink:hover{
-   color: #DAD6D1;
+   color: #b5c000;
 }
 
 a.navlink:active{
@@ -184,7 +191,10 @@ a.navlink:active{
     top:15px;
     height:500px;
     border: 1px solid #FFFFFF;
+    padding-bottom:6px;
+    padding-right:6px;
     background-color: rgba(255,255,255,0.4);
+    text-align:center;
 }
 
 #narrow {
@@ -198,34 +208,42 @@ a.navlink:active{
 }
 
 .picinpanel {
-    top:0px;
-    margin-top:8px;
-    margin-left:8px;
+    margin-top:6px;
+    margin-left:6px;
     border: 1px solid #FFFFFF;
+    height:156px;
+    display:inline-block;
+    float:left;
 }
 
-.arrowright {
-    width: 0;
+.arrow {
+    width:0;
     height: 0;
-    border-top: 30px solid transparent;
-    border-bottom: 30px solid transparent; 
-    border-left:30px solid #FFFFFF;
+    border-top:25px solid transparent;
+    border-bottom:25px solid transparent;
+    
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    
 }
 
-.arrowright:hover {
-    border-left:30px solid #e4e3e0;
+#rightarrow { 
+    border-left:25px solid #FFFFFF;
 }
 
-.arrowleft {
-    width: 0;
-    height: 0;
-    border-top: 30px solid transparent;
-    border-bottom: 30px solid transparent; 
-    border-right:30px solid #FFFFFF;
+#rightarrow:hover {
+    border-left:25px solid #3b3938;
 }
 
-.arrowleft:hover {
-    border-right:30px solid #e4e3e0;
+#leftarrow { 
+    border-right:25px solid #FFFFFF;
+}
+
+#leftarrow:hover {
+    border-right:25px solid #3b3938;
 }
 
 /*SPLASH PAGE ELEMENTS*/ 
@@ -270,14 +288,15 @@ a.navlink:active{
 
 #addbutton {
     font-size:20px;
-    padding-top:5px;
+    padding-top:40px;
     
-    background: #d6d6d4;
+    background-color: #d6d6d4;
+    color: white;
     border: 1px solid #FFFFFF;
     height: 156px;
     width: 100px;
-    margin-top: 8px;
-    margin-left: 8px;
+    margin-top: 4px;
+    margin-left: 4px;
     display:block;
     text-align: center;
     /*line-height:156px;*/
@@ -286,11 +305,11 @@ a.navlink:active{
     -moz-box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.3);
     box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.3);
  
-    -webkit-transition: All 0.5s ease;
-    -moz-transition: All 0.5s ease;
-    -o-transition: All 0.5s ease;
-    -ms-transition: All 0.5s ease;
-    transition: All 0.5s ease;    
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    transition: all 0.5s ease;
 }
 
 #addbutton > span{
@@ -298,8 +317,7 @@ a.navlink:active{
 }
 
 #addbutton:hover{
-    background-color: #e1e1e1;
-    color: #FFFFFF;
+    background-color: #e1e1e1;    
 }
 
 
@@ -324,19 +342,20 @@ a.navlink:active{
 
 #outfituploadtext {
     font-size:3em;
+    line-height:1.2em;
     color: #FFFFFF;
 }
 
 #bottomthird{
     height:170px;
     width:960px;   
+    padding-top:10px;
 }
 
 .buttonspacer{
     float:left;
     height: 150px;
     width: 60px;
-    margin-top:10px;
     padding-top:50px;
     padding-left:15px;
     padding-right:15px;
@@ -349,7 +368,6 @@ a.navlink:active{
     float:left;
     height: 150px;
     width: 256px;
-    margin-top:10px;
     margin-left:12px;
     margin-right:12px;
     border: 1px solid #FFFFFF;
