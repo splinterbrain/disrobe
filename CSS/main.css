@@ -68,8 +68,8 @@ body:after {
 
 #headerelements {
     z-index: 2;
-    width:860px;
-    height:57px;
+    width:844px; /*Tied to width of #narrow panel.*/
+    height:57px; /*Height of #topstripe + height of #logo*/
     margin-right:auto;
     margin-left:auto;
     color: #FFFFFF;
@@ -79,7 +79,7 @@ body:after {
 #navbarelements {
     z-index:2;
     width:100%;
-    height:28px;
+    height:28px; /*Equal to height of #navstripe.*/
     margin-right:auto;
     margin-left:auto;
     color: #FFFFFF;
@@ -89,19 +89,28 @@ body:after {
 #panelelements {
 /*Note: contents of this container are not centered. Fix in future edits.*/
     z-index: 1;
-    height:555px; 
-    width:960px;
+    height:520px; /*Arbitrarily determined height of viewing area.*/
+    width:950px;/*Keep same as width of subpanelpanel elements*/
     margin-right:auto;
     margin-left:auto;
     text-align:center;
     /*border:1px solid #ffffff;*/
 }
 
+#subpanelelements{
+    z-index: 1;
+    width:950px; /*Keep same as width of panel elements*/
+    height:35px; /*Arbitrarily determined height of viewing area nav elements.*/
+    margin-right:auto;
+    margin-left:auto;
+    /*border:1px solid #FFFFFF;*/
+}
+
 #footerelements {
     z-index: 1;
-    height:30px;
+    height:30px; /*Arbitrarily determined height of footer info*/
     width:980px;
-    margin-top:10px;
+    margin-top:10px; /*Arbitrary. Needed to force footer text below #bottomstripe because #subpanelelements ends above the stripe. */
     margin-right:auto;
     margin-left:auto;
     text-align:center;
@@ -122,30 +131,30 @@ body:after {
 }
 
 #topstripe {
-	height: 10px;
+	height: 10px; /*Arbitrary*/
 }
 #navstripe {
-	height: 28px;  
+	height: 28px; /*Arbitrary. Tall enough for navigation text.*/ 
 }
 
 #bottomstripe {
     position: absolute;
-    height: 3px;
-    top:640px;
+    height: 3px; /*Arbitrary*/
+    top:640px; /*Equals sum of heights of #headerelements, #navbarelements, #panelelements, #subpanelelements*/
     box-shadow:none;
 }
 
 #logo {
 	text-align: center;
 	font-family: "Tenor Sans";
-	font-size: 2.8em;
+    font-size: 2.8em; /*Can be changed without upsetting layout.*/
 	color: #FFFFFF;
-	margin-top: .6em;
+    margin-top: .6em; /*Top/bottom margins space logo between #topstripe and #navstripe.*/
 	margin-bottom: .3em;
 }
 #logo > span {
 	display: inline-block;
-	width: 0.25em;
+    width: 0.25em; /*Used to manually adjust kerning of logo text.*/
 }
 
 
@@ -154,19 +163,20 @@ body:after {
 #hello {
     position:absolute;
     right:0;
-    bottom:3px;
+    bottom:3px; 
 }
 
 #navbartext {
     text-align:center;
-    top:9px;
+    top:9px; /*Arbitrary. Controls nav bar text spacing inside #navstripe*/
 }
 
 #navbartext > span {
     display: inline-block;
-    width:5em;
+    width:5em; /*Arbitrary. Used to increase space between navbar links.*/
 }
 
+/*This link formatting applies to nav bar, sign out, and footer elements.*/
 a.navlink:hover{
    color: #b5c000;
 }
@@ -175,41 +185,73 @@ a.navlink:active{
     color: #b5c000;
 }
 
+
 /*4. GENERIC PANEL AREA ELEMENTS*/
 
+/*Regarding the height of .panel and width of #narrow: wardrobe view contains a 
+ * grid of square images whose height is set by #articlephoto. To ensure even
+ * spacing on all sides, .panel height and #narrow width must obey the following:
+ * height of .panel -2(.panel padding) = 6(margin+border) + 3(height) of #articlephoto
+ * width of #narrow -2(.panel padding) = 10(margin+border) + 5(height) of #articlephoto
+ */    
+
+
 .panel {
-    top:10px;
-    height:510px;
+    top:10px; /*Creates gap between #navstripe and viewing panel. Cannot exceed height #panelelements - height .panel*/
+    height:510px; /*Cannot be changed without changing height or margins of #articlephoto */  
     border: 1px solid #FFFFFF;
-    padding:5px;
+    padding:5px; /*Same as padding on .subpanel.*/
     background-color: rgba(255,255,255,0.4);
     text-align:center;
+    display:inline-block;
+    float:left;
     /*overflow:hidden;*/
-
 }
 
-#narrow {
-    width:844px;
-    margin-left:2px;
-    margin-right:2px;
-    display:inline-block;
+.subpanel {
+    height:100%;
+    padding:5px; /*Same as padding on .panel*/
+    margin-left:50px; /*L and R margins equal width of .buttonspacer*/
+    margin-right:50px;
+    display:block;
     float:left;
 }
 
+#narrow {
+    width:844px; /*Selected to work with picture width and margins. Same as width of #headerelements.*/
+}
+
 #wide {
-    width:960px;
-    display:inline-block;
+    width:100%; /*In practice, as wide as the #panelelements container.*/
+}
+
+#subpanelLeft{
+    height:100%;
+    width:75%;
+    text-align:left;
+    border:1px solid #FFFFFF;
+    display:block;
+    float:left;
+}
+
+#subpanelRight{
+    height:100%;
+    width:25%;
+    text-align:right;
+    border:1px solid #FFFFFF;
+    display:block;
     float:left;
 }
 
 .buttonspacer{
     display:inline-block;
     float:left;
-    width: 50px;
+    width: 50px; /*Width of #narrow panel + 2 times width .buttonspacer = width #panelelements*/
     
-    height: 50%;
+    /*Formatting used to force vertical centering of buttons.*/
+    height: 50%; 
     top:50%;
-    margin-top:-25px;
+    margin-top:-25px; 
    
     color: #FFFFFF;
     text-align:center;
@@ -248,13 +290,21 @@ a.navlink:active{
 }
 
 .outfitphoto {
-    margin:2px;
+    /*.outfitphoto height and margins engineered to produce even spacing
+     of three rows of pictures inside the .panel. If changing, honor: 
+     6(margin+border) + 3(height) = height of .panel - 2(.panel padding) */    
+    margin:2px; 
     border: 1px solid #FFFFFF;
-    height:160px;
+    height:160px; 
     display:inline-block;
 }
 
 .articlephoto {
+    /*.articlephoto height and margins engineered to produce even spacing
+     of three rows of pictures inside the .panel. If changing, honor: 
+     6(margin+border) + 3(height) = height of .panel - 2(.panel padding).  
+     Because images are square, the following also holds true:
+     10(margin+border) + 5(height) = width of #narrow -2(.panel padding) */    
     margin:2px;
     border: 1px solid #FFFFFF;
     height:160px;
@@ -264,10 +314,11 @@ a.navlink:active{
 /*4.1 TRIFOLD PANELS*/
 
 #purelyspacingpanel{
+    /*Roughly matches dimensions of .panel and #narrow, without any of the styling.*/
     top:10px;
     height:510px;
     margin-bottom:40px;
-    width:846px;
+    width:846px; /*At least 3 x width of .trifoldtop)*/
     display:inline-block;
     margin-left:auto;
     margin-right:auto;
@@ -277,7 +328,7 @@ a.navlink:active{
     display:block;
     float:left;
     width:281px;
-    height:50px;
+    height:50px; /*Arbitrary. But height of .trifoldtop + height .trifoldbottom = height #purelyspacingpanel*/
     border:1px solid #FFFFFF;
     
     text-transform:uppercase;
@@ -291,7 +342,7 @@ a.navlink:active{
     display:block;
     float:left;
     width:281px;
-    height:460px;
+    height:460px; /*height of .trifoldtop + height .trifoldbottom = height #purelyspacingpanel*/
     border:1px solid #FFFFFF;
     border-top:none;
 }
@@ -301,7 +352,7 @@ a.navlink:active{
     border-right:none;
 }
 
-/*Top-page formatting*/
+/*Trifold header formatting formatting*/
 
 #lightestheader{
     background-color: #b5c000;
@@ -315,7 +366,7 @@ a.navlink:active{
     background-color: #847e1f;   
 }
 
-/*Bottom-page formatting*/
+/*Trifold content formatting*/
 
 #lightestbottom{
     background-color: rgba(250,250,250,0.4);
@@ -359,13 +410,13 @@ a.navlink:active{
 }
 
 #rectaddbutton{
-    height: 160px;
-    width: 100px;
+    height: 160px; /*Must match height of #articlephoto.*/
+    width: 100px; /*Arbitrary*/
     font-size:20px;
     padding-top:40px;
     
     top:0;
-    margin-top:2px;
+    margin-top:2px; /*top, bottom and left margins = margin of #articlephoto.*/
     margin-bottom:2px;
     margin-left:2px;
     margin-right:3px;
@@ -376,13 +427,13 @@ a.navlink:active{
 }
 
 #squareaddbutton{
-    height:160px;
-    width:160px;
+    height:160px; /*Must match height of #articlephoto.*/
+    width:160px; /*Equal to height to match square aspect of #articlephoto*/
     font-size:20px;
     padding-top:40px;
    
     top:0;
-    margin-top:2px;
+    margin-top:2px; /*top, bottom and left margins = margin of #articlephoto.*/
     margin-bottom:2px;
     margin-left:2px;
     margin-right:3px;  
@@ -430,8 +481,8 @@ a:active {
 /*7. SPLASH PAGE ELEMENTS*/ 
 #signup{
     position:absolute;
-    width: 60px;
-    height: 50px;
+    width: 60px; /*Arbitrary*/
+    height: 50px; /*Arbitrary*/
     right: 0px;
     top: 0px;
     background-color: #b5c000;
@@ -447,22 +498,19 @@ a:active {
 }
 
 .splashcolumn{
-    width:205px;
-    height:525px;
+    /*4 x .splashcolumn width + 8 x margin = width of #panelelements*/
+    width:195px; 
+    height:100%;
     float:left;
-    margin-top:30px;
+    margin-top:20px;
     margin-left:20px;
     margin-right:20px;
     /*border:1px solid #ffffff;*/
 }
 
-.splashcolumn:last-child {
-    margin-right:0px;
-}
-
 .splashad {
     border:1px solid #ffffff;
-    width:205px;
+    width:100%; /*Same as width of splashcolumn*/
 }
 
 /*8. USER HOME*/
@@ -471,57 +519,15 @@ a:active {
 
 /*10. VIEW INSPIRATION*/
 
-.drbutton {
-    background-color: #bab6af;
-    color: white;
-    border: 1px solid #FFFFFF;
-    
-    display: inline-block;
-    text-align: center;
-    float:left;
-    
-    -webkit-box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.3);
-    -moz-box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.3);
-    box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.3);
- 
-    -webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
-    -ms-transition: all 0.5s ease;
-    transition: all 0.5s ease;
-}
-
-.drbutton > span{
-    font-size:80px;
-}
-
-.drbutton:hover{
-    background-color: #e1e1e1;
-    color: #FFFFFF;    
-}
-
-#rectaddbutton{
-    height: 160px;
-    width: 100px;
-    font-size:20px;
-    padding-top:40px;
-    
-    top:0;
-    margin-top:1px;
-    margin-bottom:1px;
-    margin-left:1px;
-    margin-right:2px;
-}
-
 /*11. ADD INSPIRATION*/
 
 #outfitupload {
-    width:320px;
-    height: 280px;
+    width:320px; /*Arbitrary*/
+    height: 280px; /*Arbitrary, but changing affects height of #bottomthird.*/
     background-color: #e3e2de;
-    margin-top: 20px;
-    margin-bottom:20px;
-    margin-left: 100px;
+    margin-top: 20px; /*Arbitrary, but changing affects height of #bottomthird.*/
+    margin-bottom:20px; /*Arbitrary, but changing affects height of #bottomthird.*/
+    margin-left: 100px; /*Arbitrary*/
     border: 1px solid #FFFFFF;
     display:block;
     text-align:left;
@@ -541,17 +547,29 @@ a:active {
 }
 
 #bottomthird{
+    /*height of #bottomthird is determined according to following formula:
+     *height and bottom margin of #bottomthird + height and top/bottom margins 
+     *of #outfitupload = height .panel - .panel padding*/
     height:170px;
-    width:960px;   
-    padding-top:10px;
+    width:100%; /*bottom third is as wide as #panelelements*/  
+    /*border: 1px solid #FFFFFF;*/ 
+}
+
+#articlesdefined{
+    width:830px; /*equals width of #panelelements minus 2x width #buttonspacer*/
+    height:100%;
+    display:block;
+    float:left;
+    /*border:1px solid #FFFFFF;*/
 }
 
 .articledef{
+    height: 100%;
+    width: 33.3333%;  
+    padding:10%;   
+      
+    display:block;
     float:left;
-    height: 150px;
-    width: 256px;
-    margin-left:14px;
-    margin-right:14px;
     border: 1px solid #FFFFFF;
 }
 
