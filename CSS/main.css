@@ -616,7 +616,9 @@ a:active {
 }
 
 #sec1instructions {
-    width:65px;
+    width:75px;
+    padding-left:5px;
+    background-color: #b5c000;
 }
 
 #sec1text{
@@ -658,8 +660,8 @@ a:active {
     background-color: #e3e2de;
     color:#FFFFFF;
     margin-top: 25px; /*Arbitrary*/
-    margin-left: auto; /*Arbitrary*/
-    margin-right:auto;
+    margin-left:100px;
+    
     border: 1px solid #FFFFFF;
     display:block;
     text-align:center;
