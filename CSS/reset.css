@@ -80,3 +80,16 @@ input[type="text"]:focus {
     outline:none;
 }
 
+textarea {
+    outline:none;
+    resize:none;
+}
+
+textarea:focus {
+    outline:none;
+}
+
+
+
+
+

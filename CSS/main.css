@@ -451,6 +451,8 @@ a.navlink:active{
     font-size:100px;
 }
 
+/*Input type text affects search selectors in the subpanel and the forms for entering article information.*/
+
 input[type="text"] {
     border:1px solid #FFFFFF;
     background-color: #d6d6d4;
@@ -463,6 +465,19 @@ input[type="text"]:focus {
     background-color: #e3e2de;
 }
 
+textarea{
+    display:inline-block;
+    border:1px solid #ffffff;
+    background-color: #d6d6d4;
+    width: 300px;
+    height: 100px;
+    margin:5px;
+    bottom-margin:none;
+}
+
+textarea:focus {
+    background-color: #e3e2de;
+}
 
 /* 6. MISCELLANOUS FORMATTING */
 
@@ -588,16 +603,16 @@ a:active {
 /*FORMATTING OF INSTRUCTIONS*/
 
 .addinspnumber{ /*large numbers for instructions. consistent across sections.*/
-    font-size:7em;
+    font-size:7em; /*If changing, change font-size of section text to maintain vertical justification.*/
     color: #FFFFFF;   
     display:block;
     float:left;
-    margin-left:-2px;
+    margin-left:-2px; /*Arbitrary*/
 }
 
 .addinsptextrotated{ /*generic instruction text formatting. size set separately.*/
     color:#FFFFFF;
-    margin-right:-10px;
+    margin-right:-100px; /*Because vertical text still takes up horizontal text width*/
     display:block;
     float:left;
     -webkit-transform: rotate(-90deg);
@@ -607,8 +622,8 @@ a:active {
 .addinspinstructions{ /*generic container for instructions*/
     display:block;
     float:left;
-    height:7em;
-    line-height:7em;
+    height:7em; /*Matches height of .addinspnumber*/
+    line-height:7em; /*Matches height of .addinspnumber*/
     background-color: #3b3938;
     border:1px solid #FFFFFF;
     border-left:none;
@@ -616,38 +631,36 @@ a:active {
 }
 
 #sec1instructions {
-    width:75px;
-    padding-left:5px;
+    width:75px; /*Arbitrary*/
+    padding-left:5px; /*Because 1 is skinnier than other numbers.*/
     background-color: #b5c000;
 }
 
 #sec1text{
-    font-size:1.5em;
-    margin-left:-30px;
+    font-size:1.5em; /*Chosen to make word as long as number is tall.*/
+    margin-left:-30px; /*Pulls vertical text toward number.*/
 }
 
 #sec2instructions{
-    width:80px;
-    padding-left:10px;
+    width:80px; /*Maximum width.*/
+    padding-left:10px; /*Arbitrary*/
 }
 
 #sec2text{
-    font-size:1.75em;
-    margin-left:-20px;
-    margin-right: -60px;
+    font-size:1.75em; /*Chosen to make word as long as number is tall.*/
+    margin-left:-20px; /*Pulls vertical word toward number.*/
     
 }
 
 #sec3instructions{
-    width:80px;
+    width:80px; /*Maximum width. Must fit inside #sec3infocontainer.*/
     padding-left:10px;
-    margin-top:30px;
+    margin-top:30px; /*Arbitrary. Approximates vertical centering.*/
 }
 
 #sec3text{
-    font-size:1.75em;
-    margin-left:-20px;
-    margin-right: -60px;
+    font-size:1.75em; /*Chosen to make word as long as number is tall.*/
+    margin-left:-20px; /*Pulls vertical text towards number.*/
     
 }
 
@@ -655,12 +668,12 @@ a:active {
 
 #outfitplaceholder {
     width:320px; /*Arbitrary*/
-    height: 300px; /*Arbitrary, but changing affects height of #bottomthird.*/
-    line-height:300px;
-    background-color: #e3e2de;
+    height: 300px; /*Arbitrary*/
+    line-height:300px; /*Forces vertical centering of text.*/
+    background-color: #d6d6d4;
     color:#FFFFFF;
     margin-top: 25px; /*Arbitrary*/
-    margin-left:100px;
+    margin-left:100px; /*Equals margin-top plus width of #sec1instructions*/ 
     
     border: 1px solid #FFFFFF;
     display:block;
@@ -683,12 +696,13 @@ a:active {
 }
 
 .articledef{
+    /*All measurements arbitrary.*/
     height: 100%;
     width: 33.3%;  
     padding-top:25px;
-    padding-right:10px;
+    padding-right:10px; 
     text-align:right;
-    line-height:25px;   
+    line-height:25px; /*Forces some white space between text inputs.*/  
       
     display:block;
     float:left;
