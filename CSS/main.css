@@ -68,7 +68,7 @@ body:after {
 
 #headerelements {
     z-index: 2;
-    width:844px; /*Tied to width of #narrow panel.*/
+    width:844px; /*Tied to width of .narrow panel.*/
     height:57px; /*Height of #topstripe + height of #logo*/
     margin-right:auto;
     margin-left:auto;
@@ -96,7 +96,6 @@ body:after {
     text-align:center;
     /*border:1px solid #ffffff;*/
 }
-
 #subpanelelements{
     z-index: 1;
     width:950px; /*Keep same as width of panel elements*/
@@ -105,6 +104,7 @@ body:after {
     margin-left:auto;
     /*border:1px solid #FFFFFF;*/
 }
+
 
 #footerelements {
     z-index: 1;
@@ -188,11 +188,11 @@ a.navlink:active{
 
 /*4. GENERIC PANEL AREA ELEMENTS*/
 
-/*Regarding the height of .panel and width of #narrow: wardrobe view contains a 
+/*Regarding the height of .panel and width of .narrow: wardrobe view contains a 
  * grid of square images whose height is set by #articlephoto. To ensure even
- * spacing on all sides, .panel height and #narrow width must obey the following:
+ * spacing on all sides, .panel height and .narrow width must obey the following:
  * height of .panel -2(.panel padding) = 6(margin+border) + 3(height) of #articlephoto
- * width of #narrow -2(.panel padding) = 10(margin+border) + 5(height) of #articlephoto
+ * width of .narrow -2(.panel padding) = 10(margin+border) + 5(height) of #articlephoto
  */    
 
 
@@ -210,18 +210,20 @@ a.navlink:active{
 
 .subpanel {
     height:100%;
+    width:100%;
     padding:5px; /*Same as padding on .panel*/
-    margin-left:50px; /*L and R margins equal width of .buttonspacer*/
-    margin-right:50px;
+    text-align:right;
     display:block;
-    float:left;
+    margin-left:auto;
+    margin-right:auto;
+    /*border:1px solid #FFFFFF;*/
 }
 
-#narrow {
+.narrow {
     width:844px; /*Selected to work with picture width and margins. Same as width of #headerelements.*/
 }
 
-#wide {
+.wide {
     width:100%; /*In practice, as wide as the #panelelements container.*/
 }
 
@@ -254,7 +256,7 @@ a.navlink:active{
 .buttonspacer{
     display:inline-block;
     float:left;
-    width: 50px; /*Width of #narrow panel + 2 times width .buttonspacer = width #panelelements*/
+    width: 50px; /*Width of .narrow panel + 2 times width .buttonspacer = width #panelelements*/
     
     /*Formatting used to force vertical centering of buttons.*/
     height: 50%; 
@@ -312,7 +314,7 @@ a.navlink:active{
      of three rows of pictures inside the .panel. If changing, honor: 
      6(margin+border) + 3(height) = height of .panel - 2(.panel padding).  
      Because images are square, the following also holds true:
-     10(margin+border) + 5(height) = width of #narrow -2(.panel padding) */    
+     10(margin+border) + 5(height) = width of .narrow -2(.panel padding) */    
     margin:2px;
     border: 1px solid #FFFFFF;
     height:160px;
@@ -322,7 +324,7 @@ a.navlink:active{
 /*4.1 TRIFOLD PANELS*/
 
 #purelyspacingpanel{
-    /*Roughly matches dimensions of .panel and #narrow, without any of the styling.*/
+    /*Roughly matches dimensions of .panel and .narrow, without any of the styling.*/
     top:10px;
     height:510px;
     margin-bottom:40px;
@@ -469,9 +471,9 @@ textarea{
     display:inline-block;
     border:1px solid #ffffff;
     background-color: #d6d6d4;
-    width: 250px;
-    height: 100px;
-    margin-bottom:5px;
+    width: 240px; /*Arbitrary*/
+    height: 95px; /*Arbitrary*/
+    margin-bottom:8px; /*Arbitrary*/
     vertical-align:top;
     font-family: "Questrial";
     font-size:1em;
@@ -516,7 +518,7 @@ a:active {
     text-decoration:none;
 }
 
-.attentiongrabber{
+.attentiongrabber{ 
     background-color: rgba(250,250,250,0.3);
     
     -webkit-box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.2);
@@ -569,6 +571,23 @@ a:active {
 /*11. ADD INSPIRATION*/
 
 /*LAYOUT*/
+.addinspsections{
+    position:absolute;
+    display:block;
+}
+
+.addinspsections:hover{
+    background-color: rgba(250,250,250,0.3);
+    
+    -webkit-box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.2);
+}
+
+.addinspsections:hover .addinspinstructions{
+    background-color: #b5c000;
+}
+
 #topleftwindow{
     width:50%;
     height:70%;
@@ -600,14 +619,14 @@ a:active {
     position:absolute;
     left:0px;
     bottom:0px;
-    border-top: 1px solid #FFFFFF; 
+    border-top: 1px solid #FFFFFF;
 }
 
 #sec2textareas{
     height:100%;
     width:100%;
-    padding-top:25px;
-    padding-right:25px;
+    padding-top:25px; /*Should match top padding on #outfitplaceholder*/  
+    padding-right:65px; /*Should match padding-top*/
 }
 
 #sec3infocontainer{
@@ -652,7 +671,6 @@ a:active {
 #sec1instructions {
     width:75px; /*Arbitrary*/
     padding-left:5px; /*Because 1 is skinnier than other numbers.*/
-    background-color: #b5c000;
 }
 
 #sec1text{
