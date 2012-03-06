@@ -299,6 +299,8 @@ a.navlink:active{
     border-right:25px solid #3b3938;
 }
 
+/*PHOTOGRAPH FORMATTING*/
+
 .outfitphoto {
     /*.outfitphoto height and margins engineered to produce even spacing
      of three rows of pictures inside the .panel. If changing, honor: 
@@ -318,6 +320,13 @@ a.navlink:active{
     margin:2px;
     border: 1px solid #FFFFFF;
     height:160px;
+    display:inline-block;
+}
+
+.outfitRecommendation{
+    margin:1px; /*Arbitrary*/
+    border: 1px solid #FFFFFF;
+    height:99%; /*Allows some space for margins*/
     display:inline-block;
 }
 
@@ -883,12 +892,11 @@ a:active {
 /*LAYOUT*/
 
 #oTop{
-    height:100%; 
+    height:80%; 
     width:100%;
     display:block;
     float:left;
-    padding-top:100px;/*Arbitrary*/
-    padding-bottom:20%;/*Same as height of #oBottom. Necessary because #oBottom is positioned absolutely.*/
+    /*padding-bottom:20%;/*Same as height of #oBottom. Necessary because #oBottom is positioned absolutely.*/
     
 }
 
