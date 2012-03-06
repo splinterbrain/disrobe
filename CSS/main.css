@@ -331,32 +331,23 @@ a.navlink:active{
 }
 
 .outfitRecSmall{
-    margin-left:1px;
-    margin-right:1px;
-    margin-bottom: -3px;
+    margin:1px;
     border:1px solid #ffffff;
-    height:49%; /*Allows for two rows of pictures*/
+    height:48%; /*Allows for two rows of pictures*/
     display:inline-block;
 }
 
 /*4.1 TRIFOLD PANELS*/
 
-#purelyspacingpanel{
-    /*Roughly matches dimensions of .panel and .narrow, without any of the styling.*/
-    top:10px;
-    height:510px;
-    margin-bottom:40px;
-    width:846px; /*At least 3 x width of .trifoldtop)*/  
-   
-    display:inline-block;
-    margin-left:auto;
-    margin-right:auto;
+#clearPanel{
+    padding:0px;
+    border:none;
 }
 
 .trifoldtop{
     display:block;
     float:left;
-    width:33.3%;
+    width:33.3333%;
     
     height:8%; /*height equals 100 - height of .trifoldbottom*/
     border:1px solid #FFFFFF;
@@ -371,9 +362,11 @@ a.navlink:active{
 .trifoldbottom{
     display:block;
     float:left;
-    width:33.3%;
+    width:33.3333%;
     height:92%;
     padding-top:30px;
+    padding-bottom:30px;
+    background-color: rgba(255,255,255,0.4);
    
     border:1px solid #FFFFFF;
     border-top:none;
@@ -483,9 +476,7 @@ a.navlink:active{
     width:75px; /*Arbitrary*/
     
     text-align:center;
-    margin-left:5px;
     display:block;
-    float:right;
 }
 
 .textButton:hover {
@@ -590,6 +581,15 @@ li:hover{
     padding:0px;
 }
 
+.floatLeft{
+    float:left;
+    margin-right:5px;
+}
+
+.floatRight{
+    margin-left:5px;
+    float:right;
+}
 
 /*7. SPLASH PAGE ELEMENTS*/ 
 #signup{
@@ -907,6 +907,7 @@ li:hover{
 
 /*14. SHOPPING LIST*/
 
+/*LAYOUT*/
 .lHorizontalTrifold{
     height:33.3%;
     line-height:156px; /*To effect approximate vertical centering.*/
@@ -921,6 +922,60 @@ li:hover{
 .lHorizontalTrifold:last-of-type {
     border-bottom:none;
 }
+
+/*FORMATTING*/
+
+#itemName{
+    text-transform:uppercase;
+}
+
+
+
+/*ITEM SPOTLIGHT - SHARED WITH SHOPPING RECOMMENDATIONS*/
+.spotlightInfo{
+    height:12%;
+    width:90%;
+    margin-left:5%;
+    margin-right:5%;
+    
+    text-align:left;
+    padding-top:30px;
+    display:block;
+    float:left;
+}
+
+.spotlightExamples{
+    height:76%;
+    width:90%;
+    margin-left:5%;
+    margin-right:5%;
+ 
+    text-align:left;   
+    padding-top:30px;
+    display:block;
+    float:left;
+}
+
+.exampleOutfits{
+    height:230px;
+    width:100%;
+    margin-top:10px;
+    padding:5px;
+    display:block;
+    float:left;
+    
+    background-color: rgba(150,150,150,0.3);
+}
+
+.exampleOutfitNav{
+    height:20px;
+    width:100%;
+    margin-top:10px;
+    display:block;
+    float:left;
+}
+
+
 
 
 /*15. SHOPPING RECOMMENDATIONS*/
