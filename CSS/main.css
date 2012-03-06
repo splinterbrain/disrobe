@@ -453,7 +453,8 @@ a.navlink:active{
 }
 
 .textButton {
-    background-color: #3b3938;
+    background-color: #d6d6d4;
+    color: #000000;
     border: 1px solid #FFFFFF;
     height:20px; /*Arbitrary*/
     line-height:20px; /*Equal to height to vertically center text.*/
@@ -466,8 +467,12 @@ a.navlink:active{
 }
 
 .textButton:hover {
-    background-color: #d6d6d4;
+    background-color: #3b3938;
     color: #FFFFFF;
+}
+
+a.textButton:visited {
+    color: #000000;
 }
 
 /*Input type text affects search selectors in the subpanel and the forms for entering article information.*/
@@ -572,6 +577,7 @@ a:active {
     margin-top:20px;
     margin-left:20px;
     margin-right:20px;
+    text-align:left;
     /*border:1px solid #ffffff;*/
 }
 
