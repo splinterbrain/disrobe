@@ -344,32 +344,53 @@ a.navlink:active{
     border:none;
 }
 
-.trifoldtop{
+.trifoldColumn{
+    width:33.3%;
+    height:100%;
     display:block;
     float:left;
-    width:33.3333%;
+    border:1px solid white;
+}
+
+/*.trifoldColumn:hover{
+    -webkit-box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.2);
+}*/
+
+.trifoldColumn:hover .trifoldtop{
+    background-color: #b5c000;
+}
+
+/*.trifoldColumn:hover .trifoldbottom{
+    background-color: rgba(255,255,255,0.3);
+}*/
+
+
+.trifoldtop{
+    height:8%;
+    width:100%;
+    display:block;
+    float:left;
+    background-color: #99980b;
+    border-bottom:1px solid #FFFFFF;
     
-    height:8%; /*height equals 100 - height of .trifoldbottom*/
-    border:1px solid #FFFFFF;
-    
-    text-transform:uppercase;
-    color: #FFFFFF;
     text-align:left;
+    text-transform:uppercase;
+    color:#FFFFFF;
     padding-top:20px;
-    padding-left:30px;   
+    padding-left:30px;
+    
+    
 }
 
 .trifoldbottom{
+    height:92%;
+    width:100%;
     display:block;
     float:left;
-    width:33.3333%;
-    height:92%;
-    padding-top:30px;
-    padding-bottom:30px;
-    background-color: rgba(255,255,255,0.4);
-   
-    border:1px solid #FFFFFF;
-    border-top:none;
+    text-align:left;
+    padding:30px;
 }
 
 .norlborders{
@@ -566,6 +587,7 @@ a:active {
 
 ul{
     line-height:2em;
+    text-align:center;
 }
 
 li:hover{
