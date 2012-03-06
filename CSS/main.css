@@ -323,10 +323,19 @@ a.navlink:active{
     display:inline-block;
 }
 
-.outfitRecommendation{
+.outfitRecLarge{
     margin:1px; /*Arbitrary*/
     border: 1px solid #FFFFFF;
     height:99%; /*Allows some space for margins*/
+    display:inline-block;
+}
+
+.outfitRecSmall{
+    margin-left:1px;
+    margin-right:1px;
+    margin-bottom: -3px;
+    border:1px solid #ffffff;
+    height:49%; /*Allows for two rows of pictures*/
     display:inline-block;
 }
 
