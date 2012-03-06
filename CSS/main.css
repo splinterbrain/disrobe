@@ -39,7 +39,7 @@ body:after {
  * 4. Generic Panel Area Elements (panel backgrounds, navigation arrows, picture formatting)
  * 4.1 Trifold Pages
  * 5. Buttons and inputs (add, delete, close, edit, etc.)
- * 6. Miscellaneous Formatting (headings, default link formatting)
+ * 6. Miscellaneous Formatting (headings, default link formatting, list formatting)
  * 
  * II. PAGE-SPECIFIC FORMATTING
  * 
@@ -346,7 +346,8 @@ a.navlink:active{
     top:10px;
     height:510px;
     margin-bottom:40px;
-    width:846px; /*At least 3 x width of .trifoldtop)*/
+    width:846px; /*At least 3 x width of .trifoldtop)*/  
+   
     display:inline-block;
     margin-left:auto;
     margin-right:auto;
@@ -355,22 +356,25 @@ a.navlink:active{
 .trifoldtop{
     display:block;
     float:left;
-    width:281px;
-    height:50px; /*Arbitrary. But height of .trifoldtop + height .trifoldbottom = height #purelyspacingpanel*/
+    width:33.3%;
+    
+    height:8%; /*height equals 100 - height of .trifoldbottom*/
     border:1px solid #FFFFFF;
     
     text-transform:uppercase;
     color: #FFFFFF;
-    line-height:60px;
     text-align:left;
+    padding-top:20px;
     padding-left:30px;   
 }
 
 .trifoldbottom{
     display:block;
     float:left;
-    width:281px;
-    height:460px; /*height of .trifoldtop + height .trifoldbottom = height #purelyspacingpanel*/
+    width:33.3%;
+    height:92%;
+    padding-top:30px;
+   
     border:1px solid #FFFFFF;
     border-top:none;
 }
@@ -569,12 +573,21 @@ a:active {
     text-decoration:none;
 }
 
-.attentiongrabber{ 
-    background-color: rgba(250,250,250,0.3);
-    
-    -webkit-box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.2);
-    -moz-box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.2);
-    box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.2);
+ul{
+    line-height:2em;
+}
+
+li:hover{
+    height:2em; 
+    width:80%; /*Arbitrary, but width + left and right margins should = 100*/
+    margin-left:10%;
+    margin-right:10%;
+    background-color: rgba(250,250,250,0.3); 
+    border:1px solid #FFFFFF; /*Ultimately, border will only appear on selected items*/
+}
+
+.noPadding{
+    padding:0px;
 }
 
 
@@ -894,6 +907,22 @@ a:active {
 
 /*14. SHOPPING LIST*/
 
+.lHorizontalTrifold{
+    height:33.3%;
+    line-height:156px; /*To effect approximate vertical centering.*/
+    width:80%; /*Arbitrary, but width + right and left margins should = 100*/
+    margin-left:10%;
+    margin-right:10%;
+    text-align:center;
+    color: #FFFFFF;
+    border-bottom: 1px solid #FFFFFF;
+}
+
+.lHorizontalTrifold:last-of-type {
+    border-bottom:none;
+}
+
+
 /*15. SHOPPING RECOMMENDATIONS*/
 
 /*16. OUTFIT LAB*/
@@ -913,7 +942,7 @@ a:active {
     height:20%; /*Tied to height of #oTop*/
     line-height:100px; /*same as height to create appearance of vertical centering*/ 
     width:100%; /*as wide as #panelelements*/  
-    background-color: rgba(150,150,150,0.5);
+    background-color: rgba(100,100,100,0.3);
     border-top: 1px solid #FFFFFF;
     
     position:absolute;
@@ -925,6 +954,8 @@ a:active {
 #oViewingScreen{
     height:100%;
     width: 838px; /*equals width of #panelelements minus it's padding (5 on all sides) minus 2 x width of .buttonspacer*/
+    padding-top:1px; /*Arbitrary*/
+    padding-bottom:1px; /*Arbitrary*/
     display:block;
     float:left;    
 }
