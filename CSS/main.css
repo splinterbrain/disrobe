@@ -6,7 +6,6 @@ html {
 body {
 	width: 100%;
 	height: 100%;
-	position: absolute;
 	background-image: url(../images/stripe.png);
 	font-family: "Questrial";
 	font-size: 0.75em;
@@ -301,25 +300,17 @@ a.navlink:active{
 
 /*PHOTOGRAPH FORMATTING*/
 
-.outfitphoto {
-    /*.outfitphoto height and margins engineered to produce even spacing
-     of three rows of pictures inside the .panel. If changing, honor: 
-     6(margin+border) + 3(height) = height of .panel - 2(.panel padding) */    
-    margin:2px; 
+.inspirationPhoto{
+    height:32.5%; /*For three rows of pictures with margins*/
+    margin:1px; /*Arbitrary*/
     border: 1px solid #FFFFFF;
-    height:160px; 
     display:inline-block;
 }
 
-.articlephoto {
-    /*.articlephoto height and margins engineered to produce even spacing
-     of three rows of pictures inside the .panel. If changing, honor: 
-     6(margin+border) + 3(height) = height of .panel - 2(.panel padding).  
-     Because images are square, the following also holds true:
-     10(margin+border) + 5(height) = width of .narrow -2(.panel padding) */    
-    margin:2px;
-    border: 1px solid #FFFFFF;
-    height:160px;
+.articlePhoto{
+    height:32%; /*For three rows of pictures with margins*/
+    margin:2px; /*Arbitrary*/
+    border:1px solid #ffffff;
     display:inline-block;
 }
 
@@ -380,8 +371,6 @@ a.navlink:active{
     color:#FFFFFF;
     padding-top:20px;
     padding-left:30px;
-    
-    
 }
 
 .trifoldbottom{
@@ -455,7 +444,7 @@ a.navlink:active{
 }
 
 #rectaddbutton{
-    height: 160px; /*Must match height of #articlephoto.*/
+    height: 158px; /*Must match height of #articlephoto.*/
     width: 100px; /*Arbitrary*/
     font-size:20px;
     padding-top:40px;
@@ -463,7 +452,7 @@ a.navlink:active{
     top:0;
     margin-top:2px; /*top, bottom and left margins = margin of #articlephoto.*/
     margin-bottom:2px;
-    margin-left:2px;
+    margin-left:3px;
     margin-right:3px;
 }
 
@@ -472,15 +461,16 @@ a.navlink:active{
 }
 
 #squareaddbutton{
-    height:160px; /*Must match height of #articlephoto.*/
-    width:160px; /*Equal to height to match square aspect of #articlephoto*/
+    
+    height:158px; /*Must match height of #articlephoto.*/
+    width:158px; /*Equal to height to match square aspect of #articlephoto*/
     font-size:20px;
     padding-top:40px;
    
     top:0;
-    margin-top:2px; /*top, bottom and left margins = margin of #articlephoto.*/
-    margin-bottom:2px;
-    margin-left:2px;
+    margin-top:3px; /*top, bottom and left margins = margin of #articlephoto.*/
+    margin-bottom:3px;
+    margin-left:4px;
     margin-right:3px;  
 }
 
@@ -590,6 +580,10 @@ ul{
     text-align:center;
 }
 
+.topLevel li{
+    text-align:left;
+}
+
 li:hover{
     height:2em; 
     width:80%; /*Arbitrary, but width + left and right margins should = 100*/
@@ -601,6 +595,16 @@ li:hover{
 
 .noPadding{
     padding:0px;
+}
+
+.alignLeft{
+    text-align:left;
+}
+
+.alignCenter{
+    text-align:center;
+    padding-left:0px;
+    padding-right:0px;
 }
 
 .floatLeft{
@@ -849,14 +853,14 @@ li:hover{
 }
 
 .wTop {
-    height:10%; /*Arbitrary*/  
+    height:12%; /*Arbitrary*/  
     width:100%;
     display:block;
     float:left;
     
     text-align:left;
     padding-left:12px; /*Same as padding on .columnThirds*/
-    line-height:2em; 
+    line-height:2.5em; 
     color: #FFFFFF;
     font-size:2em;
     /*border:1px solid #FFFFFF;*/
@@ -872,7 +876,7 @@ li:hover{
 }
 
 .wBottom{
-    height:16%; /*Arbitrary*/
+    height:14%; /*Arbitrary*/
     width:100%;
     display:block;
     float:left;
@@ -986,7 +990,7 @@ li:hover{
     display:block;
     float:left;
     
-    background-color: rgba(150,150,150,0.3);
+    /*background-color: rgba(150,150,150,0.3);*/
 }
 
 .exampleOutfitNav{
@@ -1001,6 +1005,14 @@ li:hover{
 
 
 /*15. SHOPPING RECOMMENDATIONS*/
+
+.rPlaceholderText{
+   color: #FFFFFF; 
+}
+
+.rPadding{
+    padding:30px;
+}
 
 /*16. OUTFIT LAB*/
 

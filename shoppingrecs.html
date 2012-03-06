@@ -44,7 +44,30 @@
 			<!--WORDS TO SHOP BY-->
 			<div class="trifoldColumn">
 				<div class="trifoldtop">1. PICK YOUR CATEGORY</div>
-				<div class="trifoldbottom primaryfocus">bottom</div>
+				<div class="trifoldbottom primaryfocus alignLeft">
+					<ul class="topLevel">
+						<li>
+							Top level item
+							<ul>
+								<li>first child</li>
+								<li>second child</li>
+								<li>third child</li>
+							</ul>
+						</li>
+						<li>
+							Second top level
+							<ul>
+								<li>first child</li>
+								<li>second child</li>
+								<li>third child</li>
+							</ul>
+						</li>
+						<li>
+							Childless
+						</li>
+					</ul>
+					
+				</div>
 			</div>
 			
 			
@@ -52,6 +75,14 @@
 			<div class="trifoldColumn norlborders">
 				<div class="trifoldtop">2. SEE RECOMMENDATIONS</div>
 				<div class="trifoldbottom secondaryfocus">
+					
+					<!--PLACEHOLDER TEXT UNTIL USER CLICKS SEARCH CATEGORY-->
+					<!--
+					<p class="rPlaceholderText">(select from the list at left to get 
+						shopping recommendations)<p>
+					-->
+					
+					
 					<ul>
 						<li>white sit</li>
 						<li>yellow arnet</li>
@@ -63,6 +94,7 @@
 						<li>gray puer</li>
 					
 					</ul>
+					
 				</div>
 			</div>
 			
@@ -71,6 +103,15 @@
 			<div class="trifoldColumn">
 				<div class="trifoldtop">3. LOVE IT OR LEAVE IT</div>
 				<div class="trifoldbottom noPadding tertiaryfocus">
+					
+					<!--PLACEHOLDER TEXT UNTIL USER CLICKS ON REC ITEM-->
+					<!--
+					<p class="rPlaceholderText rPadding">(select a recommended item
+						to see how you can wear it, and to add it to your
+						shopping list) </p>
+					-->
+					
+					
 					<div class="spotlightInfo">
 						<p id="itemName">white sit</p>
 					</div>
@@ -95,6 +136,7 @@
 							<div id="subpanelRight">LR</div>
 						</div>
 					</div>
+					
 				</div>
 			</div>
 						
@@ -103,7 +145,11 @@
 	</div>
 	
 	<div id="subpanelelements">
-		
+		<div class="narrow subpanel">
+			<div id="subpanelFull">	
+					<a class="textButton floatRight" href="shoppinglist.html"> Back to List</a>
+			</div>
+		</div>
 	</div>
 
 	<div id="footerelements">
