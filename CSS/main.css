@@ -453,7 +453,7 @@ a.navlink:active{
 }
 
 .textButton {
-    background-color: #d6d6d4;
+    background-color: #e6e6e4;
     color: #000000;
     border: 1px solid #FFFFFF;
     height:20px; /*Arbitrary*/
@@ -467,13 +467,23 @@ a.navlink:active{
 }
 
 .textButton:hover {
-    background-color: #3b3938;
-    color: #FFFFFF;
+    
+}
+
+
+a.textButton:link{
+    color: #000000;
 }
 
 a.textButton:visited {
     color: #000000;
 }
+
+a.textButton:hover {
+    background-color: #3b3938;
+    color: #FFFFFF;
+}
+
 
 /*Input type text affects search selectors in the subpanel and the forms for entering article information.*/
 
@@ -635,9 +645,6 @@ a:active {
 }
 
 #bottomthird{
-    /*height of #bottomthird is determined according to following formula:
-     *height and bottom margin of #bottomthird + height and top/bottom margins 
-     *of #outfitplaceholder = height .panel - .panel padding*/
     height:30%;
     width:100%; /*bottom third is as wide as #panelelements*/  
     position:absolute;
@@ -872,6 +879,47 @@ a:active {
 /*15. SHOPPING RECOMMENDATIONS*/
 
 /*16. OUTFIT LAB*/
+
+/*LAYOUT*/
+
+#oTop{
+    height:100%; 
+    width:100%;
+    display:block;
+    float:left;
+    padding-top:100px;/*Arbitrary*/
+    padding-bottom:20%;/*Same as height of #oBottom. Necessary because #oBottom is positioned absolutely.*/
+    
+}
+
+#oBottom{
+    height:20%; /*Tied to height of #oTop*/
+    line-height:100px; /*same as height to create appearance of vertical centering*/ 
+    width:100%; /*as wide as #panelelements*/  
+    background-color: rgba(150,150,150,0.5);
+    border-top: 1px solid #FFFFFF;
+    
+    position:absolute;
+    left:0px;
+    bottom:0px;
+    
+}
+
+#oViewingScreen{
+    height:100%;
+    width: 838px; /*equals width of #panelelements minus it's padding (5 on all sides) minus 2 x width of .buttonspacer*/
+    display:block;
+    float:left;    
+}
+
+/*FORMATTING*/
+
+.oText{
+    font-size:1.8em;
+    line-height:1.5em;
+    color: #FFFFFF;
+    text-align:center;
+}
 
 /*17.ABOUT US*/
 
