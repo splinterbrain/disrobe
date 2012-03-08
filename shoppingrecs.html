@@ -1,5 +1,4 @@
 <!doctype html>
-
 <head>
 	<!-- STYLE SHEETS -->
 	<link rel="stylesheet" href="css/reset.css">
@@ -8,159 +7,192 @@
 	<link href='http://fonts.googleapis.com/css?family=Tenor+Sans' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Questrial' rel='stylesheet' type='text/css'>
 </head>
-
 <body>
-	
 	<div id="staticelements">
 		<div id="topstripe" class="ribbon"></div>
 		<p id="logo">
-		D<span></span>I<span></span>S<span></span>R<span></span>O<span></span>B<span></span>E
+			D<span></span>I<span></span>S<span></span>R<span></span>O<span></span>B<span></span>E
 		</p>
 		<div id="navstripe" class="ribbon"></div>
 		<div id="bottomstripe" class="ribbon"></div>
 	</div>
-	
 	<div id="headerelements">
-		<p id="hello">Hello, user! <a href="index.html">{sign out}</a> 
+		<p id="hello">
+			Hello, user! <a href="index.html">{sign out}</a>
 		</p>
 	</div>
-	
 	<div id="navbarelements">
 		<p id="navbartext">
-		<a class="navlink" href="userhome.html">Home</a> <span></span> 
-		<a class="navlink" href="profile.html">Profile</a> <span></span> 
-		<a class="navlink" href="viewinspiration.html">Inspiration</a><span></span>
-		<a class="navlink" href="viewwardrobe.html">Wardrobe</a><span></span>
-		<a class="navlink" href="shoppinglist.html">Shopping List</a> <span></span>
-		<a class="navlink" href="outfitlab.html">Outfit Lab</a>
+			<a class="navlink" href="userhome.html">Home</a><span></span>
+			<a class="navlink" href="profile.html">Profile</a><span></span>
+			<a class="navlink" href="viewinspiration.html">Inspiration</a><span></span>
+			<a class="navlink" href="viewwardrobe.html">Wardrobe</a><span></span>
+			<a class="navlink" href="shoppinglist.html">Shopping List</a><span></span>
+			<a class="navlink" href="outfitlab.html">Outfit Lab</a>
 		</p>
 	</div>
 	
+<!--BEGINNING OF UNIQUE CONTENT-->
+<!--ShoppingRecs displays a panel divided into three equal columns. The user selects
+	a search category from the leftmost column. This initiates a search for articles
+	that match the category, are not already owned by the user, and appear in a 
+	certain number of inspiration outfits. A list of matching articles appears in 
+	the center column. Clicking on one of these brings up item info and options
+	in the third panel. There, the user can choose to add it to the shopping list or
+	choose never to see it recommended again. The user can also see inspiration pics
+	that contained that item.
+-->	
+	
 	<div id="panelelements">
-		
-	<div class="buttonspacer"></div>
-	<div class="panel narrow" id="clearPanel">
+		<div class="buttonspacer"></div>
+		<div class="panel narrow" id="clearPanel">
 			
 			<!--WORDS TO SHOP BY-->
 			<div class="trifoldColumn">
-				<div class="trifoldtop">1. PICK YOUR CATEGORY</div>
-				<div class="trifoldbottom primaryfocus alignLeft">
+				<div class="trifoldtop lightTop">
+					1. PICK YOUR CATEGORY
+				</div>
+				<div class="trifoldbottom alignLeft">
 					<ul class="topLevel">
 						<li>
 							Top level item
 							<ul>
-								<li>first child</li>
-								<li>second child</li>
-								<li>third child</li>
+								<li>
+									first child
+								</li>
+								<li>
+									second child
+								</li>
+								<li>
+									third child
+								</li>
 							</ul>
 						</li>
 						<li>
 							Second top level
 							<ul>
-								<li>first child</li>
-								<li>second child</li>
-								<li>third child</li>
+								<li>
+									first child
+								</li>
+								<li>
+									second child
+								</li>
+								<li>
+									third child
+								</li>
 							</ul>
 						</li>
 						<li>
 							Childless
 						</li>
 					</ul>
-					
 				</div>
 			</div>
-			
 			
 			<!--RECOMMENDATIONS-->
 			<div class="trifoldColumn norlborders">
-				<div class="trifoldtop">2. SEE RECOMMENDATIONS</div>
-				<div class="trifoldbottom secondaryfocus">
+				<div class="trifoldtop mediumTop">
+					2. SEE RECOMMENDATIONS
+				</div>
+				<div class="trifoldbottom">
 					
 					<!--PLACEHOLDER TEXT UNTIL USER CLICKS SEARCH CATEGORY-->
 					<!--
-					<p class="rPlaceholderText">(select from the list at left to get 
-						shopping recommendations)<p>
+					<p class="rPlaceholderText">(select from the list at left to get
+					shopping recommendations)<p>
 					-->
 					
-					
 					<ul>
-						<li>white sit</li>
-						<li>yellow arnet</li>
-						<li>white consectetur</li>
-						<li>grey lorem</li>
-						<li>black ipsum</li>
-						<li>white dolor</li>
-						<li>gold secunda</li>
-						<li>gray puer</li>
-					
+						<li>
+							white sit
+						</li>
+						<li>
+							yellow arnet
+						</li>
+						<li>
+							white consectetur
+						</li>
+						<li>
+							grey lorem
+						</li>
+						<li>
+							black ipsum
+						</li>
+						<li>
+							white dolor
+						</li>
+						<li>
+							gold secunda
+						</li>
+						<li>
+							gray puer
+						</li>
 					</ul>
-					
 				</div>
 			</div>
-			
 			
 			<!--LOVE IT OR LEAVE IT-->
 			<div class="trifoldColumn">
-				<div class="trifoldtop">3. LOVE IT OR LEAVE IT</div>
-				<div class="trifoldbottom noPadding tertiaryfocus">
-					
+				<div class="trifoldtop darkTop">
+					3. LOVE IT OR LEAVE IT
+				</div>
+				<div class="trifoldbottom noPadding">
 					<!--PLACEHOLDER TEXT UNTIL USER CLICKS ON REC ITEM-->
 					<!--
 					<p class="rPlaceholderText rPadding">(select a recommended item
-						to see how you can wear it, and to add it to your
-						shopping list) </p>
+					to see how you can wear it, and to add it to your
+					shopping list) </p>
 					-->
-					
-					
 					<div class="spotlightInfo">
-						<p id="itemName">white sit</p>
+						<p id="itemName">
+							white sit
+						</p>
 					</div>
-					
 					<div class="spotlightInfo">
-					<a class="textButton floatLeft" href="#">Buy now</a>
-					<a class="textButton floatLeft" href="#">Buy never</a>
-					<a class="textButton floatLeft" href="#">Decide later</a>
+						<a class="textButton floatLeft" href="#">Buy now</a>
+						<a class="textButton floatLeft" href="#">Buy never</a>
+						<a class="textButton floatLeft" href="#">Decide later</a>
 					</div>
-					
 					<div class="spotlightExamples">
 						HOW OTHERS WORE IT
 						<div class="exampleOutfits">
-							<img class="outfitRecSmall" src="images/outfits/1.jpeg" alt="Outfit"/>
-							<img class="outfitRecSmall" src="images/outfits/5.jpeg" alt="Outfit"/>
-							<img class="outfitRecSmall" src="images/outfits/6.jpeg" alt="Outfit"/>
-							<img class="outfitRecSmall" src="images/outfits/7.jpeg" alt="Outfit"/>
-							<img class="outfitRecSmall" src="images/outfits/8.jpeg" alt="Outfit"/>
+							<img class="outfitInTwoRows" src="images/outfits/1.jpeg" alt="Outfit"/>
+							<img class="outfitInTwoRows" src="images/outfits/5.jpeg" alt="Outfit"/>
+							<img class="outfitInTwoRows" src="images/outfits/6.jpeg" alt="Outfit"/>
+							<img class="outfitInTwoRows" src="images/outfits/7.jpeg" alt="Outfit"/>
+							<img class="outfitInTwoRows" src="images/outfits/8.jpeg" alt="Outfit"/>
 						</div>
 						<div class="exampleOutfitNav">
-							<div id="subpanelLeft">showing x outfits of y</div>
-							<div id="subpanelRight">LR</div>
+							<div id="subpanelLeft">
+								showing x outfits of y
+							</div>
+							<div id="subpanelRight">
+								LR
+							</div>
 						</div>
 					</div>
-					
 				</div>
 			</div>
-						
+		</div>
+		<div class="buttonspacer"></div>
 	</div>
-	<div class="buttonspacer"></div>		
-	</div>
-	
 	<div id="subpanelelements">
 		<div class="narrow subpanel">
-			<div id="subpanelFull">	
-					<a class="textButton floatRight" href="shoppinglist.html"> Back to List</a>
+			<div id="subpanelFull">
+				<a class="textButton floatRight" href="shoppinglist.html"> Back to List</a>
 			</div>
 		</div>
 	</div>
+	
+<!--END OF CONTENT-->
 
 	<div id="footerelements">
 		<p>
-			<a href="userhome.html">Home</a> | <a href="profile.html">Profile</a> | 
-			<a href="viewinspiration.html">Inspiration</a> | <a href="viewwardrobe.html">Wardrobe</a> |
-			<a href="shoppinglist.html">Shopping List</a> | <a href="outfitlab.html">Outfit Lab</a> | 
-			<a href="about.html">About Us</a> | <a href="contact.html">Contact</a>
+			<a href="userhome.html">Home</a> | <a href="profile.html">Profile</a> | <a href="viewinspiration.html">Inspiration</a> | <a href="viewwardrobe.html">Wardrobe</a> | <a href="shoppinglist.html">Shopping List</a> | <a href="outfitlab.html">Outfit Lab</a> | <a href="about.html">About Us</a> | <a href="contact.html">Contact</a>
 		</p>
-		<p>Copyright &copy; 2012 - Disrobe</p>
+		<p>
+			Copyright &copy; 2012 - Disrobe
+		</p>
 	</div>
-	
 </body>
 </html>

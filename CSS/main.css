@@ -188,16 +188,12 @@ a.navlink:active{
 /*4. GENERIC PANEL AREA ELEMENTS*/
 
 /*Regarding the height of .panel and width of .narrow: wardrobe view contains a 
- * grid of square images whose height is set by #articlephoto. To ensure even
- * spacing on all sides, .panel height and .narrow width must obey the following:
- * height of .panel -2(.panel padding) = 6(margin+border) + 3(height) of #articlephoto
- * width of .narrow -2(.panel padding) = 10(margin+border) + 5(height) of #articlephoto
- */    
-
+ * grid of square images. To ensure even spacing on all sides, .panel height and 
+ * .narrow width must remain in their current proportion. */
 
 .panel {
     top:10px; /*Creates gap between #navstripe and viewing panel. Cannot exceed height #panelelements - height .panel*/
-    height:510px; /*Cannot be changed without changing height or margins of #articlephoto */  
+    height:510px;   
     border: 1px solid #FFFFFF;
     padding:5px; /*Same as padding on .subpanel.*/
     background-color: rgba(255,255,255,0.4);
@@ -300,13 +296,6 @@ a.navlink:active{
 
 /*PHOTOGRAPH FORMATTING*/
 
-.inspirationPhoto{
-    height:32.5%; /*For three rows of pictures with margins*/
-    margin:1px; /*Arbitrary*/
-    border: 1px solid #FFFFFF;
-    display:inline-block;
-}
-
 .articlePhoto{
     height:32%; /*For three rows of pictures with margins*/
     margin:2px; /*Arbitrary*/
@@ -314,17 +303,29 @@ a.navlink:active{
     display:inline-block;
 }
 
-.outfitRecLarge{
+.outfitFullScreen{
     margin:1px; /*Arbitrary*/
     border: 1px solid #FFFFFF;
-    height:99%; /*Allows some space for margins*/
+    height:99%; /*For a picture that is as tall as the panel, with some margin.*/
     display:inline-block;
 }
 
-.outfitRecSmall{
+.outfitInTwoRows{
     margin:1px;
     border:1px solid #ffffff;
-    height:48%; /*Allows for two rows of pictures*/
+    height:48%; /*For two rows of pictures, with margins.*/
+    display:inline-block;
+}
+
+#oViewingScreen > .outfitInTwoRows{
+    margin-bottom:-3px; /*To combat appearance of excessive margin between rows.*/
+    height:48.5%;
+}
+
+.outfitInThreeRows{
+    height:32.5%; /*For three rows of pictures with margins*/
+    margin:1px; /*Arbitrary*/
+    border: 1px solid #FFFFFF;
     display:inline-block;
 }
 
@@ -353,9 +354,9 @@ a.navlink:active{
     background-color: #b5c000;
 }
 
-/*.trifoldColumn:hover .trifoldbottom{
+.trifoldColumn:hover .trifoldbottom{
     background-color: rgba(255,255,255,0.3);
-}*/
+}
 
 
 .trifoldtop{
@@ -363,7 +364,7 @@ a.navlink:active{
     width:100%;
     display:block;
     float:left;
-    background-color: #99980b;
+    /*background-color: #99980b;*/
     border-bottom:1px solid #FFFFFF;
     
     text-align:left;
@@ -371,6 +372,18 @@ a.navlink:active{
     color:#FFFFFF;
     padding-top:20px;
     padding-left:30px;
+}
+
+.darkTop{
+    background-color:#444241;
+}
+
+.mediumTop{
+    background-color:#595655
+}
+
+.lightTop{
+    background-color:#6f6c6c;
 }
 
 .trifoldbottom{
@@ -408,7 +421,7 @@ a.navlink:active{
 }
 
 .secondaryfocus{
-    background-color: rgba(200,200,200,0.3);
+    background-color: rgba(180,180,180,0.3);
 }
 
 .tertiaryfocus{
@@ -444,13 +457,13 @@ a.navlink:active{
 }
 
 #rectaddbutton{
-    height: 158px; /*Must match height of #articlephoto.*/
+    height: 158px; /*Approximates height of .inspirationphoto*/
     width: 100px; /*Arbitrary*/
     font-size:20px;
     padding-top:40px;
     
     top:0;
-    margin-top:2px; /*top, bottom and left margins = margin of #articlephoto.*/
+    margin-top:2px; /*Arbitrary*/
     margin-bottom:2px;
     margin-left:3px;
     margin-right:3px;
@@ -462,15 +475,15 @@ a.navlink:active{
 
 #squareaddbutton{
     
-    height:158px; /*Must match height of #articlephoto.*/
-    width:158px; /*Equal to height to match square aspect of #articlephoto*/
+    height:158px; /*Approximates height of .articlephoto.*/
+    width:158px; /*Equal to height to match square aspect of .articlephoto*/
     font-size:20px;
     padding-top:40px;
    
     top:0;
-    margin-top:3px; /*top, bottom and left margins = margin of #articlephoto.*/
+    margin-top:3px; /*top, bottom and left margins are arbitrary*/
     margin-bottom:3px;
-    margin-left:4px;
+    margin-left:5px;
     margin-right:3px;  
 }
 

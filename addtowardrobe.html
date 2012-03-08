@@ -1,5 +1,4 @@
 <!doctype html>
-
 <head>
 	<!-- STYLE SHEETS -->
 	<link rel="stylesheet" href="css/reset.css">
@@ -8,114 +7,123 @@
 	<link href='http://fonts.googleapis.com/css?family=Tenor+Sans' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Questrial' rel='stylesheet' type='text/css'>
 </head>
-
 <body>
-	
 	<div id="staticelements">
 		<div id="topstripe" class="ribbon"></div>
 		<p id="logo">
-		D<span></span>I<span></span>S<span></span>R<span></span>O<span></span>B<span></span>E
+			D<span></span>I<span></span>S<span></span>R<span></span>O<span></span>B<span></span>E
 		</p>
 		<div id="navstripe" class="ribbon"></div>
 		<div id="bottomstripe" class="ribbon"></div>
 	</div>
-	
 	<div id="headerelements">
-		<p id="hello">Hello, user! <a href="index.html">{sign out}</a> 
+		<p id="hello">
+			Hello, user! <a href="index.html">{sign out}</a>
 		</p>
 	</div>
-	
 	<div id="navbarelements">
 		<p id="navbartext">
-		<a class="navlink" href="userhome.html">Home</a> <span></span> 
-		<a class="navlink" href="profile.html">Profile</a> <span></span> 
-		<a class="navlink" href="viewinspiration.html">Inspiration</a><span></span>
-		<a class="navlink" href="viewwardrobe.html">Wardrobe</a><span></span>
-		<a class="navlink" href="shoppinglist.html">Shopping List</a> <span></span>
-		<a class="navlink" href="outfitlab.html">Outfit Lab</a>
+			<a class="navlink" href="userhome.html">Home</a><span></span>
+			<a class="navlink" href="profile.html">Profile</a><span></span>
+			<a class="navlink" href="viewinspiration.html">Inspiration</a><span></span>
+			<a class="navlink" href="viewwardrobe.html">Wardrobe</a><span></span>
+			<a class="navlink" href="shoppinglist.html">Shopping List</a><span></span>
+			<a class="navlink" href="outfitlab.html">Outfit Lab</a>
 		</p>
 	</div>
+	
+<!--BEGINNING OF UNIQUE CONTENT-->
+<!--AddTOWardrobe provides user with forms for adding articles to their wardrobe.
+	A new article has a picture, category, color, and style. It is automatically
+	marked as owned. The user can use the l/r navigation arrows to add as many
+	articles to their wardrobe at one time as desired. When finished, the user 
+	clicks either "cancel" or "finished". The former saves and clears the forms;
+	the latter prompts the user to confirm that they don't want to save.-->	
 	
 	<div id="panelelements">
 		<div class="wide panel">
-			
 			<div class="wSides">
-				
 				<div class="wTop"></div>
 				<div class="buttonAdjustment">
 					<div class="buttonspacer">
 						<div class="arrow" id="leftarrow"></div>
 					</div>
 				</div>
-				
 			</div>
-			
 			<div class="wCenter">
-				
 				<div class="wTop">
 					New threads? Picture 'em, then describe 'em.
 				</div>
-				
 				<div class="wMiddle">
 					<div class="columnThirds">
-						<div class="articlePlaceholder"><a href="#">Click to upload</a></div>
-						<label for="setcategory">item: </label> <input type="text" id="setcategory" placeholder="ex. sweater" ><br />
-					<label for="setcolor">color: </label> <input type="text" id="setcolor" placeholder="ex. yellow"><br />
-					<label for="setstyle">style: </label> <input type="text" id="setstyle" placeholder="ex. classic"><br />
-						
+						<div class="articlePlaceholder">
+							<a href="#">Click to upload</a>
+						</div>
+						<label for="setcategory">item: </label>
+						<input type="text" id="setcategory" placeholder="ex. sweater" >
+						<br />
+						<label for="setcolor">color: </label>
+						<input type="text" id="setcolor" placeholder="ex. yellow">
+						<br />
+						<label for="setstyle">style: </label>
+						<input type="text" id="setstyle" placeholder="ex. classic">
+						<br />
 					</div>
-					
 					<div class="columnThirds">
-						<div class="articlePlaceholder"><a href="#">Click to upload</a></div>
-						<label for="setcategory">item: </label> <input type="text" id="setcategroy"><br />
-						<label for="setcolor">color: </label> <input type="text" id="setcolor"><br />
-						<label for="setstyle">style: </label> <input type="text" id="setstyle"><br />
-						
+						<div class="articlePlaceholder">
+							<a href="#">Click to upload</a>
+						</div>
+						<label for="setcategory">item: </label>
+						<input type="text" id="setcategroy">
+						<br />
+						<label for="setcolor">color: </label>
+						<input type="text" id="setcolor">
+						<br />
+						<label for="setstyle">style: </label>
+						<input type="text" id="setstyle">
+						<br />
 					</div>
-					
 					<div class="columnThirds">
-						<div class="articlePlaceholder"><a href="#">Click to upload</a></div>
-						<label for="setcategory">item: </label> <input type="text" id="setcategroy"><br />
-						<label for="setcolor">color: </label> <input type="text" id="setcolor"><br />
-						<label for="setstyle">style: </label> <input type="text" id="setstyle"><br />
-						
+						<div class="articlePlaceholder">
+							<a href="#">Click to upload</a>
+						</div>
+						<label for="setcategory">item: </label>
+						<input type="text" id="setcategroy">
+						<br />
+						<label for="setcolor">color: </label>
+						<input type="text" id="setcolor">
+						<br />
+						<label for="setstyle">style: </label>
+						<input type="text" id="setstyle">
+						<br />
 					</div>
 				</div>
-				
 				<div class="wBottom">
 					<a class="textButton floatRight" href="#"> cancel</a>
 					<a class="textButton floatRight" href="#"> finished</a>
 				</div>
-				
 			</div>
-				
 			<div class="wSides">
-				
 				<div class="wTop"></div>
 				<div class="buttonAdjustment">
 					<div class="buttonspacer">
 						<div class="arrow" id="rightarrow"></div>
 					</div>
 				</div>
-				
-			</div>	
-				
-			
+			</div>
 		</div>
 	</div>
+	<div id="subpanelelements"></div>
 	
-	<div id="subpanelelements">	
-	</div>
-
+<!--END OF CONTENT-->	
+	
 	<div id="footerelements">
 		<p>
-			<a href="userhome.html">Home</a> | <a href="profile.html">Profile</a> | 
-			<a href="viewinspiration.html">Inspiration</a> | <a href="viewwardrobe.html">Wardrobe</a> |
-			<a href="shoppinglist.html">Shopping List</a> | <a href="outfitlab.html">Outfit Lab</a> | 
-			<a href="about.html">About Us</a> | <a href="contact.html">Contact</a>
+			<a href="userhome.html">Home</a> | <a href="profile.html">Profile</a> | <a href="viewinspiration.html">Inspiration</a> | <a href="viewwardrobe.html">Wardrobe</a> | <a href="shoppinglist.html">Shopping List</a> | <a href="outfitlab.html">Outfit Lab</a> | <a href="about.html">About Us</a> | <a href="contact.html">Contact</a>
 		</p>
-		<p>Copyright &copy; 2012 - Disrobe</p>
+		<p>
+			Copyright &copy; 2012 - Disrobe
+		</p>
 	</div>
-	
 </body>
 </html>

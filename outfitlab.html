@@ -1,5 +1,4 @@
 <!doctype html>
-
 <head>
 	<!-- STYLE SHEETS -->
 	<link rel="stylesheet" href="css/reset.css">
@@ -8,102 +7,92 @@
 	<link href='http://fonts.googleapis.com/css?family=Tenor+Sans' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Questrial' rel='stylesheet' type='text/css'>
 </head>
-
 <body>
-	
 	<div id="staticelements">
 		<div id="topstripe" class="ribbon"></div>
 		<p id="logo">
-		D<span></span>I<span></span>S<span></span>R<span></span>O<span></span>B<span></span>E
+			D<span></span>I<span></span>S<span></span>R<span></span>O<span></span>B<span></span>E
 		</p>
 		<div id="navstripe" class="ribbon"></div>
 		<div id="bottomstripe" class="ribbon"></div>
 	</div>
-	
 	<div id="headerelements">
-		<p id="hello">Hello, user! <a href="index.html">{sign out}</a> 
+		<p id="hello">
+			Hello, user! <a href="index.html">{sign out}</a>
 		</p>
 	</div>
-	
 	<div id="navbarelements">
 		<p id="navbartext">
-		<a class="navlink" href="userhome.html">Home</a> <span></span> 
-		<a class="navlink" href="profile.html">Profile</a> <span></span> 
-		<a class="navlink" href="viewinspiration.html">Inspiration</a><span></span>
-		<a class="navlink" href="viewwardrobe.html">Wardrobe</a><span></span>
-		<a class="navlink" href="shoppinglist.html">Shopping List</a> <span></span>
-		<a class="navlink" href="outfitlab.html">Outfit Lab</a>
+			<a class="navlink" href="userhome.html">Home</a><span></span>
+			<a class="navlink" href="profile.html">Profile</a><span></span>
+			<a class="navlink" href="viewinspiration.html">Inspiration</a><span></span>
+			<a class="navlink" href="viewwardrobe.html">Wardrobe</a><span></span>
+			<a class="navlink" href="shoppinglist.html">Shopping List</a><span></span>
+			<a class="navlink" href="outfitlab.html">Outfit Lab</a>
 		</p>
 	</div>
+
+<!--BEGINNING OF UNIQUE CONTENT-->
+<!--OutfitLab allows user to search their inspiration photos for outfits that match a
+	user-specified mood and/or occasion and are composed of articles the user owns.-->
 	
 	<div id="panelelements">
 		<div class="wide panel">
-			
-		<div id="oTop">
-			<div class="buttonspacer"><div class="arrow" id="leftarrow"></div></div>
-			<div id="oViewingScreen" class="oText">
-				
-				<!-- FOLLOWING TEXT IS VISIBLE BEFORE SEARCH
-				Need inspiration? <br /> <br />
-				Name the style and/or occasion. <br /> 
-				Let Outfit Lab do the rest.
-				-->
-
-
-				<!--SEARCH RESULTS WHEN VIEW IS ONE UP
-				<img class="outfitRecLarge" src="images/outfits/1.jpeg" alt="Outfit"/>
-				<img class="outfitRecLarge" src="images/outfits/3.jpeg" alt="Outfit"/>
-				-->
-				
-				<!--SEARCH RESULTS WHEN VIEW IS MULTI-->
-				<img class="outfitRecSmall" src="images/outfits/1.jpeg" alt="Outfit"/>
-				<img class="outfitRecSmall" src="images/outfits/2.jpeg" alt="Outfit"/>
-				<img class="outfitRecSmall" src="images/outfits/3.jpeg" alt="Outfit"/>
-				<img class="outfitRecSmall" src="images/outfits/4.jpeg" alt="Outfit"/>
-				<img class="outfitRecSmall" src="images/outfits/5.jpeg" alt="Outfit"/>
-				<img class="outfitRecSmall" src="images/outfits/6.jpeg" alt="Outfit"/>
-				<img class="outfitRecSmall" src="images/outfits/7.jpeg" alt="Outfit"/>
-				<img class="outfitRecSmall" src="images/outfits/8.jpeg" alt="Outfit"/>
-				
-			</div>		
-		
-			<div class="buttonspacer"><div class="arrow" id="rightarrow"></div></div>	
-		</div>
-		
-		<div id="oBottom" class="oText tertiaryfocus">
-			Find outfits in your closet that are 
-			<input type="text" id="narrowbystyle" placeholder="style">
-			and/or 
-			<input type="text" id="narrowbyoccasion" placeholder="occasion">
-			appropriate.
-		</div>
-			
-		
-			
+			<div id="oTop">
+				<div class="buttonspacer">
+					<div class="arrow" id="leftarrow"></div>
+				</div>
+				<div id="oViewingScreen" class="oText">
+					<!-- FOLLOWING TEXT IS VISIBLE BEFORE SEARCH
+					Need inspiration? <br /> <br />
+					Name the style and/or occasion. <br />
+					Let Outfit Lab do the rest.
+					-->
+					<!--SEARCH RESULTS WHEN VIEW IS ONE UP-->
+					<img class="outfitFullScreen" src="images/outfits/1.jpeg" alt="Outfit"/>
+					<img class="outfitFullScreen" src="images/outfits/3.jpeg" alt="Outfit"/>
+					<!--SEARCH RESULTS WHEN VIEW IS MULTI
+					<img class="outfitInTwoRows" src="images/outfits/1.jpeg" alt="Outfit"/>
+					<img class="outfitInTwoRows" src="images/outfits/2.jpeg" alt="Outfit"/>
+					<img class="outfitInTwoRows" src="images/outfits/3.jpeg" alt="Outfit"/>
+					<img class="outfitInTwoRows" src="images/outfits/4.jpeg" alt="Outfit"/>
+					<img class="outfitInTwoRows" src="images/outfits/5.jpeg" alt="Outfit"/>
+					<img class="outfitInTwoRows" src="images/outfits/6.jpeg" alt="Outfit"/>
+					<img class="outfitInTwoRows" src="images/outfits/7.jpeg" alt="Outfit"/>
+					<img class="outfitInTwoRows" src="images/outfits/8.jpeg" alt="Outfit"/>
+					-->
+				</div>
+				<div class="buttonspacer">
+					<div class="arrow" id="rightarrow"></div>
+				</div>
+			</div>
+			<div id="oBottom" class="oText tertiaryfocus">
+				Find outfits in your closet that are
+				<input type="text" id="narrowbystyle" placeholder="style">
+				and/or
+				<input type="text" id="narrowbyoccasion" placeholder="occasion">
+				appropriate.
+			</div>
 		</div>
 	</div>
-	
 	<div id="subpanelelements">
 		<div class="wide subpanel">
 			<div id="subpanelLeft"></div>
 			<div id="subpanelRight">
-				
 				View:
-				 
 			</div>
-			
 		</div>
 	</div>
-
+	
+<!--END OF CONTENT-->	
+	
 	<div id="footerelements">
 		<p>
-			<a href="userhome.html">Home</a> | <a href="profile.html">Profile</a> | 
-			<a href="viewinspiration.html">Inspiration</a> | <a href="viewwardrobe.html">Wardrobe</a> |
-			<a href="shoppinglist.html">Shopping List</a> | <a href="outfitlab.html">Outfit Lab</a> | 
-			<a href="about.html">About Us</a> | <a href="contact.html">Contact</a>
+			<a href="userhome.html">Home</a> | <a href="profile.html">Profile</a> | <a href="viewinspiration.html">Inspiration</a> | <a href="viewwardrobe.html">Wardrobe</a> | <a href="shoppinglist.html">Shopping List</a> | <a href="outfitlab.html">Outfit Lab</a> | <a href="about.html">About Us</a> | <a href="contact.html">Contact</a>
 		</p>
-		<p>Copyright &copy; 2012 - Disrobe</p>
+		<p>
+			Copyright &copy; 2012 - Disrobe
+		</p>
 	</div>
-	
 </body>
 </html>

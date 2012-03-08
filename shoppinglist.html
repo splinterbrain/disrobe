@@ -1,5 +1,4 @@
 <!doctype html>
-
 <head>
 	<!-- STYLE SHEETS -->
 	<link rel="stylesheet" href="css/reset.css">
@@ -8,119 +7,144 @@
 	<link href='http://fonts.googleapis.com/css?family=Tenor+Sans' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Questrial' rel='stylesheet' type='text/css'>
 </head>
-
 <body>
-	
 	<div id="staticelements">
 		<div id="topstripe" class="ribbon"></div>
 		<p id="logo">
-		D<span></span>I<span></span>S<span></span>R<span></span>O<span></span>B<span></span>E
+			D<span></span>I<span></span>S<span></span>R<span></span>O<span></span>B<span></span>E
 		</p>
 		<div id="navstripe" class="ribbon"></div>
 		<div id="bottomstripe" class="ribbon"></div>
 	</div>
-	
 	<div id="headerelements">
-		<p id="hello">Hello, user! <a href="index.html">{sign out}</a> 
+		<p id="hello">
+			Hello, user! <a href="index.html">{sign out}</a>
 		</p>
 	</div>
-	
 	<div id="navbarelements">
 		<p id="navbartext">
-		<a class="navlink" href="userhome.html">Home</a> <span></span> 
-		<a class="navlink" href="profile.html">Profile</a> <span></span> 
-		<a class="navlink" href="viewinspiration.html">Inspiration</a><span></span>
-		<a class="navlink" href="viewwardrobe.html">Wardrobe</a><span></span>
-		<a class="navlink" href="shoppinglist.html">Shopping List</a> <span></span>
-		<a class="navlink" href="outfitlab.html">Outfit Lab</a>
+			<a class="navlink" href="userhome.html">Home</a><span></span>
+			<a class="navlink" href="profile.html">Profile</a><span></span>
+			<a class="navlink" href="viewinspiration.html">Inspiration</a><span></span>
+			<a class="navlink" href="viewwardrobe.html">Wardrobe</a><span></span>
+			<a class="navlink" href="shoppinglist.html">Shopping List</a><span></span>
+			<a class="navlink" href="outfitlab.html">Outfit Lab</a>
 		</p>
 	</div>
+
+<!--BEGINNING OF UNIQUE CONTENT-->	
+<!--ShoppingList displays a narrow panel divided into three equal columns. In the center
+	column is displayed a list of the items the user has added to their shopping list.
+	Clicking on one of these items causes item-specific options and info to appear in
+	the right-hand column. The user can choose to remove the item from the shopping list
+	without buying it, or cross it off. Crossing an item off should prompt the user to 
+	add the item to their wardrobe. The left-hand column gives the user the option to
+	add an item to their list manually, get recommendations (go to the shoppingrecs page)
+	or share their list as a wishlist via email.-->
 	
 	<div id="panelelements">
 		<div class="buttonspacer"></div>
 		<div class="panel narrow" id="clearPanel">
-			
 			<!--TOOLS-->
 			<div class="trifoldColumn">
-				<div class="trifoldtop">Tools</div>
-				
+				<div class="trifoldtop mediumTop">
+					Tools
+				</div>
 				<div class="trifoldbottom noPadding secondaryfocus">
-					<div class="lHorizontalTrifold"><a href="#">ADD</a></div>
-					<div class="lHorizontalTrifold"><a href="shoppingrecs.html">GET IDEAS</a></div>
-					<div class="lHorizontalTrifold"><a href="#">SHARE</a></div>	
+					<div class="lHorizontalTrifold">
+						<a href="#">ADD</a>
+					</div>
+					<div class="lHorizontalTrifold">
+						<a href="shoppingrecs.html">GET IDEAS</a>
+					</div>
+					<div class="lHorizontalTrifold">
+						<a href="#">SHARE</a>
+					</div>
 				</div>
 			</div>
-			
 			<!--SHOPPING LIST-->
 			<div class="trifoldColumn norlborders">
-				<div class="trifoldtop alignCenter">Shopping List</div>
-				<div class="trifoldbottom primaryfocus">
+				<div class="trifoldtop alignCenter lightTop">
+					Shopping List
+				</div>
+				<div class="trifoldbottom">
 					<ul>
-						<li>white sit</li>
-						<li>yellow arnet</li>
-						<li>white consectetur</li>
-						<li>grey lorem</li>
-						<li>black ipsum</li>
-						<li>white dolor</li>
-						<li>gold secunda</li>
-						<li>gray puer</li>
-					</ul>	
+						<li>
+							white sit
+						</li>
+						<li>
+							yellow arnet
+						</li>
+						<li>
+							white consectetur
+						</li>
+						<li>
+							grey lorem
+						</li>
+						<li>
+							black ipsum
+						</li>
+						<li>
+							white dolor
+						</li>
+						<li>
+							gold secunda
+						</li>
+						<li>
+							gray puer
+						</li>
+					</ul>
 				</div>
 			</div>
-			
-			<!--ITEM SPOTLIGHT-->		
+			<!--ITEM SPOTLIGHT-->
 			<div class="trifoldColumn">
-				<div class="trifoldtop">Item Spotlight</div>
+				<div class="trifoldtop mediumTop">
+					Item Spotlight
+				</div>
 				<div class="trifoldbottom noPadding secondaryfocus">
-					
 					<div class="spotlightInfo">
-						<p id="itemName">white sit</p>
+						<p id="itemName">
+							white sit
+						</p>
 					</div>
-				
 					<div class="spotlightInfo">
 						<a class="textButton floatLeft" href="#">Got it</a>
 						<a class="textButton floatLeft" href="#">Forget it</a>
 					</div>
-				
 					<div class="spotlightExamples">
-					HOW OTHERS WORE IT
-					<div class="exampleOutfits">
-						<img class="outfitRecSmall" src="images/outfits/1.jpeg" alt="Outfit"/>
-						<img class="outfitRecSmall" src="images/outfits/5.jpeg" alt="Outfit"/>
-						<img class="outfitRecSmall" src="images/outfits/6.jpeg" alt="Outfit"/>
-						<img class="outfitRecSmall" src="images/outfits/7.jpeg" alt="Outfit"/>
-						<img class="outfitRecSmall" src="images/outfits/8.jpeg" alt="Outfit"/>
+						HOW OTHERS WORE IT
+						<div class="exampleOutfits">
+							<img class="outfitInTwoRows" src="images/outfits/1.jpeg" alt="Outfit"/>
+							<img class="outfitInTwoRows" src="images/outfits/5.jpeg" alt="Outfit"/>
+							<img class="outfitInTwoRows" src="images/outfits/6.jpeg" alt="Outfit"/>
+							<img class="outfitInTwoRows" src="images/outfits/7.jpeg" alt="Outfit"/>
+							<img class="outfitInTwoRows" src="images/outfits/8.jpeg" alt="Outfit"/>
+						</div>
+						<div class="exampleOutfitNav">
+							<div id="subpanelLeft">
+								showing x outfits of y
+							</div>
+							<div id="subpanelRight">
+								LR
+							</div>
+						</div>
 					</div>
-					<div class="exampleOutfitNav">
-						<div id="subpanelLeft">showing x outfits of y</div>
-						<div id="subpanelRight">LR</div>
-					</div>
-				
-				</div>
-					
-					
 				</div>
 			</div>
-			
-						
-		</div>	
-		
-	<div class="buttonspacer"></div>
+		</div>
+		<div class="buttonspacer"></div>
 	</div>
+	<div id="subpanelelements"></div>
 
-	<div id="subpanelelements">
-		
-	</div>
+<!--END OF CONTENT-->
 
 	<div id="footerelements">
 		<p>
-			<a href="userhome.html">Home</a> | <a href="profile.html">Profile</a> | 
-			<a href="viewinspiration.html">Inspiration</a> | <a href="viewwardrobe.html">Wardrobe</a> |
-			<a href="shoppinglist.html">Shopping List</a> | <a href="outfitlab.html">Outfit Lab</a> | 
-			<a href="about.html">About Us</a> | <a href="contact.html">Contact</a>
+			<a href="userhome.html">Home</a> | <a href="profile.html">Profile</a> | <a href="viewinspiration.html">Inspiration</a> | <a href="viewwardrobe.html">Wardrobe</a> | <a href="shoppinglist.html">Shopping List</a> | <a href="outfitlab.html">Outfit Lab</a> | <a href="about.html">About Us</a> | <a href="contact.html">Contact</a>
 		</p>
-		<p>Copyright &copy; 2012 - Disrobe</p>
+		<p>
+			Copyright &copy; 2012 - Disrobe
+		</p>
 	</div>
-	
 </body>
 </html>
