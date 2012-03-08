@@ -318,7 +318,7 @@ a.navlink:active{
 }
 
 #oViewingScreen > .outfitInTwoRows{
-    margin-bottom:-3px; /*To combat appearance of excessive margin between rows.*/
+    margin-bottom:-3px; /*To combat appearance of excessive margin between rows on this page.*/
     height:48.5%;
 }
 
@@ -327,6 +327,23 @@ a.navlink:active{
     margin:1px; /*Arbitrary*/
     border: 1px solid #FFFFFF;
     display:inline-block;
+}
+
+.clippedSquare{
+    height:80px; /*Arbitrary. Picked because it allows for 6 rows with even spacing.*/
+    width:80px;  /*Matches height to make square.*/
+    border:1px solid #FFFFFF; 
+    overflow:hidden;
+    display:inline-block;
+    text-align:center;
+    line-height:65px; /*Arbitrary. Vertically centers add button.*/
+}
+.clippedSquare > img{
+    position:absolute;
+    /* Adjust these to move the thumbnail around */
+    width:80px;
+    top:-10px;
+    left:0px;  
 }
 
 /*4.1 TRIFOLD PANELS*/
@@ -434,7 +451,8 @@ a.navlink:active{
 .button {
     background-color: #bab6af;
     color: white;
-    border: 1px solid #FFFFFF;
+    width:100%;
+    height:100%;
     
     display: inline-block;
     text-align: center;
@@ -451,6 +469,10 @@ a.navlink:active{
     transition: all 0.5s ease;
 }
 
+.button > span{
+    font-size:100px;
+}
+
 .button:hover{
     background-color: #e1e1e1;
     color: #FFFFFF;    
@@ -459,6 +481,7 @@ a.navlink:active{
 #rectaddbutton{
     height: 158px; /*Approximates height of .inspirationphoto*/
     width: 100px; /*Arbitrary*/
+    border: 1px solid #FFFFFF;
     font-size:20px;
     padding-top:40px;
     
@@ -469,16 +492,13 @@ a.navlink:active{
     margin-right:3px;
 }
 
-#rectaddbutton > span{
-    font-size:100px;
-}
-
 #squareaddbutton{
     
     height:158px; /*Approximates height of .articlephoto.*/
     width:158px; /*Equal to height to match square aspect of .articlephoto*/
     font-size:20px;
     padding-top:40px;
+    border: 1px solid #FFFFFF;
    
     top:0;
     margin-top:3px; /*top, bottom and left margins are arbitrary*/
@@ -610,6 +630,10 @@ li:hover{
     padding:0px;
 }
 
+.noBorder{
+    border:none;
+}
+
 .alignLeft{
     text-align:left;
 }
@@ -671,6 +695,37 @@ li:hover{
 /*9. USER PROFILE*/
 
 /*10. VIEW INSPIRATION*/
+
+#iLeftHand{
+   height:100%;
+   width:600px;
+   position:absolute;
+   padding:3px;
+   top:0px;
+   left:0px;
+}
+
+#iRightHand{
+    height:100%;
+    width:338px;
+    position:absolute;
+    top:0px;
+    right:0px;
+    
+    
+    text-align:center;
+    padding:3px;
+    border-left:1px solid #FFFFFF;
+    
+}
+
+#iViewingScreen{
+    height:100%;
+    width:500px;
+    display:block;
+    float:left;
+}
+
 
 /*11. ADD INSPIRATION*/
 
@@ -1042,10 +1097,11 @@ li:hover{
 
 #oBottom{
     height:20%; /*Tied to height of #oTop*/
-    line-height:100px; /*same as height to create appearance of vertical centering*/ 
+    line-height:90px; /*Approximates height to create appearance of vertical centering*/ 
     width:100%; /*as wide as #panelelements*/  
     background-color: rgba(100,100,100,0.3);
     border-top: 1px solid #FFFFFF;
+    padding:5px;
     
     position:absolute;
     left:0px;
