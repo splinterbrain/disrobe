@@ -72,7 +72,6 @@ body:after {
     margin-right:auto;
     margin-left:auto;
     color: #FFFFFF;
-    /*border:1px solid #ffffff;*/
 }
 
 #navbarelements {
@@ -82,7 +81,6 @@ body:after {
     margin-right:auto;
     margin-left:auto;
     color: #FFFFFF;
-    /*border:1px solid #FFFFFF;*/
 }
 
 #panelelements {
@@ -93,7 +91,6 @@ body:after {
     margin-right:auto;
     margin-left:auto;
     text-align:center;
-    /*border:1px solid #ffffff;*/
 }
 #subpanelelements{
     z-index: 1;
@@ -101,7 +98,6 @@ body:after {
     height:35px; /*Arbitrarily determined height of viewing area nav elements.*/
     margin-right:auto;
     margin-left:auto;
-    /*border:1px solid #FFFFFF;*/
 }
 
 
@@ -114,8 +110,6 @@ body:after {
     margin-left:auto;
     text-align:center;
     color: #FFFFFF;
-    /*border:1px solid #ffffff;*/
-    
 }
 
 /*2. STATIC ELEMENTS*/
@@ -195,7 +189,7 @@ a.navlink:active{
     top:10px; /*Creates gap between #navstripe and viewing panel. Cannot exceed height #panelelements - height .panel*/
     height:510px;   
     border: 1px solid #FFFFFF;
-    padding:5px; /*Same as padding on .subpanel.*/
+    padding:4px; /*Same as padding on .subpanel*/
     background-color: rgba(255,255,255,0.4);
     text-align:center;
     display:inline-block;
@@ -211,7 +205,6 @@ a.navlink:active{
     display:block;
     margin-left:auto;
     margin-right:auto;
-    /*border:1px solid #FFFFFF;*/
 }
 
 .narrow {
@@ -228,7 +221,6 @@ a.navlink:active{
     text-align:left;
     display:block;
     float:left;
-    /*border:1px solid #FFFFFF;*/
 }
 
 #subpanelRight{
@@ -237,7 +229,6 @@ a.navlink:active{
     text-align:right;
     display:block;
     float:left;
-    /*border:1px solid #FFFFFF;*/
 }
 
 #subpanelFull{
@@ -260,7 +251,6 @@ a.navlink:active{
    
     color: #FFFFFF;
     text-align:center;
-    /*border:1px solid #FFFFFF;*/
 }
 
 .arrow {
@@ -297,8 +287,8 @@ a.navlink:active{
 /*PHOTOGRAPH FORMATTING*/
 
 .articlePhoto{
-    height:32%; /*For three rows of pictures with margins*/
-    margin:2px; /*Arbitrary*/
+    height:32.5%; /*For three rows of pictures with margins*/
+    margin:1px; /*Arbitrary*/
     border:1px solid #ffffff;
     display:inline-block;
 }
@@ -494,16 +484,16 @@ a.navlink:active{
 
 #squareaddbutton{
     
-    height:158px; /*Approximates height of .articlephoto.*/
-    width:158px; /*Equal to height to match square aspect of .articlephoto*/
+    height:160px; /*Approximates height of .articlephoto.*/
+    width:160px; /*Equal to height to match square aspect of .articlephoto*/
     font-size:20px;
     padding-top:40px;
     border: 1px solid #FFFFFF;
    
     top:0;
-    margin-top:3px; /*top, bottom and left margins are arbitrary*/
+    margin-top:2px; /*top, bottom and left margins are arbitrary*/
     margin-bottom:3px;
-    margin-left:5px;
+    margin-left:3px;
     margin-right:3px;  
 }
 
@@ -580,7 +570,7 @@ h1{
     margin-bottom:20px;
     text-transform:uppercase;
     font-size: 1.1em; 
-}   
+}
 
 a:link {
     color:#FFFFFF;
@@ -682,7 +672,6 @@ li:hover{
     margin-left:20px;
     margin-right:20px;
     text-align:left;
-    /*border:1px solid #ffffff;*/
 }
 
 .splashad {
@@ -691,6 +680,75 @@ li:hover{
 }
 
 /*8. USER HOME*/
+
+.uSidePane{
+    height:490px;
+    width:25%;
+    margin-top:40px;
+    display:block;
+    float:left;
+    padding:25px;
+    background-color: rgba(66,64,63,0.8);
+    color:#FFFFFF;
+}
+
+.uCenterPane{
+    height:510px;
+    width:49.5%;
+    margin-top:20px;
+    margin-left:2px;
+    margin-right:2px;
+    padding:25px;
+    display:block;
+    float:left;
+    background-color: rgba(66,64,63,1.0);
+}
+
+.uSideHeaders{
+    height:60px;
+    width:100%;
+    border-bottom:1px solid #FFFFFF;
+    margin-bottom:30px;
+    color:#FFFFFF;
+    font-size:1.3em;
+    text-transform:uppercase;
+    line-height:90px;
+}
+
+#howToBox{
+    height:80px;
+    width:100%;
+    border-top:1px solid #FFFFFF;
+    border-bottom:1px solid #FFFFFF;
+    margin-bottom:30px;
+    font-size:80px;
+    line-height:80px;
+    color:#FFFFFF;
+}
+
+#howToHeader{
+    font-size:2em;
+    color: #FFFFFF;
+    background-color: rgba(66,64,63,1.0);
+    position:absolute;
+    left:180px;
+    top:10px;
+    padding:5px;
+    z-index: 2;
+}
+
+.uQuadrant{
+   height:170px;
+   width:50%;
+   padding-right:20px;
+   padding-left:10px;
+   display:block;
+   float:left;
+   text-align:left;
+   color:#FFFFFF;
+   
+
+}
 
 /*9. USER PROFILE*/
 
@@ -755,7 +813,7 @@ li:hover{
     top:0px;
     left:0px;
     border-right:1px solid #FFFFFF;
-    /*border:1px solid #FFFFFF;*/
+    border-bottom:1px solid #FFFFFF;
 }
 
 #toprightwindow{
@@ -766,7 +824,7 @@ li:hover{
     text-align:right;
     top:0px;
     right:0px;
-    /*border:1px solid #FFFFFF;*/
+    border-bottom:1px solid #FFFFFF;
 }
 
 #bottomthird{
@@ -775,7 +833,6 @@ li:hover{
     position:absolute;
     left:0px;
     bottom:0px;
-    border-top: 1px solid #FFFFFF;
 }
 
 #sec2textareas{
@@ -790,7 +847,6 @@ li:hover{
     width:80px;
     display:block;
     float:left;
-    /*border:1px solid white;*/
 }
 
 
@@ -883,7 +939,6 @@ li:hover{
     height:100%;
     display:block;
     float:left;
-    /*border:1px solid #FFFFFF;*/
 }
 
 .articledef{
@@ -931,7 +986,6 @@ li:hover{
     line-height:2.5em; 
     color: #FFFFFF;
     font-size:2em;
-    /*border:1px solid #FFFFFF;*/
 }
 
 .wMiddle {
@@ -940,7 +994,6 @@ li:hover{
     text-align:right;
     display:block; /*Equals width of #panelelements minus 2 times .buttonspacer*/
     float:left;
-    /*border:1px solid #FFFFFF;*/
 }
 
 .wBottom{
@@ -951,7 +1004,6 @@ li:hover{
     text-align:right;
     padding-top:20px;
     padding-right:12px;
-    /*border:1px solid #FFFFFF;*/
 }
 
 .buttonAdjustment{ /*So buttons are approx. vertically centered with .articlePlaceholders*/
