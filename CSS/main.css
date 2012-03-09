@@ -390,7 +390,7 @@ a.navlink:active{
 }
 
 .mediumTop{
-    background-color:#595655
+    background-color:#595655;
 }
 
 .lightTop{
@@ -517,6 +517,10 @@ a.navlink:active{
     
     text-align:center;
     display:block;
+    
+    -moz-box-shadow: 3px 3px 3px 0px rgba(0,0,0,0.1);
+    -webkit-box-shadow: 3px 3px 3px 0px rgba(0,0,0,0.1);
+    box-shadow: 3px 3px 3px 0px rgba(0,0,0,0.1);
 }
 
 .textButton >i{
@@ -583,6 +587,10 @@ h1 > span{
     color:#b5c000;
 }
 
+.shadow {
+    text-shadow: 0.1em 0.1em 0.4em #706d6c;
+}
+
 a:link {
     color:#FFFFFF;
     text-decoration:none;
@@ -600,12 +608,12 @@ a:visited {
 } 
 
 a:hover {
-    color:#000000;
+    color:#373534;
     text-decoration:none;
 } 
 
 a:active {
-    color:#000000;
+    color:#373534;
     text-decoration:none;
 }
 
@@ -617,14 +625,14 @@ ul{
 }
 
 .topLevel {
-    
+    /*Placeholder. Identifies highest level of nested list.*/
 }
 
 .selected{
-  
+    /*Placeholder. Exists so that when user selects a li, the associated ul of sub-li's shows up.*/
 }
 
-.selectedItem{
+.selectedItem{ 
     margin-left:-5px;
     padding-left:5px;
     width:80%; /*Arbitrary, but width + left and right margins should = 100*/
@@ -633,14 +641,14 @@ ul{
 }
 
 .topLevel > li > ul {
- display:none;
+    display:none; /*So that sub-items don't show up unless user selects heading.*/
 }
 
 .topLevel > .selected{
   
 }
 
-.topLevel > .selected > ul{
+.topLevel > .selected > ul{ /*So that sub-items appear when user selects heading.*/
     display:block;
     margin-left:2em;
 }
