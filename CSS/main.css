@@ -35,10 +35,11 @@ body:after {
  * 1. Containers
  * 2. Static Elements (ribbons, logo)
  * 3. Header and Footer Elements (navigation bar, logout button, site map)
- * 4. Generic Panel Area Elements (panel backgrounds, navigation arrows, picture formatting)
+ * 4. Generic Panel Area Elements (backgrounds, navigation arrows, picture formatting)
  * 4.1 Trifold Pages
  * 5. Buttons and inputs (add, delete, close, edit, etc.)
  * 6. Miscellaneous Formatting (headings, default link formatting, list formatting)
+ * 6.1 Pop ups
  * 
  * II. PAGE-SPECIFIC FORMATTING
  * 
@@ -144,6 +145,10 @@ body:after {
 	color: #FFFFFF;
     margin-top: .6em; /*Top/bottom margins space logo between #topstripe and #navstripe.*/
 	margin-bottom: .3em;
+	
+	width: 940px;
+    margin-left:auto;
+    margin-right:auto;
 }
 #logo > span {
 	display: inline-block;
@@ -162,6 +167,9 @@ body:after {
 #navbartext {
     text-align:center;
     top:9px; /*Arbitrary. Controls nav bar text spacing inside #navstripe*/
+    width: 940px;
+    margin-left:auto;
+    margin-right:auto;
 }
 
 #navbartext > span {
@@ -189,8 +197,8 @@ a.navlink:active{
     top:10px; /*Creates gap between #navstripe and viewing panel. Cannot exceed height #panelelements - height .panel*/
     height:510px;   
     border: 1px solid #FFFFFF;
-    padding:4px; /*Same as padding on .subpanel*/
     background-color: rgba(255,255,255,0.4);
+    padding:4px; /*Same as padding on .subpanel*/
     text-align:center;
     display:inline-block;
     float:left;
@@ -212,7 +220,7 @@ a.navlink:active{
 }
 
 .wide {
-    width:100%; /*In practice, as wide as the #panelelements container.*/
+   width:100%; /*In practice, as wide as the #panelelements container.*/
 }
 
 #subpanelLeft{
@@ -354,12 +362,6 @@ a.navlink:active{
     float:left;
     border:1px solid white;
 }
-
-/*.trifoldColumn:hover{
-    -webkit-box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.2);
-    -moz-box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.2);
-    box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.2);
-}*/
 
 .trifoldColumn:hover .trifoldtop{
     background-color: #b5c000;
@@ -507,13 +509,13 @@ a.navlink:active{
 }
 
 .textButton {
-    background-color: #e2e2e1;
+    background-color: #e3e2de;
     color: #000000;
     border: 1px solid #FFFFFF;
-    height:24px; /*Arbitrary*/
+    height:25px; /*Arbitrary*/
     padding-top:2px;
     line-height:20px; /*Equal to height to vertically center text.*/
-    width:76px; /*Arbitrary*/
+    width:78px; /*Arbitrary*/
     
     text-align:center;
     display:block;
@@ -525,8 +527,13 @@ a.navlink:active{
 
 .textButton >i{
     color:#FFFFFF;
+    margin-right:2px;
 }
 
+.defaultSelection{ /*Applied to textButton selected by default, aka the one triggered
+                    if the user hits enter.*/
+    background-color: #B5C000;
+}
 
 a.textButton:link{
     color: #000000;
@@ -667,6 +674,10 @@ ul{
     text-align:left;
 }
 
+.alignRight{
+    text-align:right;
+}
+
 .alignCenter{
     text-align:center;
     padding-left:0px;
@@ -683,6 +694,117 @@ ul{
     float:right;
 }
 
+/* 6.1 POP UPS */
+
+.popup{ /*Applies to all popups*/
+    position:absolute;
+    z-index:1000; 
+    top:10px;
+    left:30%; /*Arbitrary*/
+    background-color: #ebeae8; /*#373534; #f1f1f1;*/
+    text-align:left;
+    color: #42403F;
+    
+   
+    -moz-box-shadow: 3px 3px 10px 5px rgba(0,0,0,0.5);
+    -webkit-box-shadow: 3px 3px 10px 5px rgba(0,0,0,0.5);
+    box-shadow: 3px 3px 25px 5px rgba(0,0,0,0.4);
+}
+
+.popup img{
+    max-height:490px; /*Arbitrary*/  
+    max-width:930px;/*Arbitrary*/
+    border:1px solid #FFFFFF;
+    z-index:999; /*1 less than max so text popups appear on top of image popups*/
+}
+
+.genericTextPopup{
+    height: 125px; /*Arbitrary*/
+    width: 400px; /*Arbitrary*/
+    top:20%; /*Arbitrary*/
+    left:225px;/*width of .narrow - width of signInOrUp / 2 to effect centering*/
+    padding:5px;
+    font-size:1.25em;
+    line-height:1.25em;
+}
+
+.genericTextPopup .textButton{ /*So that font size of buttons is not affected by increasing size of text in popups*/
+    font-size:.75em;
+}
+
+.decorativeBorder{ /*Used with genericTextPopups to create a decorative border*/
+    height:100%;
+    width:100%;
+    border:1px solid #FFFFFF;
+    padding:20px;
+}
+
+.buttonsInPopup{ /*wrapped around text buttons in popups to vertically align them with bottom of popup*/
+    width:100%;
+    position:absolute;
+    bottom:20px;
+    right:20px;
+}
+
+.uploadPopup{ /*Applies to popups used to select image file to upload*/
+    padding:5px;
+    font-size:1.25em;
+    line-height:1.25em;
+}
+
+.uploadPopup .textButton{/*So that font size of buttons is not affected by increasing size of text in popups*/
+    font-size:.75em;
+}
+
+.uploadPopup input[type="text"]{
+    height:25px; /*Same height as text buttons to match adjacent browse button*/
+    width:312px; /*Arbitrary*/
+}
+
+#uploadInsp{
+    height:175px;
+    top:20%; /*Arbitrary*/
+    width: 500px; /*Arbitrary*/
+    left:225px;/*width of .wide - width of signInOrUp / 2 to effect centering*/
+}
+
+#uploadArticle{
+    height: 90%;
+    top:5%;
+    width: 45%;
+    left: 27%;
+    line-height:2em; /*Vertically centers text with browse button*/
+       
+}
+
+.imagePreview{ /*used with uploadInsp to display preview image selected by the user*/
+    height:280px;/*Arbitrary*/
+    width:280px;/*Arbitrary*/
+    display:block;
+    float:left;
+    margin-left:50px;/*Creates approximate horizontal centering*/
+    margin-top:20px;/*Arbitrary*/
+    background-color: #d6d6d4;
+    border:1px solid white;
+}
+
+.imageManipulators{
+    height:20px;/*Arbitrary*/
+    width:280px;/*Same as .imagePreview*/
+    display:block;
+    float:left;
+    margin-top:5px;
+    margin-left:50px; /*Same as .imagePreview*/
+}
+
+.decorativeBorder > span{
+    height:30px;/*Arbitrary. Used to adjust vertical spacing in uploadPopup*/
+    width:100%;
+    display:block;
+    float:left;
+}
+
+
 /*7. SPLASH PAGE ELEMENTS*/ 
 #signup{
     position:absolute;
@@ -691,8 +813,8 @@ ul{
     right: 0px;
     top: 0px;
     background-color: #b5c000;
-    -moz-box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.2);
-    -webkit-box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.2);
+    -moz-box-shadow: 2px 5px 5px 0px rgba(0,0,0,0.2);
+    -webkit-box-shadow: 2px 5px 5px 0px rgba(0,0,0,0.2);
     box-shadow: 2px 5px 5px 0px rgba(0,0,0,0.2);
 }
 
@@ -718,58 +840,93 @@ ul{
     width:100%; /*Same as width of splashcolumn*/
 }
 
+/*POP UP FORMATTING SPECIFIC TO SIGN UP*/
+
+#signInOrUp{
+    height: 260px; /*Arbitrary*/
+    width: 620px; /*Arbitrary*/
+    top:7%; /*Arbitrary*/
+    left:160px;/*width of #panelelements - width of signInOrUp / 2 to effect centering*/
+   
+}
+
+.twoColumnPopup{ /*Divides sign-up sign-in dialogue box in two*/
+    height:100%;
+    width:50%;
+    padding-right:15px; /*Arbitrary*/
+    display:block;
+    float:left;
+}
+
+.twoColumnPopup:last-of-type{ /*Adds dividing line between columns*/
+    border-left:1px groove #FFFFFF;
+}
+
+.twoColumnPopup:hover{
+    background-color: #FFFFFF;
+}
+
+.twoColumnPopup:hover .newOldUserBlock{ /*Changes color of fancy header on hover*/
+    background-color: #b5c000;
+}
+
+.newOldUserBlock{ /*controls the fancy header on signup dialogue box*/
+    display:block;
+    float:left;
+    height:2.75em; 
+    width:3.5em; 
+    padding:8px;
+    margin-right:75%;
+    margin-bottom:.75em;
+    background-color: #3b3938;
+    border:1px solid #FFFFFF;
+    border-left:none;
+    border-top:none;
+    text-align:left;
+    font-size:1.75em;
+    line-height:1em;
+    color: #FFFFFF;
+    text-transform:uppercase;
+}
+
 /*8. USER HOME*/
 
-.uSidePane{
-    height:490px;
-    width:25%;
-    margin-top:40px;
-    display:block;
-    float:left;
-    padding:25px;
-    background-color: rgba(66,64,63,0.7);
-    color:#FFFFFF;
-}
-
-.uSidePaneContent{
-    width:100%;
-    height:80%;
-    position:absolute;
-    bottom:0px;
-    left:0px;
-}
-
-.uCenterPane{
-    height:510px;
-    width:50%;
+.homePage{
+    height:95%;
     margin-top:20px;
-    padding:25px;
     display:block;
     float:left;
-    background-color: rgba(66,64,63,1.0);
+    padding:20px;
 }
 
-.uSideHeaders{
-    height:60px;
-    width:100%;
-    border-bottom:1px solid #FFFFFF;
-    margin-bottom:30px;
-    color:#FFFFFF;
-    font-size:1.8em;
-    font-family:Gravitas One;
-    text-transform:uppercase;
-    line-height:90px;
+#howToLeft{
+    width:34.5%;
+    margin-right:3px;
+    padding-right:20px;
+    
+    background-color: rgba(66,64,63,1.0);
+    border:1px solid #423f3f;
+}
+
+#howToRight{
+    width:65%;
+    
+    background-color: rgba(66,64,63,0.9);
+    border:1px solid #423f3f;
 }
 
 #howToBox{
     height:70px;
     width:100%;
+    
     border-top:1px solid #FFFFFF;
     border-bottom:1px solid #FFFFFF;
-    margin-bottom:30px;
-    font-size:5.5em;
-    font-family:Gravitas One;
-    line-height:75px;
+    
+    margin-top:10px;
+    margin-bottom:20px;
+    font-size:5em;
+    font-family:Tenor Sans;
+    line-height:70px;
     color:#FFFFFF;
 }
 
@@ -778,30 +935,37 @@ ul{
     color: #FFFFFF;
     background-color: rgba(66,64,63,1.0);
     position:absolute;
-    left:180px;
-    top:10px;
+    left:36%;
+    top:15px;
     padding:5px;
     z-index: 2;
 }
 
-.uQuadrant{
-   height:170px;
-   width:50%;
-   padding-left:15px;
-   padding-right:15px;
-   display:block;
-   text-align:left;
-   float:left;
-   color:#FFFFFF; 
-   overflow:hidden;
-
+#howToToC{
+    height:75%;
+    width:100%;
+    display:block;
+    float:left;
 }
 
-.uQuadrant > p{
-    text-align:justify;
+.horizontalFifths{
+    height:20%;
+    width:100%;
+    padding-top:30px;
+    padding-left:10px;
+    display:block;
+    float:left;
+    
+    color:#FFFFFF;
+    font-size:2.5em;
+    text-align:left;
 }
 
-/*9. USER PROFILE*/
+.horizontalFifths:hover{
+    color: #b5c000;
+}
+
+/*9 USER PROFILE*/
 
 /*10. VIEW INSPIRATION*/
 
@@ -1092,10 +1256,11 @@ ul{
     line-height:255px;
     margin-bottom:12px; /*Equal to padding on .columnThirds*/
    
+   /*Shadow removed because it looked busy
     -webkit-box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.2);
     -moz-box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.2);
     box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.2);
-   
+   */
 }
 
 .articlePlaceholder:hover{
@@ -1113,7 +1278,6 @@ ul{
     margin-right:10%;
     padding-top:15%;
     text-align:center;
-    /*color: #FFFFFF;*/
     border-bottom: 1px solid #FFFFFF;
 }
 
@@ -1178,9 +1342,6 @@ ul{
     float:left;
 }
 
-
-
-
 /*15. SHOPPING RECOMMENDATIONS*/
 
 .rPlaceholderText{
@@ -1239,3 +1400,4 @@ ul{
 /*17.ABOUT US*/
 
 /*CONTACT*/
+    
