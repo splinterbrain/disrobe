@@ -476,6 +476,7 @@ a.navlink:active{
 .miniButton{
     height:20px;
     width:20px;
+    line-height:20px;
     float:right;
 }
 
@@ -515,7 +516,8 @@ a.navlink:active{
 }
 
 .textButton {
-    background-color: #d6d6d4; /*#e3e2de;*/
+    background-color: #d6d6d4;  /*#bab6af #e3e2de;*/
+    border:1px solid #FFFFFF;
     color: #000000;
     height:25px; /*Arbitrary*/
     padding-top:2px;
@@ -705,7 +707,7 @@ ul{
     z-index:1000; 
     top:10px;
     left:30%; /*Arbitrary*/
-    background-color: #ebeae8; /*#373534; #f1f1f1;*/
+    background-color: #ebeae8; 
     text-align:left;
     color: #42403F;
     border:1px solid #FFFFFF;
@@ -809,17 +811,53 @@ ul{
 
 /*OTHER POPUPS*/
 
+#shareWishlist{
+    height: 375px;
+    width:600px;
+    top:10%;
+    left:120px;
+    text-align:right;
+}
+
+#shareWishlist span{
+    height:1em;/*Arbitrary*/
+    width:100%;
+    display:block;
+    float:left;
+    text-align:left;
+    font-size:1.5em;
+}
+
+#shareWishlist textarea{
+    height:165px; /*Arbitrary. Helps balance whitespace in shareWishlist popup.*/
+    text-align: left;
+    padding:10px;
+}
+
+#shareWishlist .miniButton{
+    position:absolute;
+    top:10px;
+    right:10px;
+}
+
 #signInOrUp{
     height: 260px; /*Arbitrary*/
-    width: 620px; /*Arbitrary*/
+    width: 660px; /*Arbitrary*/
     top:7%; /*Arbitrary*/
-    left:160px;/*width of #panelelements - width of signInOrUp / 2 to effect centering*/
+    left:140px;/*width of #panelelements - width of signInOrUp / 2 to effect centering*/
+}
+
+#signInOrUp span{
+    height:4.5em; /*Taller than .fancyBlock which is positioned absolutely.*/
+    width:100%;
+    display:block;
+    float:left;
 }
 
 .twoColumnPopup{ /*Divides popup in two*/
     height:100%;
     width:50%;
-    padding-right:15px; /*Arbitrary*/
+    padding:20px; /*Arbitrary*/
     display:block;
     float:left;
 }
@@ -829,16 +867,18 @@ ul{
 }
 
 .twoColumnPopup:hover{
-    background-color: #FFFFFF;
+    background-color: #f8f7f5;
 }
 
-.twoColumnPopup:hover .newOldUserBlock{ /*Changes color of fancy header on hover*/
+.twoColumnPopup:hover .fancyBlock{ /*Changes color of fancy header on hover*/
     background-color: #b5c000;
 }
 
-.newOldUserBlock{ /*controls the fancy header on signup dialogue box*/
-    display:block;
-    float:left;
+.fancyBlock{ /*controls the fancy header on signup dialogue box*/
+    position:absolute;
+    top:0px;
+    left:0px;
+    
     height:2.75em; 
     width:3.5em; 
     padding:8px;
