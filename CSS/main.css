@@ -444,12 +444,11 @@ a.navlink:active{
 
 /*5. BUTTONS AND INPUTS*/
 
-.button {
+.button { /*Affects all graphic buttons, but not text buttons*/
     background-color: #bab6af;
+    border:1px solid #FFFFFF;
     color: white;
-    width:100%;
-    height:100%;
-    
+
     display: inline-block;
     text-align: center;
     float:left;
@@ -474,10 +473,18 @@ a.navlink:active{
     color: #FFFFFF;    
 }
 
+.miniButton{
+    height:20px;
+    width:20px;
+    float:right;
+}
+
+
+/*MORE SPECIFIC BUTTON FORMATTING*/
+
 #rectaddbutton{
     height: 158px; /*Approximates height of .inspirationphoto*/
     width: 100px; /*Arbitrary*/
-    border: 1px solid #FFFFFF;
     font-size:2em;
     line-height:1em;
     padding-top:40px;
@@ -495,7 +502,6 @@ a.navlink:active{
     font-size:2em;
     line-height:1em;
     padding-top:40px;
-    border: 1px solid #FFFFFF;
    
     top:0;
     margin-top:2px; /*top, bottom and left margins are arbitrary*/
@@ -509,9 +515,8 @@ a.navlink:active{
 }
 
 .textButton {
-    background-color: #e3e2de;
+    background-color: #d6d6d4; /*#e3e2de;*/
     color: #000000;
-    border: 1px solid #FFFFFF;
     height:25px; /*Arbitrary*/
     padding-top:2px;
     line-height:20px; /*Equal to height to vertically center text.*/
@@ -548,8 +553,7 @@ a.textButton:hover {
     color: #FFFFFF;
 }
 
-
-/*Input type text affects search selectors in the subpanel and the forms for entering article information.*/
+/*INPUTS*/
 
 input[type="text"] {
     border:1px solid #FFFFFF;
@@ -704,12 +708,15 @@ ul{
     background-color: #ebeae8; /*#373534; #f1f1f1;*/
     text-align:left;
     color: #42403F;
+    border:1px solid #FFFFFF;
     
    
     -moz-box-shadow: 3px 3px 10px 5px rgba(0,0,0,0.5);
     -webkit-box-shadow: 3px 3px 10px 5px rgba(0,0,0,0.5);
     box-shadow: 3px 3px 25px 5px rgba(0,0,0,0.4);
 }
+
+/*IMAGE CLOSEUP POPUPS*/
 
 .popup img{
     max-height:490px; /*Arbitrary*/  
@@ -718,25 +725,20 @@ ul{
     z-index:999; /*1 less than max so text popups appear on top of image popups*/
 }
 
+/*TEXT POPUPS*/
+
 .genericTextPopup{
     height: 125px; /*Arbitrary*/
     width: 400px; /*Arbitrary*/
     top:20%; /*Arbitrary*/
     left:225px;/*width of .narrow - width of signInOrUp / 2 to effect centering*/
-    padding:5px;
+    padding: 20px;
     font-size:1.25em;
     line-height:1.25em;
 }
 
 .genericTextPopup .textButton{ /*So that font size of buttons is not affected by increasing size of text in popups*/
     font-size:.75em;
-}
-
-.decorativeBorder{ /*Used with genericTextPopups to create a decorative border*/
-    height:100%;
-    width:100%;
-    border:1px solid #FFFFFF;
-    padding:20px;
 }
 
 .buttonsInPopup{ /*wrapped around text buttons in popups to vertically align them with bottom of popup*/
@@ -746,14 +748,23 @@ ul{
     right:20px;
 }
 
+/*IMAGE UPLOAD POPUPS*/
+
 .uploadPopup{ /*Applies to popups used to select image file to upload*/
-    padding:5px;
     font-size:1.25em;
     line-height:1.25em;
+    padding:20px;
 }
 
 .uploadPopup .textButton{/*So that font size of buttons is not affected by increasing size of text in popups*/
     font-size:.75em;
+}
+
+.uploadPopup span{
+    height:20px;
+    width:100%;
+    display:block;
+    float:left;
 }
 
 .uploadPopup input[type="text"]{
@@ -761,25 +772,24 @@ ul{
     width:312px; /*Arbitrary*/
 }
 
-#uploadInsp{
-    height:175px;
+#uploadInsp{/*applies to popup that allows user to load a picture of an outfit*/
+    height:150px;
     top:20%; /*Arbitrary*/
     width: 500px; /*Arbitrary*/
     left:225px;/*width of .wide - width of signInOrUp / 2 to effect centering*/
 }
 
-#uploadArticle{
+#uploadArticle{ /*applies to popup that allows user to load a picture of an article*/
     height: 90%;
     top:5%;
     width: 45%;
     left: 27%;
     line-height:2em; /*Vertically centers text with browse button*/
-       
 }
 
 .imagePreview{ /*used with uploadInsp to display preview image selected by the user*/
-    height:280px;/*Arbitrary*/
-    width:280px;/*Arbitrary*/
+    height:290px;/*Arbitrary*/
+    width:290px;/*Arbitrary*/
     display:block;
     float:left;
     margin-left:50px;/*Creates approximate horizontal centering*/
@@ -788,69 +798,25 @@ ul{
     border:1px solid white;
 }
 
-.imageManipulators{
+.imageManipulators{ /*applies to div that holds the zoom/move buttons*/
     height:20px;/*Arbitrary*/
-    width:280px;/*Same as .imagePreview*/
+    width:290px;/*Same as .imagePreview*/
     display:block;
     float:left;
     margin-top:5px;
     margin-left:50px; /*Same as .imagePreview*/
 }
 
-.decorativeBorder > span{
-    height:30px;/*Arbitrary. Used to adjust vertical spacing in uploadPopup*/
-    width:100%;
-    display:block;
-    float:left;
-}
-
-
-/*7. SPLASH PAGE ELEMENTS*/ 
-#signup{
-    position:absolute;
-    width: 60px; /*Arbitrary*/
-    height: 50px; /*Arbitrary*/
-    right: 0px;
-    top: 0px;
-    background-color: #b5c000;
-    -moz-box-shadow: 2px 5px 5px 0px rgba(0,0,0,0.2);
-    -webkit-box-shadow: 2px 5px 5px 0px rgba(0,0,0,0.2);
-    box-shadow: 2px 5px 5px 0px rgba(0,0,0,0.2);
-}
-
-#signuptext{
-    position:absolute;
-    bottom: 4px;
-    text-align:center;
-}
-
-.splashcolumn{
-    /*4 x .splashcolumn width + 8 x margin = width of #panelelements*/
-    width:195px; 
-    height:100%;
-    float:left;
-    margin-top:20px;
-    margin-left:20px;
-    margin-right:20px;
-    text-align:left;
-}
-
-.splashad {
-    border:1px solid #ffffff;
-    width:100%; /*Same as width of splashcolumn*/
-}
-
-/*POP UP FORMATTING SPECIFIC TO SIGN UP*/
+/*OTHER POPUPS*/
 
 #signInOrUp{
     height: 260px; /*Arbitrary*/
     width: 620px; /*Arbitrary*/
     top:7%; /*Arbitrary*/
     left:160px;/*width of #panelelements - width of signInOrUp / 2 to effect centering*/
-   
 }
 
-.twoColumnPopup{ /*Divides sign-up sign-in dialogue box in two*/
+.twoColumnPopup{ /*Divides popup in two*/
     height:100%;
     width:50%;
     padding-right:15px; /*Arbitrary*/
@@ -888,6 +854,45 @@ ul{
     color: #FFFFFF;
     text-transform:uppercase;
 }
+
+
+
+/*7. SPLASH PAGE ELEMENTS*/ 
+#signup{
+    position:absolute;
+    width: 60px; /*Arbitrary*/
+    height: 50px; /*Arbitrary*/
+    right: 0px;
+    top: 0px;
+    background-color: #b5c000;
+    -moz-box-shadow: 2px 5px 5px 0px rgba(0,0,0,0.2);
+    -webkit-box-shadow: 2px 5px 5px 0px rgba(0,0,0,0.2);
+    box-shadow: 2px 5px 5px 0px rgba(0,0,0,0.2);
+}
+
+#signuptext{
+    position:absolute;
+    bottom: 4px;
+    text-align:center;
+}
+
+.splashcolumn{
+    /*4 x .splashcolumn width + 8 x margin = width of #panelelements*/
+    width:195px; 
+    height:100%;
+    float:left;
+    margin-top:20px;
+    margin-left:20px;
+    margin-right:20px;
+    text-align:left;
+}
+
+.splashad {
+    border:1px solid #ffffff;
+    width:100%; /*Same as width of splashcolumn*/
+}
+
+
 
 /*8. USER HOME*/
 
