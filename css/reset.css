@@ -80,6 +80,16 @@ input[type="text"]:focus {
     outline:none;
 }
 
+input[type="password"] {
+    outline:none;
+}
+
+input[type="password"]:focus {
+    outline:none;
+}
+
+
+
 textarea {
     outline:none;
     resize:none;
