@@ -94,6 +94,7 @@ body:after {
     margin-left:auto;
     text-align:center;
 }
+
 #subpanelelements{
     z-index: 1;
     width:950px; /*Keep same as width of panel elements*/
@@ -171,6 +172,9 @@ body:after {
     width: 940px;
     margin-left:auto;
     margin-right:auto;
+    /*text-transform:uppercase;*/
+    /*font-family:Tenor Sans;*/
+    /*font-size: 0.9em;*/
 }
 
 #navbartext > span {
@@ -179,6 +183,7 @@ body:after {
 }
 
 /*This link formatting applies to nav bar, sign out, and footer elements.*/
+
 a.navlink:hover{
    color: #b5c000;
 }
@@ -186,6 +191,7 @@ a.navlink:hover{
 a.navlink:active{
     color: #b5c000;
 }
+
 
 
 /*4. GENERIC PANEL AREA ELEMENTS*/
@@ -610,6 +616,8 @@ textarea:focus {
 /* 6. MISCELLANOUS FORMATTING */
 
 /*HEADINGS, LINKS, AND LISTS*/
+
+
 h1{
     margin-top: 20px;
     margin-bottom:20px;
@@ -980,78 +988,142 @@ ul{
 
 /*8. USER HOME*/
 
-.homePage{
-    height:95%;
-    margin-top:20px;
+.tutorialColumn{
+    width:25%;
+    height:98%;
+    margin-top:1%;
+    margin-bottom:1%;
     display:block;
     float:left;
-    padding:20px;
-}
-
-#howToLeft{
-    width:34.5%;
-    margin-right:3px;
-    padding-right:20px;
     
-    background-color: rgba(66,64,63,1.0);
-    border:1px solid #423f3f;
-}
+    border:1px solid white;
+    background-color: rgba(250,250,250,0.3);
+    -webkit-box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.2);
+ }
 
-#howToRight{
-    width:65%;
-    
-    background-color: rgba(66,64,63,0.9);
-    border:1px solid #423f3f;
-}
-
-#howToBox{
-    height:70px;
+#tutorialHeader{
     width:100%;
-    
-    border-top:1px solid #FFFFFF;
-    border-bottom:1px solid #FFFFFF;
-    
-    margin-top:10px;
-    margin-bottom:20px;
-    font-size:5em;
-    font-family:Tenor Sans;
-    line-height:70px;
-    color:#FFFFFF;
-}
-
-#howToHeader{
-    font-size:2em;
-    color: #FFFFFF;
-    background-color: rgba(66,64,63,1.0);
-    position:absolute;
-    left:36%;
-    top:15px;
-    padding:5px;
-    z-index: 2;
-}
-
-#howToToC{
-    height:75%;
-    width:100%;
-    display:block;
-    float:left;
-}
-
-.horizontalFifths{
     height:20%;
+    display:block;
+    float:left;
+    font-size:3.5em;
+    line-height:0.75em;
+    padding-top:7px;
+    color: #FFFFFF;
+    text-transform:uppercase;
+    font-family: "Tenor Sans";
+}
+
+#tutorialHeader > span{
+    font-size:0.5em;
+}
+
+#tutorialSectionsContainer{
     width:100%;
-    padding-top:30px;
-    padding-left:10px;
+    height:80%;
+    display:block;
+    float:left;
+}
+
+.tutorialSection{
+    width:100%;
+    height:20%;
     display:block;
     float:left;
     
     color:#FFFFFF;
-    font-size:2.5em;
+    font-size: 2em;
+    line-height:3.5em;
     text-align:left;
+    padding-left: 0.75em;
 }
 
-.horizontalFifths:hover{
-    color: #b5c000;
+.tutorialSection:hover{
+    background-color: rgba(250,250,250,0.4);
+    color: #3b3938;
+    border-top:1px dashed white;
+    border-bottom:1px dashed white;
+}
+
+#tutGeneralOverview{
+    height:35%;
+    width:74%;
+    margin-top:1%;
+    margin-left:1%;
+    padding:20px;
+    display:block;
+    float:left;
+    background-color: rgba(250,250,250,0.2);
+    border-top:1px dashed white;
+    border-right:1px dashed white;
+    border-left:1px dashed white;
+    
+    font-size:1.5em;
+    text-align:left;
+    line-height:1em;
+    color: #FFFFFF;
+}
+
+#tutGeneralOverview > h1{
+    margin-top:0px;
+}
+
+.tutIllustration{
+    height:100%;
+    width:8.5em;
+    border:1px solid white;
+    display:block;
+    float:left;
+    overflow:hidden;
+    margin-right:20px;
+}
+
+#tutSteps{
+    height:63%;
+    width:74%;
+    margin-left:1%;
+    display:block;
+    float:left;
+    border-right:1px dashed white;
+    border-bottom:1px dashed white;
+    border-left:1px dashed white;
+    
+    font-size:1.5em;
+    line-height:1em;
+    color: #FFFFFF;
+}
+
+
+.ifFourSteps{
+    height:100%;
+    width:25%;
+    padding:20px;
+    display:block;
+    float:left;
+    text-align:left;
+    border-right:1px dashed white;
+    border-top:1px dashed white;
+}
+
+.ifFourSteps:last-of-type{
+    border-right:none;
+}
+
+.tutNumber{
+    border: 1px solid white;
+    background-color:#3b3938;
+    display:inline-block;
+    float:left;
+    margin-right:100px;
+    margin-bottom:10px;
+    
+    line-height:1em;
+    font-size:4em;
+    text-align:center;
+    width:1em;
+    color:#FFFFFF;
 }
 
 /*9 USER PROFILE*/
@@ -1099,7 +1171,6 @@ ul{
 
 .addinspsections:hover{
     background-color: rgba(250,250,250,0.3);
-    
     -webkit-box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.2);
     -moz-box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.2);
     box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.2);
@@ -1231,11 +1302,6 @@ ul{
     border: 1px solid #FFFFFF;
     display:block;
     text-align:center;
-    
-    /*
-    -webkit-box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.2);
-    -moz-box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.2);
-    box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.2);*/
 }
 
 #articlesdefined{
@@ -1344,12 +1410,6 @@ ul{
     text-align:center;
     line-height:255px;
     margin-bottom:12px; /*Equal to padding on .columnThirds*/
-   
-   /*Shadow removed because it looked busy
-    -webkit-box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.2);
-    -moz-box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.2);
-    box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.2);
-   */
 }
 
 .articlePlaceholder:hover{
