@@ -253,7 +253,7 @@ a.navlink:active{
 #subpanelFull{
     height:100%;
     width:100%;
-    text-align:left;
+    text-align:right;
     display:block;
     float:left;
 }
@@ -991,9 +991,7 @@ ul{
 
 .tutorialColumn{
     width:25%;
-    height:98%;
-    margin-top:1%;
-    margin-bottom:1%;
+    height:100%;
     display:block;
     float:left;
     
@@ -1051,7 +1049,6 @@ ul{
 #tutGeneralOverview{
     height:35%;
     width:74%;
-    margin-top:1%;
     margin-left:1%;
     padding:20px;
     display:block;
@@ -1082,7 +1079,7 @@ ul{
 }
 
 #tutSteps{
-    height:63%;
+    height:65%;
     width:74%;
     margin-left:1%;
     display:block;
