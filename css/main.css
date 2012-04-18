@@ -367,6 +367,7 @@ a.navlink:active{
 #clearPanel{
     padding:0px;
     border:none;
+    background-color:transparent;
 }
 
 .trifoldColumn{
@@ -1136,24 +1137,28 @@ ul{
 
 #iLeftHand{
    height:100%;
-   width:600px;
+   width:64%;
    position:absolute;
    padding:3px;
    top:0px;
    left:0px;
+   border:1px dashed white;
+   border-right:none;
 }
 
 #iRightHand{
     height:100%;
-    width:338px;
+    width:36%;
     position:absolute;
     top:0px;
     right:0px;
     
     
     text-align:center;
-    padding:3px;
-    border-left:1px solid #FFFFFF;
+    padding:2px;
+    padding-top:4px;
+    background-color: rgba(250,250,250,0.4);
+    border:1px solid #FFFFFF;
     
 }
 
