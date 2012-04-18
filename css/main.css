@@ -215,7 +215,8 @@ a.navlink:active{
 .subpanel {
     height:100%;
     width:100%;
-    padding:5px; /*Same as padding on .panel*/
+    padding-top:5px; /*Same as padding on .panel*/
+    padding-bottom:5px;
     text-align:right;
     display:block;
     margin-left:auto;
@@ -241,6 +242,7 @@ a.navlink:active{
 #subpanelRight{
     height:100%;
     width:25%;
+    padding-right:5px;
     text-align:right;
     display:block;
     float:left;
@@ -594,12 +596,9 @@ a.textButton:hover {
     width:50%;
     display:block;
     float:left;
-    background-color: #4e4b49;
+    background-color: #b5bf00;
     color: #FFFFFF;
-    
-    -moz-box-shadow:    inset 0 0 10px #434140;
-    -webkit-box-shadow: inset 0 0 10px #434140;
-    box-shadow:         inset 0 0 10px #434140;
+ 
 }
 
 a.currentlyActive:hover{
@@ -619,6 +618,14 @@ a.clickableOption:link{
     color: #000000;
 }
 
+a.clickableOption:visited{
+    color: #000000;
+}
+
+a.clickableOption:hover{
+    background-color: #3b3938;
+    color: #FFFFFF;
+}
 
 
 /*INPUTS*/
