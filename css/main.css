@@ -1126,6 +1126,10 @@ ul{
     color:#FFFFFF;
 }
 
+.tutNumber > i{
+    font-size: 0.75em;
+}
+
 /*9 USER PROFILE*/
 
 /*10. VIEW INSPIRATION*/
