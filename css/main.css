@@ -570,6 +570,57 @@ a.textButton:hover {
     color: #FFFFFF;
 }
 
+
+.toggleButton{
+    width:175px; /*Same width as a text input field, for fun.*/
+    height:25px; /*Arbitrary*/
+    line-height:24px; /*Approximates vertical centering.*/
+    text-align:center;
+    display:block;
+    float:right;
+    border:1px solid #FFFFFF;
+    
+    -moz-box-shadow: 3px 3px 3px 0px rgba(0,0,0,0.1);
+    -webkit-box-shadow: 3px 3px 3px 0px rgba(0,0,0,0.1);
+    box-shadow: 3px 3px 3px 0px rgba(0,0,0,0.1);
+}
+
+.dividingLine{ /*Applied in html to lefthand element in the togglebutton.*/
+    border-right:1px solid #FFFFFF;
+}
+
+.currentlyActive{
+    height:100%;
+    width:50%;
+    display:block;
+    float:left;
+    background-color: #4e4b49;
+    color: #FFFFFF;
+    
+    -moz-box-shadow:    inset 0 0 10px #434140;
+    -webkit-box-shadow: inset 0 0 10px #434140;
+    box-shadow:         inset 0 0 10px #434140;
+}
+
+a.currentlyActive:hover{
+    color:#FFFFFF; /*So that there is no apparent change on hover.*/
+}
+
+.clickableOption{
+    height:100%;
+    width:50%;
+    display:block;
+    float:left;
+    background-color: #d6d6d4;
+    color: #000000;
+}
+
+a.clickableOption:link{
+    color: #000000;
+}
+
+
+
 /*INPUTS*/
 
 input[type="text"] {
