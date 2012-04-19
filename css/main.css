@@ -1105,7 +1105,7 @@ ul{
 }
 
 #tutGeneralOverview{
-    height:35%;
+    height:36%;
     width:74%;
     margin-left:1%;
     padding:20px;
@@ -1137,7 +1137,7 @@ ul{
 }
 
 #tutSteps{
-    height:65%;
+    height:64%;
     width:74%;
     margin-left:1%;
     display:block;
@@ -1570,26 +1570,27 @@ ul{
 /*LAYOUT*/
 
 #oTop{
-    height:80%; 
+    height:85%; 
     width:100%;
     display:block;
     float:left;
+    background-color: rgba(255,255,255,0.4);
+    border: 1px solid #FFFFFF;
+    padding:2px;
+    padding-top:4px;
     /*padding-bottom:20%;/*Same as height of #oBottom. Necessary because #oBottom is positioned absolutely.*/
     
 }
 
 #oBottom{
-    height:20%; /*Tied to height of #oTop*/
-    line-height:90px; /*Approximates height to create appearance of vertical centering*/ 
+    height:15%; /*Tied to height of #oTop*/
+    line-height:75px; /*Approximates height to create appearance of vertical centering*/ 
     width:100%; /*as wide as #panelelements*/  
-    background-color: rgba(100,100,100,0.3);
-    border-top: 1px solid #FFFFFF;
-    padding:5px;
-    
+    border: 1px dashed #FFFFFF;
+    border-top:none;
     position:absolute;
     left:0px;
     bottom:0px;
-    
 }
 
 #oViewingScreen{
