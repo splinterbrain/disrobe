@@ -2,7 +2,7 @@
 html {
 	position: absolute;
 	width: 100%;
-	height: 100%;
+	height: 691px;
 }
 body {
 	width: 100%;
@@ -39,8 +39,7 @@ body:after {
  * 4. Generic Panel Area Elements (backgrounds, navigation arrows, picture formatting)
  * 4.1 Trifold Pages
  * 5. Buttons and inputs (add, delete, close, edit, etc.)
- * 6. Miscellaneous Formatting (headings, default link formatting, list formatting)
- * 6.1 Pop ups
+ * 6 Pop ups
  * 
  * II. PAGE-SPECIFIC FORMATTING
  * 
@@ -54,8 +53,13 @@ body:after {
  * 14. Shopping List
  * 15. Shopping Recommendations
  * 16. Outfit Lab
- * 17. About Us
- * 18. Contact
+ * 17. Outfit Slots
+ * 18. About Us
+ * 
+ * III. GENERIC FORMATTING
+ * 
+ * 19. Miscellaneous Formatting (headings, default link formatting, list formatting)
+ * 
  */
 
 
@@ -88,7 +92,7 @@ body:after {
 #panelelements {
 /*Note: contents of this container are not centered. Fix in future edits.*/
     z-index: 1;
-    height:520px; /*Arbitrarily determined height of viewing area.*/
+    height:515px; /*Arbitrarily determined height of viewing area.*/
     width:950px;/*Keep same as width of subpanelpanel elements*/
     margin-right:auto;
     margin-left:auto;
@@ -126,9 +130,6 @@ body:after {
     box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.3);
 }
 
-#topstripe {
-	height: 10px; /*Arbitrary*/
-}
 #navstripe {
 	height: 28px; /*Arbitrary. Tall enough for navigation text.*/ 
 }
@@ -163,12 +164,11 @@ body:after {
 #hello {
     position:absolute;
     right:0;
-    bottom:3px; 
+    bottom:12px; 
 }
 
 #navbartext {
     text-align:center;
-    top:9px; /*Arbitrary. Controls nav bar text spacing inside #navstripe*/
     width: 940px;
     margin-left:auto;
     margin-right:auto;
@@ -192,8 +192,6 @@ a.navlink:active{
     color: #b5c000;
 }
 
-
-
 /*4. GENERIC PANEL AREA ELEMENTS*/
 
 /*Regarding the height of .panel and width of .narrow: wardrobe view contains a 
@@ -201,7 +199,6 @@ a.navlink:active{
  * .narrow width must remain in their current proportion. */
 
 .panel {
-    top:10px; /*Creates gap between #navstripe and viewing panel. Cannot exceed height #panelelements - height .panel*/
     height:510px;   
     border: 1px solid #FFFFFF;
     background-color: rgba(255,255,255,0.4);
@@ -672,123 +669,9 @@ textarea:focus {
     background-color: #e3e2de;
 }
 
-/* 6. MISCELLANOUS FORMATTING */
-
-/*HEADINGS, LINKS, AND LISTS*/
 
 
-h1{
-    margin-top: 20px;
-    margin-bottom:20px;
-    text-transform:uppercase;
-    font-size: 1.25em; 
-}
-
-h1 > span{
-    color:#b5c000;
-}
-
-.shadow {
-    text-shadow: 0.1em 0.1em 0.4em #706d6c;
-}
-
-a:link {
-    color:#FFFFFF;
-    text-decoration:none;
-    -webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
-    -ms-transition: all 0.5s ease;
-    transition: all 0.5s ease;
-    
-}     
-
-a:visited {
-    color:#FFFFFF;
-    text-decoration:none;
-} 
-
-a:hover {
-    color:#373534;
-    text-decoration:none;
-} 
-
-a:active {
-    color:#373534;
-    text-decoration:none;
-}
-
-
-ul{
-    line-height:2em;
-    border:1px solid transparent;
-    text-align:left;
-}
-
-.topLevel {
-    /*Placeholder. Identifies highest level of nested list.*/
-}
-
-.selected{
-    /*Placeholder. Exists so that when user selects a li, the associated ul of sub-li's shows up.*/
-}
-
-.selectedItem{ 
-    margin-left:-5px;
-    padding-left:5px;
-    width:80%; /*Arbitrary, but width + left and right margins should = 100*/
-    background-color: rgba(250,250,250,0.3); 
-    border:1px solid #FFFFFF;
-}
-
-.topLevel > li > ul {
-    display:none; /*So that sub-items don't show up unless user selects heading.*/
-}
-
-.topLevel > .selected{
-  
-}
-
-.topLevel > .selected > ul{ /*So that sub-items appear when user selects heading.*/
-    display:block;
-    margin-left:2em;
-}
-
-
-/*LAYOUT AND OBJECT FORMATTING*/
-.noPadding{
-    padding:0px;
-}
-
-.noBorder{
-    border:none;
-}
-
-.alignLeft{
-    text-align:left;
-}
-
-.alignRight{
-    text-align:right;
-}
-
-.alignCenter{
-    text-align:center;
-    padding-left:0px;
-    padding-right:0px;
-}
-
-.floatLeft{
-    float:left;
-    margin-right:5px;
-}
-
-.floatRight{
-    margin-left:5px;
-    float:right;
-}
-
-/* 6.1 POP UPS */
+/* 6. POP UPS */
 
 .popup{ /*Applies to all popups*/
     position:absolute;
@@ -1611,7 +1494,167 @@ ul{
     text-align:center;
 }
 
-/*17.ABOUT US*/
+/*17. OUTFIT SLOTS */
 
-/*CONTACT*/
+.slotsControls{
+    width:100%;
+    height:8%;
+    display:block;
+    float:left;
+    border:1px dashed #FFFFFF;
+}
+
+.slotsContent{
+    width: 100%;
+    height:84%; /*100 minus twice the height of slotsControls*/
+    display:block;
+    float:left;
+    border:1px solid white;
+    background-color: rgba(250,250,250,0.3);
+}
+
+.threeColumns{
+    width:33.3%;
+    height:100%;
+    padding-left:10px;
+    padding-right:10px;
+    display:block;
+    float:left;
+}
+
+.slotsColumn{
+    width:250px;
+    height:100%;
+    display:inline-block;
+    margin:auto;
+    border:1px solid white;
+    overflow:hidden;
+}
+
+
+
+/*18. ABOUT US*/
+
+/*19. GENERIC FORMATTING*/
+
+/*HEADINGS, LINKS, AND LISTS*/
+
+
+h1{
+    margin-top: 20px;
+    margin-bottom:20px;
+    text-transform:uppercase;
+    font-size: 1.25em; 
+}
+
+h1 > span{
+    color:#b5c000;
+}
+
+.shadow {
+    text-shadow: 0.1em 0.1em 0.4em #706d6c;
+}
+
+a:link {
+    color:#FFFFFF;
+    text-decoration:none;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    transition: all 0.5s ease;
     
+}     
+
+a:visited {
+    color:#FFFFFF;
+    text-decoration:none;
+} 
+
+a:hover {
+    color:#373534;
+    text-decoration:none;
+} 
+
+a:active {
+    color:#373534;
+    text-decoration:none;
+}
+
+
+ul{
+    line-height:2em;
+    border:1px solid transparent;
+    text-align:left;
+}
+
+.topLevel {
+    /*Placeholder. Identifies highest level of nested list.*/
+}
+
+.selected{
+    /*Placeholder. Exists so that when user selects a li, the associated ul of sub-li's shows up.*/
+}
+
+.selectedItem{ 
+    margin-left:-5px;
+    padding-left:5px;
+    width:80%; /*Arbitrary, but width + left and right margins should = 100*/
+    background-color: rgba(250,250,250,0.3); 
+    border:1px solid #FFFFFF;
+}
+
+.topLevel > li > ul {
+    display:none; /*So that sub-items don't show up unless user selects heading.*/
+}
+
+.topLevel > .selected{
+  
+}
+
+.topLevel > .selected > ul{ /*So that sub-items appear when user selects heading.*/
+    display:block;
+    margin-left:2em;
+}
+
+
+/*LAYOUT AND OBJECT FORMATTING*/
+.noPadding{
+    padding:0px;
+}
+
+.noBorder{
+    border:none;
+}
+
+.noTopBorder{
+    border-top:none;
+}
+
+.noBottomBorder{
+    border-bottom:none;
+}
+
+.alignLeft{
+    text-align:left;
+}
+
+.alignRight{
+    text-align:right;
+}
+
+.alignCenter{
+    text-align:center;
+    padding-left:0px;
+    padding-right:0px;
+}
+
+.floatLeft{
+    float:left;
+    margin-right:5px;
+}
+
+.floatRight{
+    margin-left:5px;
+    float:right;
+}
