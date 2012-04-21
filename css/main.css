@@ -2,11 +2,11 @@
 html {
 	position: absolute;
 	width: 100%;
-	height: 691px;
+	height:100%;
 }
 body {
 	width: 100%;
-	height: 100%;
+	min-height: 100%;
 	background-image: url(../images/stripe.png);
 	font-family: "Questrial";
 	font-size: 0.75em;
@@ -1509,8 +1509,8 @@ textarea:focus {
     height:84%; /*100 minus twice the height of slotsControls*/
     display:block;
     float:left;
-    border:1px solid white;
-    background-color: rgba(250,250,250,0.3);
+    border:1px dashed #FFFFFF;
+    background-color: rgba(250,250,250,0.2);
 }
 
 .threeColumns{
@@ -1523,11 +1523,10 @@ textarea:focus {
 }
 
 .slotsColumn{
-    width:250px;
+    width:300px;
     height:100%;
     display:inline-block;
     margin:auto;
-    border:1px solid white;
     overflow:hidden;
 }
 
