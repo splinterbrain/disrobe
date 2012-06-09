@@ -1,0 +1,11 @@
+{
+  "name": "disrobe",
+  "subdomain": "disrobe",
+  "scripts": {
+    "start": "server.js"
+  },
+  "version": "0.0.0-1",
+  "engines": {
+    "node": "0.6.x"
+  }
+}
