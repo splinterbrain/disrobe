@@ -1,3 +1,4 @@
 .project
 .metadata
 node_modules
+.nide
