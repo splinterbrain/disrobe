@@ -19,35 +19,58 @@ if(process.env.NODEJS_ENV == "production") {
     var njMongo = "mongodb://nodejitsu:b291c5811deafe3ed85f6b32c140a2df@staff.mongohq.com:10039/nodejitsudb951252111336"; 
     //Thanks to http://joesul.li/van/blog/nodejitsu-node-mongo-native.html for parsing regex
     var arr = /.*:\/\/(.*):(.*)@(.*):(.*)\/(.*)/.exec(njMongo);
-    DB_USER = arr[0];
-    DB_PASS = arr[1];
-    DB_HOST = arr[2];
-    DB_PORT = arr[3];
-    DB_NAME = arr[4];
+    //exec puts the full matched string into arr[0]
+    DB_USER = arr[1];
+    DB_PASS = arr[2];
+    DB_HOST = arr[3];
+    DB_PORT = arr[4];
+    DB_NAME = arr[5];
+    app.log.info("Parsed mongo info", arr);
 }else{
     HTTP_PORT = 8080;
     DB_HOST = "localhost";
-    DB_PORT = 27017; //Default mongod port
+    DB_PORT = "27017"; //Default mongod port
     DB_NAME = "disrobe";
 }
 
 //Connect to mongod
 //Thanks again to ibid for help connecting when using native mongod
 app.log.info("Connecting to mongodb", [DB_HOST, DB_PORT]);
-var db = new mongodb.Db(DB_NAME, new mongodb.Server(DB_HOST, DB_PORT, {auto_reconnect: true}, {}));
+//mongodb.Server apparently requirest a port of type number
+var db = new mongodb.Db(DB_NAME, new mongodb.Server(DB_HOST, parseInt(DB_PORT), {auto_reconnect: true}, {}));
 db.open(function(openError, openData){
     if(openData){
         if(DB_USER && DB_PASS){
+            //Not sure if this authentication sticks in an auto_reconnect
             openData.authenticate(DB_USER, DB_PASS, function(authError, authData){
-               if(authError) app.log.error(authError); 
+               if(authError){
+                 app.log.error(authError);  
+               }  else{
+                   app.log.info("Authenticated to mongo successfuly");
+                   mongoTest();
+               }
             });    
         }else{
-            app.log.info
+            app.log.info("Connected to mongo successfully");
+            mongoTest();
         }        
     }else{
         app.log.error(openError);
     }
 });
+
+function mongoTest(){
+    db.collection('test_collection', function(err, collection){
+        collection.insert({timestamp : new mongodb.Timestamp()}, function(err, docs){
+            collection.count(function(err, count){
+               app.log.info("Test docs count", count); 
+            });
+            collection.find().sort({timestamp : -1}).limit(1).nextObject(function(err, doc){
+                app.log.info("Most recent test doc", doc);
+            });
+        });
+    });
+} 
 
 //Evetually we'll want to use templates to generate static versions of html files
 //For now we just serve the mockups
