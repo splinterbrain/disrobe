@@ -61,6 +61,7 @@ db.open(function(openError, openData) {
         app.log.error(openError);
     }
 });
+//In addition to a test insertion we may want to use this point to ensure indices
 function mongoTest() {
     db.collection('test_collection', function(err, collection) {
         collection.insert({
@@ -108,8 +109,18 @@ app.router.path("/api/garments/:id", function() {
                 res.writeHead(500);
                 res.end(err);
             } else {
+                var _id;
+                try {
+                    _id = mongodb.ObjectID.createFromHexString(id);
+                } catch(e) {
+                    app.log.error("Error creating id", e);
+                    res.writeHead(500);
+                    res.end();
+                    return;
+                }
+
                 collection.findOne({
-                    _id : mongodb.ObjectID.createFromHexString(id)
+                    _id : _id
                 }, function(err, doc) {
                     if(err) {
                         app.log.error("Error retrieving record", err);
@@ -129,6 +140,49 @@ app.router.path("/api/garments/:id", function() {
     });
     //Eventually need an update here
 
+    //Access the image
+    this.get("/image", function(id) {
+        //Store these for use in db callbacks
+        var res = this.res;
+        var req = this.req;
+
+        //Mongos double nested callback structure is a bit cumbersome
+        //Might want to look into resourceful or mongoose
+        //May also be able to store a reference to the collection
+        db.collection('garments', function(err, collection) {
+            if(err) {
+                //Should have a shared 500 error system, maybe with a try/catch, though difficult to attach to the router
+                app.log.error("Error retrieving collection", err);
+                res.writeHead(500);
+                res.end(err);
+            } else {
+                var _id;
+                try {
+                    _id = mongodb.ObjectID.createFromHexString(id);
+                } catch(e) {
+                    app.log.error("Error creating id", e);
+                    res.writeHead(500);
+                    res.end();
+                    return;
+                }
+
+                collection.findOne({
+                    _id : _id
+                }, function(err, doc) {
+                    if(err) {
+                        app.log.error("Error retrieving record", err);
+                        res.writeHead(500);
+                        res.end(err);
+                    } else {                        
+                        res.writeHead(200, {"Content-Type" : "image/jpeg"});                        
+                        res.write(new Buffer(doc.image, "base64"));
+                        res.end();
+
+                    }
+                });
+            }
+        });
+    });
 });
 
 app.router.path("/api/garments", function() {
@@ -148,19 +202,27 @@ app.router.path("/api/garments", function() {
                 res.writeHead(500);
                 res.end(err);
             } else {
+                var insert = {};
                 //Need some validation here eventually
+                if(req.headers["content-type"] == "application/json") {
+                    insert.item = req.body.item;
+                    insert.color = req.body.color;
+                    insert.style = req.body.style;
+                    //Decode the base64 string and save is as binary
+                    insert.image = req.body.image;
+                } else {
+                    //Chunks are all downloaded before routes are called
+                    //This might cause memory problems with very large uploads
+                    insert.image = mongodb.Binary(req.chunks.join());
+                }
                 //Theoretically req.body is ready and parsed when the function gets called
-                collection.insert({
-                    item : req.body.item,
-                    color : req.body.color,
-                    style : req.body.style
-                }, function(err, docs) {
+                collection.insert(insert, function(err, docs) {
                     if(err) {
                         app.log.error("Error retrieving record", err);
                         res.writeHead(500);
                         res.end(err);
                     } else {
-                        res.writeHead(200, {
+                        res.writeHead(201, {
                             'Content-Type' : 'application/json'
                         });
                         res.write(json.stringify(docs[0]));
