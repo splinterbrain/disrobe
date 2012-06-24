@@ -49,10 +49,13 @@ $(function() {
                     url: "api/garments",
                     type : "POST",
                     dataType : "json",
-                    data : {image : imageData},
+                    data : {item: $add.find("#setcategory").val(), color: $add.find("#setcolor").val(), style : $add.find("#setstyle").val(), image : imageData},
                     success : $.proxy(function(data){
                         console.log(data);
                         $(this).find(".articlePlaceholder").css("background-image", "");
+                        $(this).find("#setcategory").val("");
+                        $(this).find("#setcolor").val("");
+                        $(this).find("#setstyle").val("");
                     },add)
                 });
             });

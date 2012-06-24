@@ -308,7 +308,7 @@ app.router.path("/api/garments", function() {
                 var insert = {};
                 //Need some validation here eventually
                 //Theoretically req.body is ready and parsed when the function gets called
-                app.log.info("body", req.body);
+                // app.log.info("body", req.body);
                 insert.item = req.body.item;
                 insert.color = req.body.color;
                 insert.style = req.body.style;
