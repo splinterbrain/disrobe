@@ -140,8 +140,74 @@ app.router.path("/api/garments/:id", function() {
             }
         });
     });
-    //Eventually need an update here
+    //Making a fairly duplicative put to complement the post below
+    //Probably want to unify these into a single upsert call while maintaining the endpoints
+    this.put(function(id) {
+        //Store these for use in db callbacks
+        var res = this.res;
+        var req = this.req;
 
+        //Just copy and pasted this whole nested flow, never a good sign, efficiency-wise
+        db.collection('garments', function(err, collection) {
+            if(err) {
+                //Should have a shared 500 error system, maybe with a try/catch, though difficult to attach to the router
+                app.log.error("Error retrieving collection", err);
+                res.writeHead(500);
+                res.end(err);
+            } else {
+                var update = {};
+                //Need some validation here eventually
+                //Theoretically req.body is ready and parsed when the function gets called
+                if(req.headers["content-type"] == "application/json") {
+                    if(req.body.item)
+                        update.item = req.body.item;
+                    if(req.body.color)
+                        update.color = req.body.color;
+                    if(req.body.style)
+                        update.style = req.body.style;
+                    //We update the image as base64, which is a bit ugly, but mongo binary is being uncooperative
+                    //Also have to keep in mind the 4MB size limit
+                    //Might eventually move to GridFS
+                    if(req.body.image)
+                        update.image = req.body.image;
+                }
+
+                var _id;
+                try {
+                    _id = mongodb.ObjectID.createFromHexString(id);
+                } catch(e) {
+                    app.log.error("Error creating id", e);
+                    res.writeHead(500);
+                    res.end();
+                    return;
+                }
+
+                collection.update({
+                    _id : _id
+                }, update, {safe : true}, function(err, doc) {
+                    if(err) {
+                        app.log.error("Error retrieving record", err);
+                        res.writeHead(500);
+                        res.end(err);
+                    } else {
+                        if(doc) {
+                            //We only get a count of updates back
+                            app.log.info("updated doc", doc);
+                            res.writeHead(200, {
+                                'Content-Type' : 'application/json'
+                            });                            
+                            res.end();
+                        }else{
+                            //Update didn't find a matching id
+                            app.log.error("Failed to update record ", id);
+                            res.writeHead(404);
+                            res.end();
+                        }
+                    }
+                });
+            }
+        });
+    }),
     //Access the image
     this.get("/image", function(id) {
         //Store these for use in db callbacks
@@ -206,16 +272,20 @@ app.router.path("/api/garments", function() {
                 res.writeHead(500);
                 res.end(err);
             } else {
-                collection.find({}, {image: 0}).toArray(function(err, docs){
-                   if(err){
-                       app.log.error("Error retrieving index");
-                       res.writeHead(500);
-                       res.end(err);
-                   }else{
-                       res.writeHead(200, {"Content-Type" : "application/json"});
-                       res.write(json.stringify(docs));
-                       res.end();
-                   }
+                collection.find({}, {
+                    image : 0
+                }).toArray(function(err, docs) {
+                    if(err) {
+                        app.log.error("Error retrieving index");
+                        res.writeHead(500);
+                        res.end(err);
+                    } else {
+                        res.writeHead(200, {
+                            "Content-Type" : "application/json"
+                        });
+                        res.write(json.stringify(docs));
+                        res.end();
+                    }
                 });
             }
         });
@@ -236,6 +306,7 @@ app.router.path("/api/garments", function() {
             } else {
                 var insert = {};
                 //Need some validation here eventually
+                //Theoretically req.body is ready and parsed when the function gets called
                 if(req.headers["content-type"] == "application/json") {
                     insert.item = req.body.item;
                     insert.color = req.body.color;
@@ -245,7 +316,6 @@ app.router.path("/api/garments", function() {
                     //Might eventually move to GridFS
                     insert.image = req.body.image;
                 }
-                //Theoretically req.body is ready and parsed when the function gets called
                 collection.insert(insert, function(err, docs) {
                     if(err) {
                         app.log.error("Error retrieving record", err);
