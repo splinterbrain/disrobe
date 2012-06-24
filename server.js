@@ -192,7 +192,34 @@ app.router.path("/api/garments/:id", function() {
 
 app.router.path("/api/garments", function() {
 
-    //May want an index here eventually
+    //Eventually need to have some filters on this
+    //Probably default to only the current session's user's garments
+    this.get(function() {
+        //Store these for use in db callbacks
+        var res = this.res;
+        var req = this.req;
+
+        db.collection('garments', function(err, collection) {
+            if(err) {
+                //Should have a shared 500 error system, maybe with a try/catch, though difficult to attach to the router
+                app.log.error("Error retrieving collection", err);
+                res.writeHead(500);
+                res.end(err);
+            } else {
+                collection.find({}, {image: 0}).toArray(function(err, docs){
+                   if(err){
+                       app.log.error("Error retrieving index");
+                       res.writeHead(500);
+                       res.end(err);
+                   }else{
+                       res.writeHead(200, {"Content-Type" : "application/json"});
+                       res.write(json.stringify(docs));
+                       res.end();
+                   }
+                });
+            }
+        });
+    });
 
     this.post(function() {
         //Store these for use in db callbacks
