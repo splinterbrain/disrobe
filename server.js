@@ -208,12 +208,10 @@ app.router.path("/api/garments", function() {
                     insert.item = req.body.item;
                     insert.color = req.body.color;
                     insert.style = req.body.style;
-                    //Decode the base64 string and save is as binary
+                    //We save the image as base64, which is a bit ugly, but mongo binary is being uncooperative
+                    //Also have to keep in mind the 4MB size limit
+                    //Might eventually move to GridFS
                     insert.image = req.body.image;
-                } else {
-                    //Chunks are all downloaded before routes are called
-                    //This might cause memory problems with very large uploads
-                    insert.image = mongodb.Binary(req.chunks.join());
                 }
                 //Theoretically req.body is ready and parsed when the function gets called
                 collection.insert(insert, function(err, docs) {
