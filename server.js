@@ -151,7 +151,9 @@ app.router.path("/api/garments", function() {
                 //Need some validation here eventually
                 //Theoretically req.body is ready and parsed when the function gets called
                 collection.insert({
-                    item : req.body.item
+                    item : req.body.item,
+                    color : req.body.color,
+                    style : req.body.style
                 }, function(err, docs) {
                     if(err) {
                         app.log.error("Error retrieving record", err);
