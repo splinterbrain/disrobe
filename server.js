@@ -158,19 +158,17 @@ app.router.path("/api/garments/:id", function() {
                 var update = {};
                 //Need some validation here eventually
                 //Theoretically req.body is ready and parsed when the function gets called
-                if(req.headers["content-type"] == "application/json") {
-                    if(req.body.item)
-                        update.item = req.body.item;
-                    if(req.body.color)
-                        update.color = req.body.color;
-                    if(req.body.style)
-                        update.style = req.body.style;
-                    //We update the image as base64, which is a bit ugly, but mongo binary is being uncooperative
-                    //Also have to keep in mind the 4MB size limit
-                    //Might eventually move to GridFS
-                    if(req.body.image)
-                        update.image = req.body.image;
-                }
+                if(req.body.item)
+                    update.item = req.body.item;
+                if(req.body.color)
+                    update.color = req.body.color;
+                if(req.body.style)
+                    update.style = req.body.style;
+                //We update the image as base64, which is a bit ugly, but mongo binary is being uncooperative
+                //Also have to keep in mind the 4MB size limit
+                //Might eventually move to GridFS
+                if(req.body.image)
+                    update.image = req.body.image;
 
                 var _id;
                 try {
@@ -184,7 +182,9 @@ app.router.path("/api/garments/:id", function() {
 
                 collection.update({
                     _id : _id
-                }, update, {safe : true}, function(err, doc) {
+                }, update, {
+                    safe : true
+                }, function(err, doc) {
                     if(err) {
                         app.log.error("Error retrieving record", err);
                         res.writeHead(500);
@@ -195,9 +195,9 @@ app.router.path("/api/garments/:id", function() {
                             app.log.info("updated doc", doc);
                             res.writeHead(200, {
                                 'Content-Type' : 'application/json'
-                            });                            
+                            });
                             res.end();
-                        }else{
+                        } else {
                             //Update didn't find a matching id
                             app.log.error("Failed to update record ", id);
                             res.writeHead(404);
@@ -246,7 +246,10 @@ app.router.path("/api/garments/:id", function() {
                         res.writeHead(200, {
                             "Content-Type" : "image/jpeg"
                         });
-                        res.write(new Buffer(doc.image, "base64"));
+                        //Right now we just write an empty response if there's no image
+                        //Might want to make it a 404 or such
+                        if(doc.image)
+                            res.write(new Buffer(doc.image, "base64"));
                         res.end();
 
                     }
@@ -272,9 +275,7 @@ app.router.path("/api/garments", function() {
                 res.writeHead(500);
                 res.end(err);
             } else {
-                collection.find({}, {
-                    image : 0
-                }).toArray(function(err, docs) {
+                collection.find({}).toArray(function(err, docs) {
                     if(err) {
                         app.log.error("Error retrieving index");
                         res.writeHead(500);
@@ -307,15 +308,14 @@ app.router.path("/api/garments", function() {
                 var insert = {};
                 //Need some validation here eventually
                 //Theoretically req.body is ready and parsed when the function gets called
-                if(req.headers["content-type"] == "application/json") {
-                    insert.item = req.body.item;
-                    insert.color = req.body.color;
-                    insert.style = req.body.style;
-                    //We save the image as base64, which is a bit ugly, but mongo binary is being uncooperative
-                    //Also have to keep in mind the 4MB size limit
-                    //Might eventually move to GridFS
-                    insert.image = req.body.image;
-                }
+                app.log.info("body", req.body);
+                insert.item = req.body.item;
+                insert.color = req.body.color;
+                insert.style = req.body.style;
+                //We save the image as base64, which is a bit ugly, but mongo binary is being uncooperative
+                //Also have to keep in mind the 4MB size limit
+                //Might eventually move to GridFS
+                insert.image = req.body.image;
                 collection.insert(insert, function(err, docs) {
                     if(err) {
                         app.log.error("Error retrieving record", err);

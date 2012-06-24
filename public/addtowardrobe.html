@@ -7,6 +7,9 @@
 	<!-- FONTS -->
 	<link href='http://fonts.googleapis.com/css?family=Tenor+Sans' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Questrial' rel='stylesheet' type='text/css'>
+	<!-- JAVASCRIPT -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script src="js/application.js"></script>
 </head>
 <body>
 	<div id="staticelements">
@@ -31,23 +34,23 @@
 			<a class="navlink" href="outfitlab.html">Get Dressed</a>
 		</p>
 	</div>
-	
-<!--BEGINNING OF UNIQUE CONTENT-->
-<!--AddTOWardrobe provides user with forms for adding articles to their wardrobe.
+	<!--BEGINNING OF UNIQUE CONTENT-->
+	<!--AddTOWardrobe provides user with forms for adding articles to their wardrobe.
 	A new article has a picture, category, color, and style. It is automatically
 	marked as owned. The user can use the l/r navigation arrows to add as many
-	articles to their wardrobe at one time as desired. When finished, the user 
+	articles to their wardrobe at one time as desired. When finished, the user
 	clicks either "cancel" or "finished". The former saves and clears the forms;
-	the latter prompts the user to confirm that they don't want to save.-->	
-	
+	the latter prompts the user to confirm that they don't want to save.-->
 	<div id="panelelements">
 		<div class="wide panel">
 			<div class="wSides">
 				<div class="wTop"></div>
 				<div class="buttonAdjustment">
+					<!--
 					<div class="buttonspacer">
 						<div class="arrow" id="leftarrow"></div>
 					</div>
+					-->
 				</div>
 			</div>
 			<div class="wCenter">
@@ -55,9 +58,9 @@
 					New threads? Picture 'em, then describe 'em.
 				</div>
 				<div class="wMiddle">
-					<div class="columnThirds">
+					<div class="columnThirds addGarment">
 						<div class="articlePlaceholder">
-							<a href="#"> <i class="icon-arrow-up"></i> Click to upload</a>
+							<i class="icon-arrow-up"></i> Drop file here to upload
 						</div>
 						<label for="setcategory">item: </label>
 						<input type="text" id="setcategory" placeholder="ex. sweater" >
@@ -69,9 +72,9 @@
 						<input type="text" id="setstyle" placeholder="ex. classic">
 						<br />
 					</div>
-					<div class="columnThirds">
+					<div class="columnThirds addGarment">
 						<div class="articlePlaceholder">
-							<a href="#"><i class="icon-arrow-up"></i> Click to upload</a>
+							<i class="icon-arrow-up"></i> Drop file here to upload
 						</div>
 						<label for="setcategory">item: </label>
 						<input type="text" id="setcategroy">
@@ -83,9 +86,9 @@
 						<input type="text" id="setstyle">
 						<br />
 					</div>
-					<div class="columnThirds">
+					<div class="columnThirds addGarment">
 						<div class="articlePlaceholder">
-							<a href="#"><i class="icon-arrow-up"></i> Click to upload</a>
+							<i class="icon-arrow-up"></i> Drop file here to upload
 						</div>
 						<label for="setcategory">item: </label>
 						<input type="text" id="setcategroy">
@@ -99,46 +102,40 @@
 					</div>
 				</div>
 				<div class="wBottom">
-					<a class="textButton floatRight" href="#"> <i class="icon-ok-sign icon-large"></i> finished</a>
+					<a id="finished" class="textButton floatRight" href="#"> <i class="icon-ok-sign icon-large"></i> finished</a>
 					<a class="textButton floatRight" href="#"> <i class="icon-remove-sign icon-large"></i> cancel</a>
 				</div>
 			</div>
 			<div class="wSides">
 				<div class="wTop"></div>
 				<div class="buttonAdjustment">
-					<div class="buttonspacer">
-						<div class="arrow" id="rightarrow"></div>
-					</div>
-				</div>
+<!-- 					<div class="buttonspacer">
+					<div class="arrow" id="rightarrow"></div>
+					</div> -->				</div>
 			</div>
-			
 			<!-- UPLOAD ARTICLE PICTURE POPUP -->
 			<!--
 			<div class="popup uploadPopup" id="uploadArticle">
-					<a class="textButton floatLeft" href="#">browse</a>
-					to upload a picture, then crop it square.
-					<div class="imagePreview"></div>
-					<div class="imageManipulators">
-						<i class="icon-move icon-large"></i>
-						<i class="icon-zoom-in icon-large"></i>
-						<i class="icon-zoom-out icon-large"></i>
-					</div>
-					
-					<span> </span>
-					<div class="buttonsInPopup">
-						<a class="textButton defaultSelection floatRight" href="#">cancel</a>
-						<a class="textButton floatRight" href="#">upload</a>
-					</div>
+			<a class="textButton floatLeft" href="#">browse</a>
+			to upload a picture, then crop it square.
+			<div class="imagePreview"></div>
+			<div class="imageManipulators">
+			<i class="icon-move icon-large"></i>
+			<i class="icon-zoom-in icon-large"></i>
+			<i class="icon-zoom-out icon-large"></i>
+			</div>
+
+			<span> </span>
+			<div class="buttonsInPopup">
+			<a class="textButton defaultSelection floatRight" href="#">cancel</a>
+			<a class="textButton floatRight" href="#">upload</a>
+			</div>
 			</div>
 			-->
-			
-			
 		</div><!--END OF WIDE PANEL-->
 	</div>
 	<div id="subpanelelements"></div>
-	
-<!--END OF CONTENT-->	
-	
+	<!--END OF CONTENT-->
 	<div id="footerelements">
 		<p>
 			<a href="userhome.html">Home</a> | <a href="profile.html">Profile</a> | <a href="viewinspiration.html">Inspiration</a> | <a href="viewwardrobe.html">Wardrobe</a> | <a href="shoppinglist.html">Shopping List</a> | <a href="outfitlab.html">Outfit Lab</a> | <a href="about.html">About Us</a> | <a href="mailto:disrobeproject@gmail.com">Contact Us</a>

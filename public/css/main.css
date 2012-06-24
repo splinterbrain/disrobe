@@ -1351,6 +1351,9 @@ textarea:focus {
     height:255px; /*Maximum size within .columnThirds*/
     width:255px; /*Keep square*/
     background-color: #d6d6d4;
+    background-size: contain;
+    background-repeat:no-repeat;
+    background-position: 50%;
     color:#FFFFFF;
     border:1px solid #FFFFFF;
     display:block;
