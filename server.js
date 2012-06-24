@@ -121,6 +121,8 @@ app.router.path("/api/garments/:id", function() {
 
                 collection.findOne({
                     _id : _id
+                }, {
+                    image : 0
                 }, function(err, doc) {
                     if(err) {
                         app.log.error("Error retrieving record", err);
@@ -173,8 +175,11 @@ app.router.path("/api/garments/:id", function() {
                         app.log.error("Error retrieving record", err);
                         res.writeHead(500);
                         res.end(err);
-                    } else {                        
-                        res.writeHead(200, {"Content-Type" : "image/jpeg"});                        
+                    } else {
+                        //Need to write some headers here to allow for caching
+                        res.writeHead(200, {
+                            "Content-Type" : "image/jpeg"
+                        });
                         res.write(new Buffer(doc.image, "base64"));
                         res.end();
 
