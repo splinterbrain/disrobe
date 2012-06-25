@@ -84,7 +84,8 @@ function mongoTest() {
 
 app.use(flatiron.plugins.http, {
     before : [
-    // If no route matches, try serving it as a static file
+    // Try serving it as a static file
+    //If such a file exists, route matching will be skipped
     ecstatic(webroot)]
 
 });
