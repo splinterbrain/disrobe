@@ -197,6 +197,7 @@ app.router.path("/api/garments/:id", function() {
                                 'Content-Type' : 'application/json'
                             });
                             res.end();
+                            analyzeGarments();
                         } else {
                             //Update didn't find a matching id
                             app.log.error("Failed to update record ", id);
@@ -327,6 +328,9 @@ app.router.path("/api/garments", function() {
                         });
                         res.write(json.stringify(docs[0]));
                         res.end();
+
+                        analyzeGarments();
+
                     }
                 });
             }
@@ -342,3 +346,32 @@ app.router.configure({
 });
 
 app.start(HTTP_PORT);
+
+//We use socket.io to broadcast alerts to the client
+socketio = require('socket.io').listen(app.server);
+//Start socketio listener
+socketio.sockets.on("connection", function(socket) {
+    socket.emit("info", {
+        connection : "established"
+    });
+});
+//This is mostly a dummy of an async task that could take a long time
+function analyzeGarments() {
+    db.collection('garments', function(err, collection) {
+        if(err) {
+            app.log.error("Error retrieving collection", err);
+        } else {
+            collection.count({
+                color : "black"
+            }, function(err, count) {
+                if(err) {
+                    app.log.error("Error counting black outfits");
+                } else {
+                    if(count > 3) {
+                        socketio.sockets.emit("alert", "You have a lot of black garments. Maybe try some color.");
+                    }
+                }
+            });
+        }
+    });
+}

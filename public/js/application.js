@@ -42,25 +42,41 @@ $(function() {
             $(".addGarment").each(function(i, add) {
                 $add = $(add);
                 var dataURL = (/url\(data:image\/(\w+);base64,(.*)\)/).exec($add.find(".articlePlaceholder").css("background-image"));
-                if(!dataURL) return; //No image placed here
+                if(!dataURL)
+                    return;
+                //No image placed here
                 var imageMime = dataURL[1];
                 var imageData = dataURL[2];
                 $.ajax({
-                    url: "api/garments",
+                    url : "api/garments",
                     type : "POST",
                     dataType : "json",
-                    data : {item: $add.find("#setcategory").val(), color: $add.find("#setcolor").val(), style : $add.find("#setstyle").val(), image : imageData},
-                    success : $.proxy(function(data){
+                    data : {
+                        item : $add.find("#setcategory").val(),
+                        color : $add.find("#setcolor").val(),
+                        style : $add.find("#setstyle").val(),
+                        image : imageData
+                    },
+                    success : $.proxy(function(data) {
                         console.log(data);
                         $(this).find(".articlePlaceholder").css("background-image", "");
                         $(this).find("#setcategory").val("");
                         $(this).find("#setcolor").val("");
                         $(this).find("#setstyle").val("");
-                    },add)
+                    }, add)
                 });
             });
         });
     }
 
     //Alerts connection
+    var socket = io.connect();
+    socket.on("info", function(data) {
+        console.log(data);
+    });
+    socket.on("alert", function(data) {
+        //This should obviously be in an unobtrusive html bit, not an alert
+        $("body").append("<div class='socketalert' style='position:fixed;top:0px;left:0px;z-index:1000;background-color:black;color:white;'>" + data + "</data>");
+    });
+    $("body").on("click", ".socketalert", function(e){$(this).detach();});
 });

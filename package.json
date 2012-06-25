@@ -4,7 +4,7 @@
   "scripts": {
     "start": "server.js"
   },
-  "version": "0.0.0-13",
+  "version": "0.0.0-14",
   "engines": {
     "node": "0.6.x"
   },
@@ -14,6 +14,8 @@
     "union": "0.3.x",
     "ecstatic": "0.1.x",
     "JSON": "1.x.x",
-    "mongodb": "1.x.x"
+    "mongodb": "1.x.x",
+    "socket.io" : "0.9.x"
+    
   }
 }
