@@ -2,3 +2,4 @@
 .metadata
 node_modules
 .nide
+.DS_Store
