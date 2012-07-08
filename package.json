@@ -4,17 +4,16 @@
   "scripts": {
     "start": "server.js"
   },
-  "version": "0.0.0-16",
+  "version": "0.0.0-23",
   "engines": {
     "node": "0.6.x"
   },
   "dependencies": {
-    "nodetime": "0.2.x",
-    "flatiron": "0.2.x",
     "union": "0.3.x",
-    "ecstatic": "0.1.x",
-    "JSON": "1.x.x",
-    "mongodb": "1.x.x",
-    "socket.io": "0.9.x"
+    "JSON": "1.0.x",
+    "connect": "2.3.x",
+    "mongodb": "1.0.x",
+    "socket.io": "0.9.x",
+    "flatiron": "0.2.x"
   }
 }

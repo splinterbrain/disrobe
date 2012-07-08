@@ -1,10 +1,10 @@
-require('nodetime').profile({
-    stdout : false
-});
+//require('nodetime').profile({
+//    stdout : false
+//});
 
 //For reasons passing understanding, the formatter toggle isn't working, thus the crazy long line of requires
 //@formatter:off
-var flatiron = require('flatiron'), app = flatiron.app, path = require('path'), ecstatic = require('ecstatic'), json = require('JSON'), mongodb = require('mongodb');
+var flatiron = require('flatiron'), app = flatiron.app, path = require('path'), json = require('JSON'), mongodb = require('mongodb'), connect = require('connect');
 //@formatter:on
 
 var webroot = path.join(__dirname, 'public');
@@ -14,8 +14,8 @@ app.use(flatiron.plugins.log, {});
 
 //Set connection variables for production or development environments
 //Probably want to move these to nsconf or such eventually
-if(process.env.NODEJS_ENV == "production") {
-    HTTP_PORT = 80;
+if (process.env.NODEJS_ENV == "production") {
+    HTTP_PORT = 8080;
     var njMongo = "mongodb://nodejitsu:b291c5811deafe3ed85f6b32c140a2df@staff.mongohq.com:10039/nodejitsudb951252111336";
     //Thanks to http://joesul.li/van/blog/nodejitsu-node-mongo-native.html for parsing regex
     var arr = /.*:\/\/(.*):(.*)@(.*):(.*)\/(.*)/.exec(njMongo);
@@ -39,14 +39,14 @@ if(process.env.NODEJS_ENV == "production") {
 app.log.info("Connecting to mongodb", [DB_HOST, DB_PORT]);
 //mongodb.Server apparently requirest a port of type number
 var db = new mongodb.Db(DB_NAME, new mongodb.Server(DB_HOST, parseInt(DB_PORT), {
-    auto_reconnect : true
+    auto_reconnect:true
 }, {}));
-db.open(function(openError, openData) {
-    if(openData) {
-        if(DB_USER && DB_PASS) {
+db.open(function (openError, openData) {
+    if (openData) {
+        if (DB_USER && DB_PASS) {
             //Not sure if this authentication sticks in an auto_reconnect
-            openData.authenticate(DB_USER, DB_PASS, function(authError, authData) {
-                if(authError) {
+            openData.authenticate(DB_USER, DB_PASS, function (authError, authData) {
+                if (authError) {
                     app.log.error(authError);
                 } else {
                     app.log.info("Authenticated to mongo successfuly");
@@ -63,18 +63,18 @@ db.open(function(openError, openData) {
 });
 //In addition to a test insertion we may want to use this point to ensure indices
 function mongoTest() {
-    db.collection('test_collection', function(err, collection) {
+    db.collection('test_collection', function (err, collection) {
         collection.insert({
-            timestamp : new mongodb.Timestamp()
-        }, function(err, docs) {
-            collection.count(function(err, count) {
+            timestamp:new mongodb.Timestamp()
+        }, function (err, docs) {
+            collection.count(function (err, count) {
                 app.log.info("Test docs count", count);
             });
             collection.find().sort({
-                timestamp : -1
-            }).limit(1).nextObject(function(err, doc) {
-                app.log.info("Most recent test doc", doc);
-            });
+                timestamp:-1
+            }).limit(1).nextObject(function (err, doc) {
+                    app.log.info("Most recent test doc", doc);
+                });
         });
     });
 }
@@ -83,10 +83,12 @@ function mongoTest() {
 //For now we just serve the mockups
 
 app.use(flatiron.plugins.http, {
-    before : [
-    // Try serving it as a static file
-    //If such a file exists, route matching will be skipped
-    ecstatic(webroot)]
+    before:[
+        // Try serving it as a static file
+        //If such a file exists, route matching will be skipped
+        connect.compress(),
+        connect.favicon(),
+        connect.static(webroot)]
 
 });
 
@@ -94,8 +96,8 @@ app.use(flatiron.plugins.http, {
 //It doesn't appear that director allows for route matching based on
 //Accept header, so json/html server at same endpoint would have to
 //occur inside the function
-app.router.path("/api/garments/:id", function() {
-    this.get(function(id) {
+app.router.path("/api/garments/:id", function () {
+    this.get(function (id) {
         //Store these for use in db callbacks
         var res = this.res;
         var req = this.req;
@@ -103,8 +105,8 @@ app.router.path("/api/garments/:id", function() {
         //Mongos double nested callback structure is a bit cumbersome
         //Might want to look into resourceful or mongoose
         //May also be able to store a reference to the collection
-        db.collection('garments', function(err, collection) {
-            if(err) {
+        db.collection('garments', function (err, collection) {
+            if (err) {
                 //Should have a shared 500 error system, maybe with a try/catch, though difficult to attach to the router
                 app.log.error("Error retrieving collection", err);
                 res.writeHead(500);
@@ -113,7 +115,7 @@ app.router.path("/api/garments/:id", function() {
                 var _id;
                 try {
                     _id = mongodb.ObjectID.createFromHexString(id);
-                } catch(e) {
+                } catch (e) {
                     app.log.error("Error creating id", e);
                     res.writeHead(500);
                     res.end();
@@ -121,17 +123,17 @@ app.router.path("/api/garments/:id", function() {
                 }
 
                 collection.findOne({
-                    _id : _id
+                    _id:_id
                 }, {
-                    image : 0
-                }, function(err, doc) {
-                    if(err) {
+                    image:0
+                }, function (err, doc) {
+                    if (err) {
                         app.log.error("Error retrieving record", err);
                         res.writeHead(500);
                         res.end(err);
                     } else {
                         res.writeHead(200, {
-                            'Content-Type' : 'application/json'
+                            'Content-Type':'application/json'
                         });
                         res.write(json.stringify(doc));
                         res.end();
@@ -143,14 +145,14 @@ app.router.path("/api/garments/:id", function() {
     });
     //Making a fairly duplicative put to complement the post below
     //Probably want to unify these into a single upsert call while maintaining the endpoints
-    this.put(function(id) {
+    this.put(function (id) {
         //Store these for use in db callbacks
         var res = this.res;
         var req = this.req;
 
         //Just copy and pasted this whole nested flow, never a good sign, efficiency-wise
-        db.collection('garments', function(err, collection) {
-            if(err) {
+        db.collection('garments', function (err, collection) {
+            if (err) {
                 //Should have a shared 500 error system, maybe with a try/catch, though difficult to attach to the router
                 app.log.error("Error retrieving collection", err);
                 res.writeHead(500);
@@ -159,22 +161,22 @@ app.router.path("/api/garments/:id", function() {
                 var update = {};
                 //Need some validation here eventually
                 //Theoretically req.body is ready and parsed when the function gets called
-                if(req.body.item)
+                if (req.body.item)
                     update.item = req.body.item;
-                if(req.body.color)
+                if (req.body.color)
                     update.color = req.body.color;
-                if(req.body.style)
+                if (req.body.style)
                     update.style = req.body.style;
                 //We update the image as base64, which is a bit ugly, but mongo binary is being uncooperative
                 //Also have to keep in mind the 4MB size limit
                 //Might eventually move to GridFS
-                if(req.body.image)
+                if (req.body.image)
                     update.image = req.body.image;
 
                 var _id;
                 try {
                     _id = mongodb.ObjectID.createFromHexString(id);
-                } catch(e) {
+                } catch (e) {
                     app.log.error("Error creating id", e);
                     res.writeHead(500);
                     res.end();
@@ -182,20 +184,20 @@ app.router.path("/api/garments/:id", function() {
                 }
 
                 collection.update({
-                    _id : _id
+                    _id:_id
                 }, update, {
-                    safe : true
-                }, function(err, doc) {
-                    if(err) {
+                    safe:true
+                }, function (err, doc) {
+                    if (err) {
                         app.log.error("Error retrieving record", err);
                         res.writeHead(500);
                         res.end(err);
                     } else {
-                        if(doc) {
+                        if (doc) {
                             //We only get a count of updates back
                             app.log.info("updated doc", doc);
                             res.writeHead(200, {
-                                'Content-Type' : 'application/json'
+                                'Content-Type':'application/json'
                             });
                             res.end();
                             analyzeGarments();
@@ -210,81 +212,81 @@ app.router.path("/api/garments/:id", function() {
             }
         });
     }),
-    //Access the image
-    this.get("/image", function(id) {
-        //Store these for use in db callbacks
-        var res = this.res;
-        var req = this.req;
+        //Access the image
+        this.get("/image", function (id) {
+            //Store these for use in db callbacks
+            var res = this.res;
+            var req = this.req;
 
-        //Mongos double nested callback structure is a bit cumbersome
-        //Might want to look into resourceful or mongoose
-        //May also be able to store a reference to the collection
-        db.collection('garments', function(err, collection) {
-            if(err) {
-                //Should have a shared 500 error system, maybe with a try/catch, though difficult to attach to the router
-                app.log.error("Error retrieving collection", err);
-                res.writeHead(500);
-                res.end(err);
-            } else {
-                var _id;
-                try {
-                    _id = mongodb.ObjectID.createFromHexString(id);
-                } catch(e) {
-                    app.log.error("Error creating id", e);
+            //Mongos double nested callback structure is a bit cumbersome
+            //Might want to look into resourceful or mongoose
+            //May also be able to store a reference to the collection
+            db.collection('garments', function (err, collection) {
+                if (err) {
+                    //Should have a shared 500 error system, maybe with a try/catch, though difficult to attach to the router
+                    app.log.error("Error retrieving collection", err);
                     res.writeHead(500);
-                    res.end();
-                    return;
-                }
-
-                collection.findOne({
-                    _id : _id
-                }, function(err, doc) {
-                    if(err) {
-                        app.log.error("Error retrieving record", err);
+                    res.end(err);
+                } else {
+                    var _id;
+                    try {
+                        _id = mongodb.ObjectID.createFromHexString(id);
+                    } catch (e) {
+                        app.log.error("Error creating id", e);
                         res.writeHead(500);
-                        res.end(err);
-                    } else {
-                        //Need to write some headers here to allow for caching
-                        res.writeHead(200, {
-                            "Content-Type" : "image/jpeg"
-                        });
-                        //Right now we just write an empty response if there's no image
-                        //Might want to make it a 404 or such
-                        if(doc.image)
-                            res.write(new Buffer(doc.image, "base64"));
                         res.end();
-
+                        return;
                     }
-                });
-            }
+
+                    collection.findOne({
+                        _id:_id
+                    }, function (err, doc) {
+                        if (err) {
+                            app.log.error("Error retrieving record", err);
+                            res.writeHead(500);
+                            res.end(err);
+                        } else {
+                            //Need to write some headers here to allow for caching
+                            res.writeHead(200, {
+                                "Content-Type":"image/jpeg"
+                            });
+                            //Right now we just write an empty response if there's no image
+                            //Might want to make it a 404 or such
+                            if (doc.image)
+                                res.write(new Buffer(doc.image, "base64"));
+                            res.end();
+
+                        }
+                    });
+                }
+            });
         });
-    });
 });
 
-app.router.path("/api/garments", function() {
+app.router.path("/api/garments", function () {
 
     //Eventually need to have some filters on this
     //Probably default to only the current session's user's garments
-    this.get(function() {
+    this.get(function () {
         //Store these for use in db callbacks
         var res = this.res;
         var req = this.req;
 
-        db.collection('garments', function(err, collection) {
-            if(err) {
+        db.collection('garments', function (err, collection) {
+            if (err) {
                 //Should have a shared 500 error system, maybe with a try/catch, though difficult to attach to the router
                 app.log.error("Error retrieving collection", err);
                 res.writeHead(500);
                 res.end(err);
             } else {
-                collection.find({}).toArray(function(err, docs) {
-                    if(err) {
+                collection.find({}).toArray(function (err, docs) {
+                    if (err) {
                         app.log.error("Error retrieving index");
                         res.writeHead(500);
                         res.end(err);
                     } else {
                         res.writeHead(200, {
-                            "Content-Type" : "application/json"
+                            "Content-Type":"application/json"
                         });
                         res.write(json.stringify(docs));
                         res.end();
@@ -294,14 +296,14 @@ app.router.path("/api/garments", function() {
         });
     });
 
-    this.post(function() {
+    this.post(function () {
         //Store these for use in db callbacks
         var res = this.res;
         var req = this.req;
 
         //Just copy and pasted this whole nested flow, never a good sign, efficiency-wise
-        db.collection('garments', function(err, collection) {
-            if(err) {
+        db.collection('garments', function (err, collection) {
+            if (err) {
                 //Should have a shared 500 error system, maybe with a try/catch, though difficult to attach to the router
                 app.log.error("Error retrieving collection", err);
                 res.writeHead(500);
@@ -318,14 +320,14 @@ app.router.path("/api/garments", function() {
                 //Also have to keep in mind the 4MB size limit
                 //Might eventually move to GridFS
                 insert.image = req.body.image;
-                collection.insert(insert, function(err, docs) {
-                    if(err) {
+                collection.insert(insert, function (err, docs) {
+                    if (err) {
                         app.log.error("Error retrieving record", err);
                         res.writeHead(500);
                         res.end(err);
                     } else {
                         res.writeHead(201, {
-                            'Content-Type' : 'application/json'
+                            'Content-Type':'application/json'
                         });
                         res.write(json.stringify(docs[0]));
                         res.end();
@@ -340,7 +342,7 @@ app.router.path("/api/garments", function() {
 });
 
 app.router.configure({
-    notfound : function() {
+    notfound:function () {
         this.res.writeHead(404);
         this.res.end("404 Not Found");
     }
@@ -351,24 +353,24 @@ app.start(HTTP_PORT);
 //We use socket.io to broadcast alerts to the client
 socketio = require('socket.io').listen(app.server);
 //Start socketio listener
-socketio.sockets.on("connection", function(socket) {
+socketio.sockets.on("connection", function (socket) {
     socket.emit("info", {
-        connection : "established"
+        connection:"established"
     });
 });
 //This is mostly a dummy of an async task that could take a long time
 function analyzeGarments() {
-    db.collection('garments', function(err, collection) {
-        if(err) {
+    db.collection('garments', function (err, collection) {
+        if (err) {
             app.log.error("Error retrieving collection", err);
         } else {
             collection.count({
-                color : "black"
-            }, function(err, count) {
-                if(err) {
+                color:"black"
+            }, function (err, count) {
+                if (err) {
                     app.log.error("Error counting black outfits");
                 } else {
-                    if(count > 3) {
+                    if (count > 3) {
                         socketio.sockets.emit("alert", "You have a lot of black garments. Maybe try some color.");
                     }
                 }
