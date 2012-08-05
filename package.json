@@ -4,16 +4,19 @@
   "scripts": {
     "start": "server.js"
   },
-  "version": "0.0.0-23",
+  "version": "0.0.0-28",
   "engines": {
     "node": "0.6.x"
   },
   "dependencies": {
-    "union": "0.3.x",
     "JSON": "1.0.x",
-    "connect": "2.3.x",
     "mongodb": "1.0.x",
+    "connect-gzip": "0.1.x",
     "socket.io": "0.9.x",
-    "flatiron": "0.2.x"
+    "consolidate": "0.4.x",
+    "filesize": "1.6.x",
+    "bcrypt": "0.7.x",
+    "express": "*",
+    "connect": "2.4.x"
   }
 }

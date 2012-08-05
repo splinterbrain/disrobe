@@ -2,15 +2,15 @@
 //    stdout : false
 //});
 
-//For reasons passing understanding, the formatter toggle isn't working, thus the crazy long line of requires
-//@formatter:off
-var flatiron = require('flatiron'), app = flatiron.app, path = require('path'), json = require('JSON'), mongodb = require('mongodb'), connect = require('connect');
-//@formatter:on
+var express = require('express'), cons = require('consolidate'), app = express(), connect = require('connect'), path = require('path'), json = require('JSON'), mongodb = require('mongodb'), gzip = require('connect-gzip');
 
 var webroot = path.join(__dirname, 'public');
 var HTTP_PORT, DB_USER, DB_PASS, DB_HOST, DB_PORT, DB_NAME;
 
-app.use(flatiron.plugins.log, {});
+app.engine("html", cons.jade);
+
+
+//app.use(flatiron.plugins.log, {});
 
 //Set connection variables for production or development environments
 //Probably want to move these to nsconf or such eventually
@@ -25,7 +25,7 @@ if (process.env.NODEJS_ENV == "production") {
     DB_HOST = arr[3];
     DB_PORT = arr[4];
     DB_NAME = arr[5];
-    app.log.info("Parsed mongo info", arr);
+    connect.logger.info("Parsed mongo info", arr);
 } else {
     HTTP_PORT = 8080;
     DB_HOST = "localhost";
@@ -36,7 +36,7 @@ if (process.env.NODEJS_ENV == "production") {
 
 //Connect to mongod
 //Thanks again to ibid for help connecting when using native mongod
-app.log.info("Connecting to mongodb", [DB_HOST, DB_PORT]);
+console.info("Connecting to mongodb", [DB_HOST, DB_PORT]);
 //mongodb.Server apparently requirest a port of type number
 var db = new mongodb.Db(DB_NAME, new mongodb.Server(DB_HOST, parseInt(DB_PORT), {
     auto_reconnect:true
@@ -54,7 +54,7 @@ db.open(function (openError, openData) {
                 }
             });
         } else {
-            app.log.info("Connected to mongo successfully");
+            console.info("Connected to mongo successfully");
             mongoTest();
         }
     } else {
@@ -68,12 +68,12 @@ function mongoTest() {
             timestamp:new mongodb.Timestamp()
         }, function (err, docs) {
             collection.count(function (err, count) {
-                app.log.info("Test docs count", count);
+                console.info("Test docs count", count);
             });
             collection.find().sort({
                 timestamp:-1
             }).limit(1).nextObject(function (err, doc) {
-                    app.log.info("Most recent test doc", doc);
+                    console.info("Most recent test doc", doc);
                 });
         });
     });
@@ -81,17 +81,14 @@ function mongoTest() {
 
 //Evetually we'll want to use templates to generate static versions of html files
 //For now we just serve the mockups
+app.use(connect.favicon());
+//app.use(connect.static("public"));
+app.use(connect.logger('tiny', {stream:{write:function (str) {
+            console.info(str);
+        }}}));
+app.use(gzip.staticGzip(webroot));
 
-app.use(flatiron.plugins.http, {
-    before:[
-        // Try serving it as a static file
-        //If such a file exists, route matching will be skipped
-        connect.compress(),
-        connect.favicon(),
-        connect.static(webroot)]
-
-});
-
+/*
 //We name space API so we can have html files of similar name later
 //It doesn't appear that director allows for route matching based on
 //Accept header, so json/html server at same endpoint would have to
@@ -347,8 +344,8 @@ app.router.configure({
         this.res.end("404 Not Found");
     }
 });
-
-app.start(HTTP_PORT);
+*/
+app.listen(HTTP_PORT);
 
 //We use socket.io to broadcast alerts to the client
 socketio = require('socket.io').listen(app.server);
