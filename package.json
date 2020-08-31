@@ -17,6 +17,6 @@
     "filesize": "1.6.x",
     "bcrypt": "0.7.x",
     "express": "*",
-    "connect": "2.4.x"
+    "connect": "3.7.x"
   }
 }
